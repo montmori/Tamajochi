@@ -1,4 +1,5 @@
 # Tamajochi
 PROJEKTARBEIT!
 
-Repository für unsere Tamajochi Projektarbei. :3
+Repository für unsere Tamagochi Projektarbei.
+

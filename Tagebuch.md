@@ -9,14 +9,14 @@ Ausserdem soll bis Ende Januar das Tamagotchi soweit fertig sein, dass man es al
 
 _Der erste Teil des Zeitplans wird über einen längeren Zeitraum bis November gehalten, da dort anfägnliches Einlesen gefragt ist._
 
-1. in _"anfägnliches Tamagotchi"_ mit Nahrungsbedarf wird erstellt, welchem man Essen und Trinken geben kann.
-2. rweitert wird dieses anfängliche Gerüst mit einem Lebensstatus. Beispielsweise soll es bei 0% Nahrung sterben und ein _"Game-over"_ herbeirufen.
+1. ein _"anfägnliches Tamagotchi"_ mit Nahrungsbedarf wird erstellt, welchem man Essen und Trinken geben kann.
+2. erweitert wird dieses anfängliche Gerüst mit einem Lebensstatus. Beispielsweise soll es bei 0% Nahrung sterben und ein _"Game-over"_ herbeirufen.
 3. (Diese Änderung betrifft nur die GUI) Die Bedürfnisse sollen grafisch als "Balken" dargestellt werden.
 4. Essen und Trinken sollen jeweils in Menüs unterteilt werden, in welchem man sich heraussuchen kann, was **GENAU** man dem Tamagotchi geben will.
 
 _Da bis hierhin alle Grundlagen erlernt sein sollten, ist die Fertigstellung der folgenden Punkte bis ende Dezember angestrebt._
 
-5. Neue Bedürfnisse hinzufügen (Spielen, Schlafen) dazu ein Button um das Tamagotchi schlafen zu legen und ein Menü für die Auswahl der Spiele
+5. Neue Bedürfnisse hinzufügen (Spielen, Schlafen): Dazu ein Button um das Tamagotchi schlafen zu legen und ein Menü für die Auswahl der Spiele.
 6. (Diese Änderung betrifft nur die Programmstruktur) Bedürfnisse sollen untereinander besser aggieren: Schlafen verringert Essen und Trinken, Spielen erhöht Müdigkeit, usw...
 7. Die Bedürfnisse bekommen eine Zeitstruktur zugewiesen (Ausführen von Aktivitäten, Bsp. Schlafen, verbraucht eine gewisse Zeit).
 
@@ -27,7 +27,7 @@ _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 
 ### 23.07.2016
 
-- GITHub soll als Code- und Versionsverwaltungstool verwendet werden, da man Quellcode sehr einfach Serverseitig speichern und überall abrufen kann. 
+- GITHub soll als Code- und Versionsverwaltungstool verwendet werden, da man den Quellcode sehr einfach Serverseitig speichern und überall abrufen kann. 
 
 - Erstellung von GITHub Accounts.
 
@@ -41,8 +41,14 @@ _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 
 ----------------
 
+### 15.09.2016
+
+- Erstellung des genannten Zeitplans für die Fertigung des Tamagotchis.
+
+----------------
+
 ### 27.09.2016
 
-- Gemeinsames Einarbeiten in die Java GUI durch Übungstutorial: http://www.programmierenlernenhq.de/java-spiel-programmieren-tutorial/
+- Gemeinsames Einarbeiten in die Java GUI mit einem Übungstutorial: http://www.programmierenlernenhq.de/java-spiel-programmieren-tutorial/
 
 ---------------

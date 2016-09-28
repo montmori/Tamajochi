@@ -46,5 +46,3 @@ _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 - Gemeinsames Einarbeiten in die Java GUI durch Übungstutorial: http://www.programmierenlernenhq.de/java-spiel-programmieren-tutorial/
 
 ---------------
-
-

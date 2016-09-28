@@ -22,4 +22,17 @@ _Da bis hierhin alle Grundlagen erlernt sein sollten, ist die Fertigstellung der
 
 _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 
-------------------------------------------------------------------------------------------------------------------------------------
+---------
+
+
+### 23.07.2016
+
+- GITHub soll als Code- und Versionsverwaltungstool verwendet werden, da man Quellcode sehr einfach Serverseitig speichern und überall abrufen kann.
+
+- Als IDE soll Eclipse Neon verwendet werden, Gründe hierfür sind unter anderem die Kompatibilität mit GITHub.
+
+- Als Grafische Oberfläche wird die von Java bereitgestellte Library "Swing" verwendet. 
+
+- Für das Zeichnen von Klassendiagrammen verwenden wir das Tool 'Dia'.
+----------------
+

@@ -1,4 +1,4 @@
-# DOKUMENTATION UND TAGEBUCH
+# TAGEBUCH
 
 _**Zeitplan**_
 

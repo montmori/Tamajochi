@@ -27,7 +27,9 @@ _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 
 ### 23.07.2016
 
-- GITHub soll als Code- und Versionsverwaltungstool verwendet werden, da man Quellcode sehr einfach Serverseitig speichern und überall abrufen kann.
+- GITHub soll als Code- und Versionsverwaltungstool verwendet werden, da man Quellcode sehr einfach Serverseitig speichern und überall abrufen kann. 
+
+- Erstellung von GITHub Accounts.
 
 - Als IDE soll Eclipse Neon verwendet werden, Gründe hierfür sind unter anderem die Kompatibilität mit GITHub.
 
@@ -35,5 +37,14 @@ _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 
 - Für das Zeichnen von Klassendiagrammen verwenden wir das Tool "Dia".
 
+- Anfängliches Einarbeiten in die Java GUI.
+
 ----------------
+
+### 27.09.2016
+
+- Gemeinsames Einarbeiten in die Java GUI durch Übungstutorial: http://www.programmierenlernenhq.de/java-spiel-programmieren-tutorial/
+
+---------------
+
 

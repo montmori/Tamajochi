@@ -33,6 +33,7 @@ _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 
 - Als Grafische Oberfläche wird die von Java bereitgestellte Library "Swing" verwendet. 
 
-- Für das Zeichnen von Klassendiagrammen verwenden wir das Tool 'Dia'.
+- Für das Zeichnen von Klassendiagrammen verwenden wir das Tool "Dia".
+
 ----------------
 

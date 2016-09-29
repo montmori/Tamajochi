@@ -39,6 +39,10 @@ _Ab hier werden nurnoch optionale Änderungen vorgenommen._
 
 - Anfängliches Einarbeiten in die Java GUI.
 
+- Anfängliches Klassendiagramm angefertigt.
+  
+  -> Aufgetretene Probleme: Vererbungen der Abstrakten Nahrungsklasse konnten nicht richtig gelöst werden.
+
 ----------------
 
 ### 15.09.2016

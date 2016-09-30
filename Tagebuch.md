@@ -37,5 +37,17 @@ Gemeinsames Einarbeiten in die Java GUI mit einem Übungstutorial: http://www.pr
 
 ### 27.09.2016 ~1.5 Stunden
 
-GITHub Tagebuch und Zeitplanverwaltung angelegt, dazu gehörte das einlesen in besondere "Marker" in .md Dateien auf GitHub.
+GITHub Tagebuch und Zeitplanverwaltung angelegt, dazu gehörte das einlesen in besondere _"Marker"_ in .md Dateien auf GitHub.
 Beispielsweise kann mit Hashtags eine Überschrift gestaltet werden, dabei unterscheidet man zwischen h1 bis h6 (Je höher die Zahl hinter dem "h", desto kleiner die Überschrift).
+
+-----------------
+
+### 28.09.2016 ~30 Minuten
+
+Grammatikalische Korrekturen und Ergänzungen zum Tagebuch und zum Zeitplan.
+
+--------------------
+
+### 01.10.2016 ~ 10 Minuten
+
+Zeitplan wurde aus dem Tagebuch entfernt, da es dort als unpassend empfunden wurde. Stattdessen ist es nun in der Milestones Abteilung, welche von GITHub bereitgestellt wird. Zu finden sind diese unter: _"Issues -> Milestones"_

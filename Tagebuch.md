@@ -37,7 +37,7 @@ Gemeinsames Einarbeiten in die Java GUI mit einem Übungstutorial: http://www.pr
 
 ### 27.09.2016 ~1.5 Stunden
 
-GITHub Tagebuch und Zeitplanverwaltung angelegt, dazu gehörte das einlesen in besondere _"Marker"_ in .md Dateien auf GitHub.
+GITHub Tagebuch und Zeitplanverwaltung angelegt, dazu gehörte das Einlesen in besondere _"Marker"_ in .md Dateien auf GitHub.
 Beispielsweise kann mit Hashtags eine Überschrift gestaltet werden, dabei unterscheidet man zwischen h1 bis h6 (Je höher die Zahl hinter dem "h", desto kleiner die Überschrift).
 
 -----------------

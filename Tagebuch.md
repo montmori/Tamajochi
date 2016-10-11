@@ -65,3 +65,9 @@ Für das nächste Treffen war die fertigstellung des Klassendiagramms geplant.
 
 Fertigstellung des Klassendiagramms für den Prototyps des Tamagotchis.
 
+----------------
+
+### 11.10.2016 ~2 Stunden
+
+Struktur der Klassen "Tamagotchi", "Nahrung" und "Bedürfnisse" durchgesprochen und anfänglich Programmiert. Einführung in GitHub Desktop (Einrichten des lokalen Repositories, Commits, Pull Requests und merging). 
+

@@ -48,6 +48,20 @@ Grammatikalische Korrekturen und Ergänzungen zum Tagebuch und zum Zeitplan.
 
 --------------------
 
-### 01.10.2016 ~ 10 Minuten
+### 01.10.2016 ~10 Minuten
 
 Zeitplan wurde aus dem Tagebuch entfernt, da es dort als unpassend empfunden wurde. Stattdessen ist es nun in der Milestones Abteilung, welche von GITHub bereitgestellt wird. Zu finden sind diese unter: _"Issues -> Milestones"_
+
+-----------------
+
+### 04.10.2016 ~2 Stunden
+
+Angefangen den Prototyp des Klassendiagramms zu zeichnen. Einführung in den "ScheduledThreadPoolExecutor" um einen parallelen Task ein oder mehrfach ausführen zu lassen. 
+Für das nächste Treffen war die fertigstellung des Klassendiagramms geplant.
+
+---------------
+
+### 06.10.2016 ~30 Minuten 
+
+Fertigstellung des Klassendiagramms für den Prototyps des Tamagotchis.
+

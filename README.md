@@ -1,4 +1,4 @@
-# Tamagochi
+# Tamagotchi
 
-Willkommen im Repository für unsere Tamagochi Projektarbeit. =)
+Willkommen im Repository für unsere Tamagotchi Projektarbeit. =)
 

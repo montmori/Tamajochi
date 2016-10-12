@@ -25,20 +25,13 @@ public abstract class Tamagotchi {
 	}
 	
 	/*
-	 * Hier wird von der Nahrung aus auf Hunger zugegriffen und
+	 * Hier wird von der Nahrung aus auf Hunger und Durst zugegriffen und
 	 * erhoeht.
 	 */
-	public void essen(Nahrung n){
+	public void naehren(Nahrung n){
 		n.geben();
 	}
 	
-	/*
-	 * Hier wird von der Nahrung aus auf Durst zugegriffen und
-	 * erhoeht.
-	 */
-	public void trinken(Nahrung n){
-		n.geben();
-	}
 	
 	public String toString(){
 		

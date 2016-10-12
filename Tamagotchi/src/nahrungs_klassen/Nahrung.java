@@ -7,7 +7,7 @@ public abstract class Nahrung {
 	/*
 	 * Wert = Wert, welcher, wenn man die Nahrung dem 
 	 * 		  Tamagotchi gibt, das jeweils dazugehörige 
-	 * 		  Bedürfnissa steigert.
+	 * 		  Bedürfniss steigert.
 	 */
 	
 	public Nahrung(int nahrungsWert){

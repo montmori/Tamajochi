@@ -2,8 +2,6 @@ package nahrungs_klassen;
 
 public abstract class Nahrung {
 
-	
-	
 	protected int wert;
 	
 	/*

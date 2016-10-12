@@ -1,5 +1,7 @@
 package nahrungs_klassen;
 
+import tamagotchi_klassen.Tamagotchi;
+
 public class Trinken extends Nahrung {
 
 	
@@ -12,7 +14,7 @@ public class Trinken extends Nahrung {
 	 * @see nahrungs_klassen.Nahrung#geben()
 	 */
 	public void geben() {
-		durst.erhoehen(wert);
+		Tamagotchi.durst.erhoehen(super.wert);
 	}
 
 }

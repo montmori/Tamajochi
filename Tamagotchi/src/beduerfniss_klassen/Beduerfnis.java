@@ -23,11 +23,13 @@ public abstract class Beduerfnis {
 	/*
 	 * soll den aktuellen "wert" um den mitgegebenen Wert verringern
 	 */
-	protected abstract void verringern(int subtraktionsWert);
+	public abstract void verringern(int subtraktionsWert);
 	
 	/*
 	 * soll den aktuellen "wert" um den mitgegebenen Wert erhöhen
 	 */
-	protected abstract void erhoehen(int additionsWert);
+	public abstract void erhoehen(int additionsWert);
+	
+	public abstract int getWert();
 	
 }

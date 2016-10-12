@@ -1,13 +1,19 @@
 package game;
 
-import tamagotchi_klassen.Viech;
+import java.awt.Dimension;
+import gui_klassen.Spielfenster;
 
 public class Starter {
 	public static void main(String[] args){
 		
-		Viech v1 = new Viech("Dumbatz");
+		startGame();
 		
-		System.out.println(v1);
+	}
+	
+	private static void startGame(){
 		
+		Dimension size = new Dimension(1920, 1080);
+		String Tamagotchiname = "Bernd";
+		new Spielfenster(size, Tamagotchiname);
 	}
 }

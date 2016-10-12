@@ -67,7 +67,14 @@ Fertigstellung des Klassendiagramms für den Prototyps des Tamagotchis.
 
 ----------------
 
-### 11.10.2016 ~2 Stunden
+### 11.10.2016
 
+#### ~2 Stunden
 Struktur der Klassen "Tamagotchi", "Nahrung" und "Bedürfnisse" durchgesprochen und anfänglich Programmiert. Einführung in GitHub Desktop (Einrichten des lokalen Repositories, Commits, Pull Requests und merging). 
 
+#### ~1 Stunde
+Probleme mit dem GitHub Repository behoben, welche darauf zurückzuführen sind, dass ein ganzes Eclipse Workspace im Repository eingeklinkt war (Siehe Issues).
+Programmierung der Nahrungsklassen für den Anfänglichen Tamagotchi Milestone.
+
+#### ~30 Minuten
+Die Bedürfnisklassen für den Milestone "Anfängliches Tamagotchi" programmiert.

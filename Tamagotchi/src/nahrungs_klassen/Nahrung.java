@@ -2,14 +2,12 @@ package nahrungs_klassen;
 
 public abstract class Nahrung {
 
-	
-	
 	protected int wert;
 	
 	/*
 	 * Wert = Wert, welcher, wenn man die Nahrung dem 
 	 * 		  Tamagotchi gibt, das jeweils dazugehörige 
-	 * 		  Bedürfnissa steigert.
+	 * 		  Bedürfniss steigert.
 	 */
 	
 	public Nahrung(int nahrungsWert){

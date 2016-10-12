@@ -10,7 +10,7 @@ public class Hunger extends Beduerfnis{
 	 * (non-Javadoc)
 	 * @see beduerfniss_klassen.Beduerfnis#verringern(int)
 	 */
-	protected void verringern(int subtraktionsWert) {
+	public void verringern(int subtraktionsWert) {
 		super.wert -= subtraktionsWert;
 	}
 
@@ -18,8 +18,13 @@ public class Hunger extends Beduerfnis{
 	 * (non-Javadoc)
 	 * @see beduerfniss_klassen.Beduerfnis#erhoehen(int)
 	 */
-	protected void erhoehen(int additionsWert) {
+	public void erhoehen(int additionsWert) {
 		super.wert += additionsWert;
+	}
+
+
+	public int getWert() {
+		return super.wert;
 	}
 
 }

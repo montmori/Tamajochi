@@ -12,7 +12,7 @@ public class Starter {
 	
 	private static void startGame(){
 		
-		Dimension size = new Dimension(1920, 1080);
+		Dimension size = new Dimension(1200, 900);
 		String Tamagotchiname = "Bernd";
 		new Spielfenster(size, Tamagotchiname);
 	}

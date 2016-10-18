@@ -19,4 +19,6 @@ public abstract class Nahrung {
 	 * Sie soll die Bedürfnisse beeinträchtigen
 	 */
 	public abstract void geben();
+	
+
 }

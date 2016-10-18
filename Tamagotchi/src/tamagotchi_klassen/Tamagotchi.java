@@ -20,21 +20,21 @@ public abstract class Tamagotchi {
 	 */
 	public Tamagotchi(String name){
 		this.name = name;
-		Tamagotchi.hunger = new Hunger(100, 100, 0);
-		Tamagotchi.durst = new Durst(100, 100, 0);
+		Tamagotchi.hunger = new Hunger(50, 100, 0);
+		Tamagotchi.durst = new Durst(50, 100, 0);
 	}
 	
 	/*
 	 * Hier wird von der Nahrung aus auf Hunger und Durst zugegriffen und
 	 * erhoeht.
 	 */
-	public void naehren(Nahrung n){
+	public static void naehren(Nahrung n){
 		n.geben();
 	}
 	
 	
 	public String toString(){
 		
-		return "Hunger: " + Tamagotchi.hunger.getWert() + "\nDurst: " + Tamagotchi.durst.getWert();
+		return "Hunger: " + Tamagotchi.hunger.getWert() + "\n Durst: " + Tamagotchi.durst.getWert();
 	}
 }

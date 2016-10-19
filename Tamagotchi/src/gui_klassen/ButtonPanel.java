@@ -13,12 +13,10 @@ import nahrungs_klassen.Trinken;
 public class ButtonPanel extends JPanel{
 
 	private static final long serialVersionUID = 6267475086902074455L;
-	private Spielfenster f;
 
-	public ButtonPanel(Dimension d, Spielfenster f){
+	public ButtonPanel(Dimension d){
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 15));
 		this.setPreferredSize(d);
-		this.f = f;
 		addButtons();
 	}
 	
@@ -27,8 +25,8 @@ public class ButtonPanel extends JPanel{
 		JButton essen = new JButton("Essen geben");
 		JButton trinken = new JButton("Trinken geben");
 		
-		essen.addActionListener(new ActionNaehren(new Essen(), f));
-		trinken.addActionListener(new ActionNaehren(new Trinken(), f ));
+		essen.addActionListener(new ActionNaehren(new Essen()));
+		trinken.addActionListener(new ActionNaehren(new Trinken()));
 		
 		this.add(essen);
 		this.add(trinken);

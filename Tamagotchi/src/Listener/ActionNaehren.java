@@ -3,7 +3,6 @@ package Listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import gui_klassen.Spielfenster;
 import nahrungs_klassen.Nahrung;
 import tamagotchi_klassen.Tamagotchi;
 

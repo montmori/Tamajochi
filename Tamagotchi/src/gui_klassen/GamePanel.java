@@ -29,5 +29,6 @@ public class GamePanel extends JPanel {
 		
 		String beduerfnisse = "" + this.tamagotchi;
 		g.drawString(beduerfnisse, 50, 50);
+		
 	}
 }

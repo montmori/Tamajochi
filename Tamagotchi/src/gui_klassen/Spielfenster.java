@@ -2,6 +2,8 @@ package gui_klassen;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -10,23 +12,33 @@ import javax.swing.JMenuItem;
 
 import Listener.ActionBeenden;
 import tamagotchi_klassen.Viech;
+import timerTaks_klassen.FensterAktualisierung;
 
 public class Spielfenster extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final String FENSTERNAME = "Tamagotchi";
 	private Viech tamagotchi;
+	private ScheduledThreadPoolExecutor t1;
 	
 	
 	public Spielfenster(Dimension size, String name){
 		
 		initGame(name);
 		initWindow(size);
+		initFensterAktualisierung();
 		setVisible(true);
 		
 	}
 	
 	
+	private void initFensterAktualisierung() {
+		t1 = new ScheduledThreadPoolExecutor(0);
+		t1.scheduleAtFixedRate(new FensterAktualisierung(this), 200, 15, TimeUnit.MILLISECONDS);
+		
+	}
+
+
 	private void initGame(String name) {
 		tamagotchi = new Viech(name);
 	}
@@ -38,9 +50,23 @@ public class Spielfenster extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 		initMenuBar();
-		initJPanels(size);
+		initJPanels(size);	
+	}
+	
+	private void initJPanels(Dimension size) {
+		
+		int buttonPanelWidth = (int)(size.getWidth()/7);
+		int buttonPanelHeight = (int) (size.getHeight() / 1.5) ;
+		Dimension buttonpanelSize = new Dimension(buttonPanelWidth, buttonPanelHeight);
+		
+		this.add(new ButtonPanel( buttonpanelSize ));
 		
 		
+		int gamePanelWidth = (int)(size.getWidth() / 5 * 4);
+		int gamePanelHeight = (int) (size.getHeight() / 5 * 4) ;
+		Dimension gamePanelSize = new Dimension(gamePanelWidth, gamePanelHeight);
+		
+		this.add(new GamePanel(tamagotchi, gamePanelSize));
 	}
 
 
@@ -75,21 +101,7 @@ public class Spielfenster extends JFrame {
 	}
 
 
-	private void initJPanels(Dimension size) {
-		
-		int buttonPanelWidth = (int)(size.getWidth()/7);
-		int buttonPanelHeight = (int) (size.getHeight() / 1.5) ;
-		Dimension buttonpanelSize = new Dimension(buttonPanelWidth, buttonPanelHeight);
-		
-		this.add(new ButtonPanel( buttonpanelSize ));
-		
-		
-		int gamePanelWidth = (int)(size.getWidth() / 5 * 4);
-		int gamePanelHeight = (int) (size.getHeight() / 5 * 4) ;
-		Dimension gamePanelSize = new Dimension(gamePanelWidth, gamePanelHeight);
-		
-		this.add(new GamePanel(tamagotchi, gamePanelSize));
-	}
+
 
 	
 }

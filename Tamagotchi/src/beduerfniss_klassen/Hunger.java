@@ -20,6 +20,10 @@ public class Hunger extends Beduerfnis{
 	 */
 	public void erhoehen(int additionsWert) {
 		super.wert += additionsWert;
+		
+		if(super.wert > super.maxWert){
+			super.wert = super.maxWert;
+		}
 	}
 
 

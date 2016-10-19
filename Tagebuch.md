@@ -81,6 +81,14 @@ Die Bedürfnisklassen für den Milestone "Anfängliches Tamagotchi" programmiert
 
 ------------
 
-### 12.10 2016 ~1 Stunde
+### 12.10.2016 ~1 Stunde
 
 Zusammenführung aller Klassen, die bis jetzt für das Projekt programmiert wurden. Somit ist die Konsolen Version des Anfänglichen Tamagotchis vollendet und somit auch der ***der erste Milestone*** abgeschlossen. Der nächste Schritt wird sein, eine GUI ohne großen Design Aufwand für den jetzigen Stand zu programmieren.
+
+-------------
+
+### 18.10.2016 ~2 Stunden
+
+Überlegung, wie wir die GUI handhaben wollen. Wir einigten uns nun darauf, die Buttons nicht in das Zeichenfenster zu integrieren, sondern eine zweites "Button Fenster" neben der Zeichenfläche zu erstellen.
+
+Anfängliche GUI erstellt, welche die funktionalitäten der Klassen darstellen soll.

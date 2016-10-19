@@ -1,4 +1,4 @@
-package timerTaks_klassen;
+package timerTask_klassen;
 
 import java.util.TimerTask;
 

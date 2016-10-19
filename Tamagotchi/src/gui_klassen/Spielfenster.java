@@ -12,7 +12,7 @@ import javax.swing.JMenuItem;
 
 import Listener.ActionBeenden;
 import tamagotchi_klassen.Viech;
-import timerTaks_klassen.FensterAktualisierung;
+import timerTask_klassen.FensterAktualisierung;
 
 public class Spielfenster extends JFrame {
 
@@ -46,9 +46,10 @@ public class Spielfenster extends JFrame {
 	
 	private void initWindow(Dimension size){
 		this.setTitle(FENSTERNAME);
+		this.setResizable(false);
 		this.setSize(size);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 30));
 		initMenuBar();
 		initJPanels(size);	
 	}

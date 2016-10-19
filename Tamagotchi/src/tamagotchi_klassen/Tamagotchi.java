@@ -35,6 +35,6 @@ public abstract class Tamagotchi {
 	
 	public String toString(){
 		
-		return "Hunger: " + Tamagotchi.hunger.getWert() + "\n Durst: " + Tamagotchi.durst.getWert();
+		return "Essen: " + Tamagotchi.hunger.getWert() + "\n Trinken: " + Tamagotchi.durst.getWert();
 	}
 }

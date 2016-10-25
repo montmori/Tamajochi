@@ -1,7 +1,7 @@
 package tamagotchi_klassen;
 
-import beduerfniss_klassen.Durst;
-import beduerfniss_klassen.Hunger;
+import beduerfnis_klassen.Durst;
+import beduerfnis_klassen.Hunger;
 import nahrungs_klassen.Nahrung;
 
 /*
@@ -20,8 +20,8 @@ public abstract class Tamagotchi {
 	 */
 	public Tamagotchi(String name){
 		this.name = name;
-		Tamagotchi.hunger = new Hunger(50);
-		Tamagotchi.durst = new Durst(50);
+		Tamagotchi.hunger = new Hunger(0);
+		Tamagotchi.durst = new Durst(0);
 	}
 	
 	/*

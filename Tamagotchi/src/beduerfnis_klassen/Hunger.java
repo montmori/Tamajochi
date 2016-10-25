@@ -1,4 +1,4 @@
-package beduerfniss_klassen;
+package beduerfnis_klassen;
 
 public class Hunger extends Beduerfnis{
 

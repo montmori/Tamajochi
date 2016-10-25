@@ -20,8 +20,8 @@ public abstract class Tamagotchi {
 	 */
 	public Tamagotchi(String name){
 		this.name = name;
-		Tamagotchi.hunger = new Hunger(50, 100, 0);
-		Tamagotchi.durst = new Durst(50, 100, 0);
+		Tamagotchi.hunger = new Hunger(50);
+		Tamagotchi.durst = new Durst(50);
 	}
 	
 	/*

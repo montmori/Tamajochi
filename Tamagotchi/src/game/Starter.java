@@ -18,6 +18,7 @@ public class Starter {
 		Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 		int startHoehe = (int)(size.getHeight()/1.5);
 		int startBreite = (int)(size.getWidth()/1.5);
+		
 		size = new Dimension(startBreite, startHoehe);
 		
 		String Tamagotchiname = "Bernd";

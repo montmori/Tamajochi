@@ -2,8 +2,8 @@ package beduerfniss_klassen;
 
 public class Hunger extends Beduerfnis{
 
-	public Hunger(int wert, int maxWert, int minWert) {
-		super(wert, maxWert, minWert);
+	public Hunger(int wert) {
+		super(wert, BeduerfnisWerte.MAXHUNGER, BeduerfnisWerte.MINHUNGER);
 	}
 
 	/*

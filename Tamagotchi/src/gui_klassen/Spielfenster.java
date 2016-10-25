@@ -34,7 +34,7 @@ public class Spielfenster extends JFrame {
 	
 	private void initFensterAktualisierung() {
 		t1 = new ScheduledThreadPoolExecutor(0);
-		t1.scheduleAtFixedRate(new FensterAktualisierung(this), 200, 15, TimeUnit.MILLISECONDS);
+		t1.scheduleAtFixedRate(new FensterAktualisierung(this), 200, 16, TimeUnit.MILLISECONDS);
 		
 	}
 
@@ -58,6 +58,7 @@ public class Spielfenster extends JFrame {
 		
 		int buttonPanelWidth = (int)(size.getWidth()/7);
 		int buttonPanelHeight = (int) (size.getHeight() / 1.5) ;
+		
 		Dimension buttonpanelSize = new Dimension(buttonPanelWidth, buttonPanelHeight);
 		
 		this.add(new ButtonPanel( buttonpanelSize ));

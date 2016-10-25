@@ -1,6 +1,6 @@
 package beduerfniss_klassen;
 
-public abstract class Beduerfnis {
+public abstract class Beduerfnis implements BeduerfnisWerte{
 	
 	protected int wert;
 	protected int maxWert;

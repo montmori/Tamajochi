@@ -1,6 +1,6 @@
 package nahrungs_klassen;
 
-public abstract class Nahrung {
+public abstract class Nahrung implements NahrungsWerte{
 
 	protected int wert;
 	
@@ -19,4 +19,6 @@ public abstract class Nahrung {
 	 * Sie soll die Bedürfnisse beeinträchtigen
 	 */
 	public abstract void geben();
+	
+
 }

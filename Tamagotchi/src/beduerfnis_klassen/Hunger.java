@@ -1,9 +1,9 @@
-package beduerfniss_klassen;
+package beduerfnis_klassen;
 
-public class Durst extends Beduerfnis{
+public class Hunger extends Beduerfnis{
 
-	public Durst(int wert, int maxWert, int minWert) {
-		super(wert, maxWert, minWert);
+	public Hunger(int wert) {
+		super(wert, BeduerfnisWerte.MAXHUNGER, BeduerfnisWerte.MINHUNGER);
 	}
 
 	/*
@@ -20,12 +20,15 @@ public class Durst extends Beduerfnis{
 	 */
 	public void erhoehen(int additionsWert) {
 		super.wert += additionsWert;
+		
+		if(super.wert > super.maxWert){
+			super.wert = super.maxWert;
+		}
 	}
 
 
-	public int getWert() {	
+	public int getWert() {
 		return super.wert;
 	}
-
 
 }

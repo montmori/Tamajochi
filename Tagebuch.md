@@ -92,3 +92,10 @@ Zusammenführung aller Klassen, die bis jetzt für das Projekt programmiert wurd
 Überlegung, wie wir die GUI handhaben wollen. Wir einigten uns nun darauf, die Buttons nicht in das Zeichenfenster zu integrieren, sondern eine zweites "Button Fenster" neben der Zeichenfläche zu erstellen.
 
 Anfängliche GUI erstellt, welche die funktionalitäten der Klassen darstellen soll.
+
+---------------
+
+### 25.10.2016 ~2 Stunden
+
+Fertigstellung des Meilensteins "Bedürfniss Balken", welche die Bedürfnisse Grafisch mit Balken anzeigen, je mehr Hunger das Tamagotchi hat, desto kleiner wird der Balken.
+Zusätzlich Gespräch mit Maier Andre über Speicherung des Spielstands, in dem man ein komplettes Objekt in ein File schreibt und dies beim Spielstart wieder ausliest. Ausserdem hatte er die XOR-Verschlüsselung angesprochen um das beschriebene File zu Verschlüsseln, damit keiner unberechtigten Zugriff d

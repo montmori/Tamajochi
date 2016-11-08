@@ -106,5 +106,7 @@ Tipp: Klassendiagramm von einem Eclipse-Plugin erstellen lassen.
 ### 08.11.2016 ~4 Stunden
 
 Versucht Speicherung des Spielstandes zu implementieren anhand der Java Objektserialisierung. Mehrere Testversuche an kleineren Programmen, allerdings ~3 Stunden ohne Erfolg. Beim Ausleseversuch gibt es eine EOFException. Wir vermuten einen Fehler bei der Angabe des Dokumentpfades. Siehe Issues "Speichern und Auslesen".
+Mit Hilfe von Andre Maier Fehler gefunden. Im File wurde "null" gespeichert, da das Testspiel erst nach dem Listener instanziert wurde (5Byte großes File).
+Idee: Für das ganze Tamagotchi einen Debugmode einbinden mit einem Konstanten Interface, den man dann an- und ausschalten kann.
 
 ----------

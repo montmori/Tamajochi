@@ -104,6 +104,6 @@ Zusätzlich Gespräch mit Maier Andre über Speicherung des Spielstands, in dem 
 
 ### 08.11.2016 ~4 Stunden
 
-Versucht Speicherung des Spielstandes zu implementieren anhand der Java Objektserialisierung. Mehrere Testversuche an kleineren Programmen, allerdings ~3 Stunden ohne Erfolg. Beim Ausleseversuch gibt es eine EOFException. Wir vermuten einen Fehler bei der Angabe des Dokumentpfades.
+Versucht Speicherung des Spielstandes zu implementieren anhand der Java Objektserialisierung. Mehrere Testversuche an kleineren Programmen, allerdings ~3 Stunden ohne Erfolg. Beim Ausleseversuch gibt es eine EOFException. Wir vermuten einen Fehler bei der Angabe des Dokumentpfades. Siehe Issues "Speichern und Auslesen".
 
 ----------

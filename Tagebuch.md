@@ -98,7 +98,8 @@ Anfängliche GUI erstellt, welche die funktionalitäten der Klassen darstellen s
 ### 25.10.2016 ~2 Stunden
 
 Fertigstellung des Meilensteins "Bedürfniss Balken", welche die Bedürfnisse Grafisch mit Balken anzeigen, je mehr Hunger das Tamagotchi hat, desto kleiner wird der Balken.
-Zusätzlich Gespräch mit Maier Andre über Speicherung des Spielstands, in dem man ein komplettes Objekt in ein File schreibt und dies beim Spielstart wieder ausliest. Ausserdem hatte er die XOR-Verschlüsselung angesprochen um das beschriebene File zu verschlüsseln, damit keiner unberechtigten Zugriff darauf haben kann.
+Zusätzlich Gespräch mit Maier Andre über Speicherung des Spielstands, in dem man ein komplettes Objekt in ein File schreibt und dies beim Spielstart wieder ausliest. Ausserdem hatte er die XOR-Verschlüsselung angesprochen um das beschriebene File zu verschlüsseln, damit keiner unberechtigten Zugriff darauf haben kann. 
+Tipp: Klassendiagramm von einem Eclipse-Plugin erstellen lassen.
 
 -------------
 

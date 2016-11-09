@@ -11,10 +11,8 @@ import tamagotchi_klassen.Viech;
 public class GamePanel extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
-	private Viech tamagotchi;
 	
 	public GamePanel(Viech tamagotchi, Dimension d){
-		this.tamagotchi = tamagotchi;
 		this.setPreferredSize(d);
 		
 	}

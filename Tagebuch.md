@@ -110,3 +110,12 @@ Mit Hilfe von Andre Maier Fehler gefunden. Im File wurde "null" gespeichert, da 
 Idee: Für das ganze Tamagotchi einen Debugmode einbinden mit einem Konstanten Interface, den man dann an- und ausschalten kann.
 
 ----------
+
+### 26.11.2016 Merkzettel
+
+Aufgabenverteilung:
+
+Marleen: GUI Design (Animationen für Tamagotchi, Hintergrund, etc...)
+Joshi / Marius: Aufteilung der Bedürfniss Struktur (4 Bedürfniss Milestones) 
+
+

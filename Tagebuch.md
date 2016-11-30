@@ -122,9 +122,9 @@ Samstag den 26.11.2016 stattfinden. Dabei wird die nächste Arbeitsteilung bespr
 
 Die Aufgabenverteilung wurde festgelegt:
 
-</strong>Marleen<strong> wird sich um das GUI Design kümmern, dazu gehören unter anderem Animationen für das Tamagotchi und Hintergründe bzw. das Designen des Fensters. Ausserdem wird sie sich um die implementierung eines Debug-Modus kümmern, welcher mit globalen Variablen auf verschiedene Stufen gesetzt werden kann. Dies soll dazu führen die Fehlerbehebung im späteren Verlauf deutlich zu vereinfachen.
+<strong>Marleen</strong> wird sich um das GUI Design kümmern, dazu gehören unter anderem Animationen für das Tamagotchi und Hintergründe bzw. das Designen des Fensters. Ausserdem wird sie sich um die implementierung eines Debug-Modus kümmern, welcher mit globalen Variablen auf verschiedene Stufen gesetzt werden kann. Dies soll dazu führen die Fehlerbehebung im späteren Verlauf deutlich zu vereinfachen.
 
-</strong>Joshua<strong> und </strong>Marius<strong> werden zusammen an den Funktionen des Tamagotchis weiterarbeiten der erste Schritt wird sein die Bedürfniss Struktur durch neue Bedürfnisse, einer Zeitstruktur für diese und ein Interaktionssystem zwischen den Bedürfnissen sein, welches das Tamagotchi "realer" erscheinen lassen könnten.
+<strong>Joshua</strong> und <strong>Marius</strong> werden zusammen an den Funktionen des Tamagotchis weiterarbeiten der erste Schritt wird sein die Bedürfniss Struktur durch neue Bedürfnisse, einer Zeitstruktur für diese und ein Interaktionssystem zwischen den Bedürfnissen sein, welches das Tamagotchi "realer" erscheinen lassen könnten.
 
 
 Desweiteren wurde das Problem mit der Serialisierbarkeit und dem damit nicht möglichem Speichern und abrufen eines Spielstandes behoben.

@@ -111,11 +111,24 @@ Idee: Für das ganze Tamagotchi einen Debugmode einbinden mit einem Konstanten I
 
 ----------
 
-### 26.11.2016 Merkzettel
+### 24.11.2016
 
-Aufgabenverteilung:
+Da die Projektarbeitstunde in dieser Woche und in der kommenden Woche aus(ge)fallen sind/werden wird das nächste Treffen am 
+Samstag den 26.11.2016 stattfinden. Dabei wird die nächste Arbeitsteilung besprochen. Zusätzlich ist geplant die Serialisierbarkeit zu bewerkstelligen um eine Speicher und Ladefunktion einzubauen.
 
-Marleen: GUI Design (Animationen für Tamagotchi, Hintergrund, etc...)
-Joshi / Marius: Aufteilung der Bedürfniss Struktur (4 Bedürfniss Milestones) 
+--------------------
 
+### 26.11.2016 ~5 Stunden
+
+Die Aufgabenverteilung wurde festgelegt:
+
+</strong>Marleen<strong> wird sich um das GUI Design kümmern, dazu gehören unter anderem Animationen für das Tamagotchi und Hintergründe bzw. das Designen des Fensters. Ausserdem wird sie sich um die implementierung eines Debug-Modus kümmern, welcher mit globalen Variablen auf verschiedene Stufen gesetzt werden kann. Dies soll dazu führen die Fehlerbehebung im späteren Verlauf deutlich zu vereinfachen.
+
+</strong>Joshua<strong> und </strong>Marius<strong> werden zusammen an den Funktionen des Tamagotchis weiterarbeiten der erste Schritt wird sein die Bedürfniss Struktur durch neue Bedürfnisse, einer Zeitstruktur für diese und ein Interaktionssystem zwischen den Bedürfnissen sein, welches das Tamagotchi "realer" erscheinen lassen könnten.
+
+
+Desweiteren wurde das Problem mit der Serialisierbarkeit und dem damit nicht möglichem Speichern und abrufen eines Spielstandes behoben.
+Es war nötig Statische Variablen in allen Klassen, welche mit dem Tamagotchi zusammen in einer Datei namens "Save.ser" gespeichert wurden zu entfernen und durch non-static variablen zu ersetzen.
+
+Mit dem Eclipse-Plugin wurde ein UML-Klassendiagramm generiert, welches durch das simple anwählen des Sourcecodes relationen zwischen Klassen herstellte. Dieses Klassendiagramm ist im Repository unter dem Namen "UML_Activity_Diagramm.png" einzusehen.
 

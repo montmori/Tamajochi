@@ -2,6 +2,9 @@ package beduerfnis_klassen;
 
 public class Hunger extends Beduerfnis{
 
+	
+	private static final long serialVersionUID = -771761267724331525L;
+	
 	public Hunger(int wert) {
 		super(wert, BeduerfnisWerte.MAXHUNGER, BeduerfnisWerte.MINHUNGER);
 	}

@@ -17,6 +17,7 @@ public class Starter {
 	private static void startGame(){
 			
 		Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+		
 		int startHoehe = (int)(size.getHeight()/1.5);
 		int startBreite = (int)(size.getWidth()/1.5);
 		
@@ -24,6 +25,6 @@ public class Starter {
 		
 		String Tamagotchiname = "Bernd";
 		
-		new Spielfenster(size, Tamagotchiname);
+		new Spielfenster(size, Tamagotchiname);	
 	}
 }

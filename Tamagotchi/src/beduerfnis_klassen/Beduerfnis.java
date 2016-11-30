@@ -1,7 +1,14 @@
 package beduerfnis_klassen;
 
-public abstract class Beduerfnis implements BeduerfnisWerte{
+import java.io.Serializable;
+
+public abstract class Beduerfnis implements BeduerfnisWerte, Serializable{
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7666343660063488766L;
 	protected int wert;
 	protected int maxWert;
 	protected int minWert;

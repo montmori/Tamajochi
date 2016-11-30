@@ -1,6 +1,11 @@
 package beduerfnis_klassen;
 
-public class Durst extends Beduerfnis{
+import java.io.Serializable;
+
+public class Durst extends Beduerfnis implements Serializable{
+
+	private static final long serialVersionUID = -8214169198714957922L;
+
 
 	public Durst(int wert) {
 		super(wert, BeduerfnisWerte.MAXDURST, BeduerfnisWerte.MINDURST);

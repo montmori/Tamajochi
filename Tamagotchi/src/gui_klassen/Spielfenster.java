@@ -2,6 +2,10 @@ package gui_klassen;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -10,7 +14,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import Listener.ActionBeenden;
+import listener.ActionBeenden;
+import listener.Windowflauscher;
+import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
 import timerTask_klassen.FensterAktualisierung;
 
@@ -18,7 +24,7 @@ public class Spielfenster extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final String FENSTERNAME = "Tamagotchi";
-	private Viech tamagotchi;
+	private Tamagotchi tamagotchi;
 	private ScheduledThreadPoolExecutor t1;
 	
 	
@@ -40,7 +46,27 @@ public class Spielfenster extends JFrame {
 
 
 	private void initGame(String name) {
-		tamagotchi = new Viech(name);
+		
+		FileInputStream fin;
+		ObjectInputStream oin;
+		
+		try {
+			
+			fin = new FileInputStream("Save.ser");
+			oin = new ObjectInputStream(fin);
+			this.tamagotchi = (Tamagotchi) oin.readObject();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		if(this.tamagotchi == null){
+			tamagotchi = new Viech(name);
+		}
 	}
 
 	
@@ -49,7 +75,9 @@ public class Spielfenster extends JFrame {
 		this.setResizable(false);
 		this.setSize(size);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.addWindowListener(new Windowflauscher(this.tamagotchi));
 		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 30));
+		
 		initMenuBar();
 		initJPanels(size);	
 	}
@@ -61,7 +89,7 @@ public class Spielfenster extends JFrame {
 		
 		Dimension buttonpanelSize = new Dimension(buttonPanelWidth, buttonPanelHeight);
 		
-		this.add(new ButtonPanel( buttonpanelSize ));
+		this.add(new ButtonPanel( buttonpanelSize, tamagotchi.getNahrungsArray() ));
 		
 		
 		int gamePanelWidth = (int)(size.getWidth() / 5 * 4);
@@ -98,7 +126,7 @@ public class Spielfenster extends JFrame {
 
 	private void addSpielMenuItems(JMenu spiel) {
 		JMenuItem beenden = new JMenuItem("Beenden");
-		beenden.addActionListener(new ActionBeenden());
+		beenden.addActionListener(new ActionBeenden(this.tamagotchi));
 		spiel.add(beenden);
 	}
 

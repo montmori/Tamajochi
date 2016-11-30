@@ -1,18 +1,23 @@
 package tamagotchi_klassen;
 
-import beduerfnis_klassen.Durst;
-import beduerfnis_klassen.Hunger;
-import nahrungs_klassen.Nahrung;
+import java.io.Serializable;
+
+import beduerfnis_klassen.*;
+import nahrungs_klassen.*;
 
 /*
  * Zu vervollstaendigen!
  * Das abstrakte Tamagotchi
  */
-public abstract class Tamagotchi {
+public abstract class Tamagotchi implements Serializable{
 
-	String name;
-	public static Hunger hunger;
-	public static Durst durst;
+	private static final long serialVersionUID = 7102825756447706790L;
+	private String name;
+	private Hunger hunger;
+	private Durst durst;
+	private Nahrung[] essenArray;
+	private Nahrung[] trinkenArray;
+	private Nahrung[][] nahrungsArray;
 	
 	/*
 	 * Tamagotchi wird erstellt und benannt.
@@ -20,8 +25,11 @@ public abstract class Tamagotchi {
 	 */
 	public Tamagotchi(String name){
 		this.name = name;
-		Tamagotchi.hunger = new Hunger(0);
-		Tamagotchi.durst = new Durst(0);
+		this.hunger = new Hunger(50);
+		this.durst = new Durst(50);
+		essenArray = new Nahrung[]{new Apfel(this), new Banane(this), new Fleisch(this), new Keks(this)};
+		trinkenArray = new Nahrung[]{new Trinken(this)};
+		nahrungsArray = new Nahrung[][]{ essenArray, trinkenArray };
 	}
 	
 	/*
@@ -32,9 +40,30 @@ public abstract class Tamagotchi {
 		n.geben();
 	}
 	
-	
 	public String toString(){
 		
-		return "Essen: " + Tamagotchi.hunger.getWert() + "\n Trinken: " + Tamagotchi.durst.getWert();
+		return "Essen: " + this.hunger.getWert() + "\n Trinken: " + this.durst.getWert();
+	}
+
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Hunger getHunger() {
+		return hunger;
+	}
+
+	public Durst getDurst() {
+		return durst;
+	}
+
+	public Nahrung[][] getNahrungsArray() {
+		return nahrungsArray;
 	}
 }

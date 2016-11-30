@@ -1,8 +1,15 @@
 package nahrungs_klassen;
 
-public abstract class Nahrung implements NahrungsWerte{
+import java.io.Serializable;
 
+import tamagotchi_klassen.Tamagotchi;
+
+public abstract class Nahrung implements NahrungsWerte, Serializable{
+
+
+	private static final long serialVersionUID = 4220515769542454659L;
 	protected int wert;
+	protected Tamagotchi tamagotchi;
 	
 	/*
 	 * Wert = Wert, welcher, wenn man die Nahrung dem 
@@ -10,8 +17,9 @@ public abstract class Nahrung implements NahrungsWerte{
 	 * 		  Bedürfniss steigert.
 	 */
 	
-	public Nahrung(int nahrungsWert){
-		wert = nahrungsWert;
+	public Nahrung(int nahrungsWert, Tamagotchi tamagotchi){
+		this.wert = nahrungsWert;
+		this.tamagotchi = tamagotchi;
 	}
 	
 	/*
@@ -19,6 +27,8 @@ public abstract class Nahrung implements NahrungsWerte{
 	 * Sie soll die Bedürfnisse beeinträchtigen
 	 */
 	public abstract void geben();
+	
+	public abstract String toString();
 	
 
 }

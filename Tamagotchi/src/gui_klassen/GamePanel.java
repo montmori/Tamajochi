@@ -10,7 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-import tamagotchi_klassen.Viech;
+import tamagotchi_klassen.Tamagotchi;
 
 public class GamePanel extends JPanel {
 	
@@ -18,14 +18,34 @@ public class GamePanel extends JPanel {
 	private Image hunger;
 	private Image durst;
 	
-	public GamePanel(Viech tamagotchi, Dimension d){
+	private Tamagotchi tamagotchi;
+	
+	private int widthMultiplier;
+	private int heightMultiplier;
+	
+	
+	public GamePanel(Tamagotchi t, Dimension d){
+		this.tamagotchi = t;
+		
 		this.setPreferredSize(d);
-		hunger = null;
-		durst = null;
+		
+		this.widthMultiplier = 10;
+		this.heightMultiplier = 25;
+		
+		this.hunger = null;
+		this.durst = null;
+		
 		try{
 			hunger = ImageIO.read(new File("Hunger.png"));
 			durst = ImageIO.read(new File("Durst.png"));
 			
+			
+			
+			int bildgroesse = (int)(d.getHeight()/this.heightMultiplier) + 1;
+
+						
+			hunger = hunger.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
+			durst = durst.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
 			
 		}catch(NullPointerException e){
 			e.printStackTrace();
@@ -53,13 +73,19 @@ public class GamePanel extends JPanel {
 		
 		
 		if(!(hunger == null) & !(durst == null)){
-			g.drawImage(hunger, this.getWidth()/hungerXpara - 25, this.getHeight()/hungerYpara, this);
-			g.drawImage(durst, this.getWidth()/durstXpara - 25, this.getHeight()/durstYpara, this);
+			
+			int hungerImageXStartValue = this.getWidth()/hungerXpara - hunger.getWidth(this) - 5;
+			int durstImageXStartValue = this.getWidth()/durstXpara - durst.getWidth(this) - 5;
+			
+			
+			g.drawImage(hunger, hungerImageXStartValue, this.getHeight()/hungerYpara, this);
+			g.drawImage(durst, durstImageXStartValue, this.getHeight()/durstYpara, this);
+		
 		}
 		
 
-		printBeduerfnis(g, hungerXpara, hungerYpara, Viech.hunger.getWert());
-		printBeduerfnis(g, durstXpara, durstYpara, Viech.durst.getWert());
+		printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
+		printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
 		
 		
 //		String beduerfnisse = "" + this.tamagotchi;
@@ -73,17 +99,17 @@ public class GamePanel extends JPanel {
 		int hgesamt = this.getHeight();
 		int startX = bgesamt/xpara;
 		int startY = hgesamt/ypara;
-		int b = bgesamt/10;
-		int h = hgesamt/25;
+		int b = bgesamt/this.widthMultiplier;
+		int h = hgesamt/this.heightMultiplier;
 		
 		if(beduerfnisWert < 50){
-			g.setColor(Color.ORANGE);
+			g.setColor(new Color(255, 150, 0));
 			if(beduerfnisWert < 20){
 				g.setColor(Color.RED);
 			}
 		}
 		else{
-			g.setColor(Color.GREEN);
+			g.setColor(Color.GREEN.darker());
 		}
 		
 		double breite = ((double)b/100) * (double)beduerfnisWert;

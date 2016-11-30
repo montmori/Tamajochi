@@ -1,4 +1,4 @@
-package beduerfnis_klassen;
+ package beduerfnis_klassen;
 
 public interface BeduerfnisWerte {
 

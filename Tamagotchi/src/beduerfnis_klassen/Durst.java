@@ -11,7 +11,7 @@ public class Durst extends Beduerfnis implements Serializable{
 
 	public Durst(int wert) {
 		super(wert, BeduerfnisWerte.MAXDURST, BeduerfnisWerte.MINDURST);
-		startTask(this);
+		this.startTask(this);
 	}
 
 	/*

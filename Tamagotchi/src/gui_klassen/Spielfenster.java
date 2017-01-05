@@ -15,22 +15,28 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import listener.ActionBeenden;
+import listener.ActionNewGame;
 import listener.Windowflauscher;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
+import timerTask_klassen.CheckLifeState;
 import timerTask_klassen.FensterAktualisierung;
+import timerTask_klassen.OwnTimer;
 
 public class Spielfenster extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private static final String FENSTERNAME = "Tamagotchi";
-	private Tamagotchi tamagotchi;
+	private static ButtonPanel buttonpanel;
+	private static GamePanel gamepanel;
+	private static Tamagotchi tamagotchi;
+	private static String tamagotchiName;
 	private ScheduledThreadPoolExecutor t1;
-	
 	
 	public Spielfenster(Dimension size, String name){
 		
-		initGame(name);
+		Spielfenster.tamagotchiName = name;
+		initGame();
 		initWindow(size);
 		initFensterAktualisierung();
 		setVisible(true);
@@ -45,7 +51,7 @@ public class Spielfenster extends JFrame {
 	}
 
 
-	private void initGame(String name) {
+	private void initGame() {
 		
 		FileInputStream fin;
 		ObjectInputStream oin;
@@ -54,28 +60,37 @@ public class Spielfenster extends JFrame {
 			
 			fin = new FileInputStream("Save.ser");
 			oin = new ObjectInputStream(fin);
-			this.tamagotchi = (Tamagotchi) oin.readObject();
+			Spielfenster.tamagotchi = (Tamagotchi) oin.readObject();
+			globalTaskStart();
 			
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.err.println("Neues Spiel wird erstellt!");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		if(this.tamagotchi == null){
-			tamagotchi = new Viech(name);
+		if(Spielfenster.tamagotchi == null){
+			Spielfenster.tamagotchi = new Viech(tamagotchiName);
 		}
 	}
 
 	
+	private void globalTaskStart() {
+		Spielfenster.tamagotchi.getDurst().startTask(Spielfenster.tamagotchi.getDurst());
+		Spielfenster.tamagotchi.getHunger().startTask(Spielfenster.tamagotchi.getHunger());
+		OwnTimer.queueTask(new CheckLifeState(Spielfenster.tamagotchi), 100, 100, TimeUnit.MILLISECONDS);
+		
+	}
+
+
 	private void initWindow(Dimension size){
 		this.setTitle(FENSTERNAME);
 		this.setResizable(false);
 		this.setSize(size);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.addWindowListener(new Windowflauscher(this.tamagotchi));
+		this.addWindowListener(new Windowflauscher(Spielfenster.tamagotchi));
 		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 30));
 		
 		initMenuBar();
@@ -88,15 +103,16 @@ public class Spielfenster extends JFrame {
 		int buttonPanelHeight = (int) (size.getHeight() / 1.5) ;
 		
 		Dimension buttonpanelSize = new Dimension(buttonPanelWidth, buttonPanelHeight);
-		
-		this.add(new ButtonPanel( buttonpanelSize, tamagotchi.getNahrungsArray() ));
+		Spielfenster.buttonpanel = new ButtonPanel( buttonpanelSize, tamagotchi.getNahrungsArray());
+		this.add( buttonpanel);
 		
 		
 		int gamePanelWidth = (int)(size.getWidth() / 5 * 4);
 		int gamePanelHeight = (int) (size.getHeight() / 5 * 4) ;
 		Dimension gamePanelSize = new Dimension(gamePanelWidth, gamePanelHeight);
 		
-		this.add(new GamePanel(tamagotchi, gamePanelSize));
+		Spielfenster.gamepanel = new GamePanel(tamagotchi, gamePanelSize);
+		this.add(Spielfenster.gamepanel);
 	}
 
 
@@ -125,13 +141,33 @@ public class Spielfenster extends JFrame {
 
 
 	private void addSpielMenuItems(JMenu spiel) {
-		JMenuItem beenden = new JMenuItem("Beenden");
-		beenden.addActionListener(new ActionBeenden(this.tamagotchi));
+		JMenuItem beenden = new JMenuItem("Speichern & Beenden");
+		beenden.addActionListener(new ActionBeenden(Spielfenster.tamagotchi));
+		
+		
+		JMenuItem newGame = new JMenuItem("Neues Spiel starten");
+		newGame.addActionListener(new ActionNewGame());
+		
+		
+		spiel.add(newGame);
 		spiel.add(beenden);
 	}
 
 
+	public static void gameOver(){
+		
+		OwnTimer.stopTimer();
+		Spielfenster.gamepanel.gameOver();
+		Spielfenster.buttonpanel.gameOver();
+		
+	}
 
+	public static void newGame(){
+		OwnTimer.stopTimer();
+		Spielfenster.gamepanel.newGame();
+		Spielfenster.buttonpanel.newGame();
+		Spielfenster.tamagotchi.newGame();
 
-	
+		
+	}
 }

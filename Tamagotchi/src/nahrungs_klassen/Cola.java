@@ -2,7 +2,7 @@ package nahrungs_klassen;
 
 import tamagotchi_klassen.Tamagotchi;
 
-public class Trinken extends Nahrung {
+public class Cola extends Nahrung {
 
 	
 	/**
@@ -10,8 +10,9 @@ public class Trinken extends Nahrung {
 	 */
 	private static final long serialVersionUID = 9019274140977439311L;
 
-	public Trinken(Tamagotchi t) {
-		super(NahrungsWerte.TRINKEN, t);
+	public Cola(Tamagotchi t) {
+		super(NahrungsWerte.COLA, t);
+		super.setName("Cola");
 		
 	}
 	
@@ -20,11 +21,6 @@ public class Trinken extends Nahrung {
 	 */
 	public void geben() {
 		super.tamagotchi.getDurst().erhoehen(super.wert);
-	}
-
-	@Override
-	public String toString() {
-		return "Trinken";
 	}
 
 }

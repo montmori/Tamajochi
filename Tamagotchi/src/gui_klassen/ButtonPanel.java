@@ -19,6 +19,9 @@ public class ButtonPanel extends JPanel{
 	
 	private JButton[] essenButtonArray;
 	private JButton[] trinkenButtonArray;
+	
+	private JPopupMenu trinkenMenu;
+	private JPopupMenu essenMenu;
 
 	
 	public ButtonPanel(Dimension d, Nahrung[][] nahrungen){
@@ -39,10 +42,9 @@ public class ButtonPanel extends JPanel{
 		
 	}
 	
-	
 	private void addTrinken(){
 		
-		JPopupMenu trinkenMenu = new JPopupMenu();
+		this.trinkenMenu = new JPopupMenu();
 		
 		JButton trinkenButton = new JButton("Trinken geben");
         trinkenButton.addActionListener( new ActionMenu(trinkenMenu));
@@ -60,7 +62,7 @@ public class ButtonPanel extends JPanel{
 	
 	private void addEssen(){
 				
-		JPopupMenu essenMenu = new JPopupMenu();
+		this.essenMenu = new JPopupMenu();
 		
 		JButton essenButton = new JButton("Essen geben");
         essenButton.addActionListener( new ActionMenu(essenMenu));
@@ -73,6 +75,18 @@ public class ButtonPanel extends JPanel{
         }
         
 		this.add(essenButton);
+	}
+
+	public void gameOver() {
+		this.essenMenu.setEnabled(false);
+		this.trinkenMenu.setEnabled(false);
+		
+	}
+
+	public void newGame() {
+		this.essenMenu.setEnabled(true);
+		this.trinkenMenu.setEnabled(true);
+		
 	}
 
 //	public void paint(Graphics g){

@@ -11,17 +11,13 @@ public class Banane extends Nahrung{
 
 	public Banane(Tamagotchi t ) {
 		super(NahrungsWerte.BANANE, t);
+		super.setName("Banane");
 	}
 
 	@Override
 	public void geben() {
 		super.tamagotchi.getHunger().erhoehen(super.wert);
 		
-	}
-
-	@Override
-	public String toString() {
-		return "Banane";
 	}
 
 }

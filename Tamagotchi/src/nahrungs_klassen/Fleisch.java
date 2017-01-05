@@ -11,15 +11,12 @@ public class Fleisch extends Nahrung{
 
 	public Fleisch(Tamagotchi t) {
 		super(NahrungsWerte.FLEISCH, t);
+		super.setName("Fleisch");
 	}
 
 
 	public void geben() {
 		super.tamagotchi.getHunger().erhoehen(super.wert);
 		
-	}
-
-	public String toString() {
-		return "Fleisch";
 	}
 }

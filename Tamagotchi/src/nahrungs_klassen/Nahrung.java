@@ -7,6 +7,7 @@ import tamagotchi_klassen.Tamagotchi;
 public abstract class Nahrung implements NahrungsWerte, Serializable{
 
 
+	private String nameOfClass;
 	private static final long serialVersionUID = 4220515769542454659L;
 	protected int wert;
 	protected Tamagotchi tamagotchi;
@@ -19,7 +20,7 @@ public abstract class Nahrung implements NahrungsWerte, Serializable{
 	
 	public Nahrung(int nahrungsWert, Tamagotchi tamagotchi){
 		this.wert = nahrungsWert;
-		this.tamagotchi = tamagotchi;
+		this.tamagotchi = tamagotchi; 
 	}
 	
 	/*
@@ -28,7 +29,13 @@ public abstract class Nahrung implements NahrungsWerte, Serializable{
 	 */
 	public abstract void geben();
 	
-	public abstract String toString();
+	public String toString(){
+		return this.nameOfClass;
+	}
+	
+	public void setName(String nameOfClass){
+		this.nameOfClass = nameOfClass;
+	}
 	
 
 }

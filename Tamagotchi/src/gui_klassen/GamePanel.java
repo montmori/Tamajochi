@@ -2,6 +2,7 @@ package gui_klassen;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -17,7 +18,7 @@ public class GamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Image hunger;
 	private Image durst;
-	
+	private boolean gameOver;
 	private Tamagotchi tamagotchi;
 	
 	private int widthMultiplier;
@@ -26,7 +27,7 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel(Tamagotchi t, Dimension d){
 		this.tamagotchi = t;
-		
+		gameOver = !this.tamagotchi.isLebendig();
 		this.setPreferredSize(d);
 		
 		this.widthMultiplier = 10;
@@ -83,10 +84,17 @@ public class GamePanel extends JPanel {
 		
 		}
 		
-
-		printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
-		printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
-		
+		if(gameOver){
+			printBeduerfnis(g, hungerXpara, hungerYpara, 0);
+			printBeduerfnis(g, durstXpara, durstYpara, 0);
+			g.setColor(Color.RED);
+			g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40 ));
+			g.drawString("Game Over!", (int) (b/2.5), h/2);
+		}
+		else{
+			printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
+			printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
+		}
 		
 //		String beduerfnisse = "" + this.tamagotchi;
 //		g.drawString(beduerfnisse, 50, 50);
@@ -94,6 +102,7 @@ public class GamePanel extends JPanel {
 	}
 	
 	public void printBeduerfnis(Graphics g, int xpara, int ypara, int beduerfnisWert){
+		
 		
 		int bgesamt = this.getWidth();
 		int hgesamt = this.getHeight();
@@ -111,12 +120,24 @@ public class GamePanel extends JPanel {
 		else{
 			g.setColor(Color.GREEN.darker());
 		}
-		
-		double breite = ((double)b/100) * (double)beduerfnisWert;
-		g.fillRect(startX, startY, (int) breite, h);
+	
+		if(beduerfnisWert > 0){
+			double breite = ((double)b/100) * (double)beduerfnisWert;
+			g.fillRect(startX, startY, (int) breite, h);
+		}
 		
 		g.setColor(Color.BLACK);
 		g.drawRect(startX, startY, b, h);		
+	
+	}
+
+	public void gameOver() {
+		this.gameOver = true;
+	}
+
+	public void newGame() {
+		this.gameOver = false;
+		
 	}
 	
 	 

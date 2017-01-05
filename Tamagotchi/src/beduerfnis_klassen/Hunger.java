@@ -1,5 +1,7 @@
 package beduerfnis_klassen;
 
+import timerTask_klassen.BeduerfnissVerringerungsTask;
+
 public class Hunger extends Beduerfnis{
 
 	
@@ -7,6 +9,7 @@ public class Hunger extends Beduerfnis{
 	
 	public Hunger(int wert) {
 		super(wert, BeduerfnisWerte.MAXHUNGER, BeduerfnisWerte.MINHUNGER);
+		startTask(this);
 	}
 
 	/*
@@ -14,7 +17,7 @@ public class Hunger extends Beduerfnis{
 	 * @see beduerfniss_klassen.Beduerfnis#verringern(int)
 	 */
 	public void verringern(int subtraktionsWert) {
-		super.wert -= subtraktionsWert;
+		super.verringern(subtraktionsWert);
 	}
 
 	/*
@@ -22,16 +25,18 @@ public class Hunger extends Beduerfnis{
 	 * @see beduerfniss_klassen.Beduerfnis#erhoehen(int)
 	 */
 	public void erhoehen(int additionsWert) {
-		super.wert += additionsWert;
-		
-		if(super.wert > super.maxWert){
-			super.wert = super.maxWert;
-		}
+		super.erhoehen(additionsWert);
 	}
 
 
 	public int getWert() {
 		return super.wert;
 	}
+	
+	public void startTask(Beduerfnis b){
+		super.startTask(new BeduerfnissVerringerungsTask(b, VerringerungsWerte.HUNGER));
+	}
+
+	
 
 }

@@ -132,3 +132,33 @@ Es war nötig Statische Variablen in allen Klassen, welche mit dem Tamagotchi zu
 
 Mit dem Eclipse-Plugin wurde ein UML-Klassendiagramm generiert, welches durch das simple Anwählen des Sourcecodes Relationen zwischen Klassen herstellt. Dieses Klassendiagramm ist im Repository unter dem Namen "UML_Activity_Diagramm.png" einzusehen.
 
+
+----------------------------------------------------------------------
+
+### 11.12.2016 ~2 Stunden 
+
+Einführung von einer Game Over Funktion und Zentralisierung der Timer mit einer eigenen Klasse.
+
+
+-----------------------------------------------------------------
+
+### 17.12.2016
+
+Die Bedürfnisse Schlafen und Spielen wurden grundlegend kreirt. Diese können noch nicht mit den anderen Bedürfnissen Interagieren, zusätzlich muss die Game Over funktion dahingehend erweitert werden.
+
+
+--------------------------------------------------
+
+### 05.01.2017
+
+Game Over Funktion wurde fertiggestellt, zusätzlich wurde eine New Game Funktion erstellt, welche über das Menü aufgerufen werden kann. Einige Änderungen am Internen Code wurde vorgenommen, um die Erweiterbarkeit zu verbessern. 
+
+----------------------------------------------
+
+### 06.01.2017
+
+Die Bedürfnisse Spielen und Schlafen wurden in die Spielmechanik eingebracht und können Graphisch eingesehen werden. Buttons wurden eingefügt, mit welchen die neuen Bedürfnisse bedient werden können. Für die weiteren Schritte müssen nurnoch die Bedürfnisse untereinander Interagieren und die Zeitstrukturen so angepasst werden, dass es sich spielbarer anfühlt.
+
+
+
+

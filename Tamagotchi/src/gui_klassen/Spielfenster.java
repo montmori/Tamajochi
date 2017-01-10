@@ -14,9 +14,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import listener.ActionBeenden;
-import listener.ActionNewGame;
-import listener.Windowflauscher;
+import Listener.ActionBeenden;
+import Listener.ActionNewGame;
+import Listener.Windowflauscher;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
 import timerTask_klassen.CheckLifeState;
@@ -80,6 +80,8 @@ public class Spielfenster extends JFrame {
 	private void globalTaskStart() {
 		Spielfenster.tamagotchi.getDurst().startTask(Spielfenster.tamagotchi.getDurst());
 		Spielfenster.tamagotchi.getHunger().startTask(Spielfenster.tamagotchi.getHunger());
+		Spielfenster.tamagotchi.getMuedigkeit().startTask(Spielfenster.tamagotchi.getMuedigkeit());
+		Spielfenster.tamagotchi.getLangeweile().startTask(Spielfenster.tamagotchi.getLangeweile());
 		OwnTimer.queueTask(new CheckLifeState(Spielfenster.tamagotchi), 100, 100, TimeUnit.MILLISECONDS);
 		
 	}
@@ -103,7 +105,7 @@ public class Spielfenster extends JFrame {
 		int buttonPanelHeight = (int) (size.getHeight() / 1.5) ;
 		
 		Dimension buttonpanelSize = new Dimension(buttonPanelWidth, buttonPanelHeight);
-		Spielfenster.buttonpanel = new ButtonPanel( buttonpanelSize, tamagotchi.getNahrungsArray());
+		Spielfenster.buttonpanel = new ButtonPanel( buttonpanelSize, tamagotchi.getNahrungsArray(), tamagotchi.getSchlafenArray(), tamagotchi.getSpielenArray());
 		this.add( buttonpanel);
 		
 		
@@ -155,7 +157,6 @@ public class Spielfenster extends JFrame {
 
 
 	public static void gameOver(){
-		
 		OwnTimer.stopTimer();
 		Spielfenster.gamepanel.gameOver();
 		Spielfenster.buttonpanel.gameOver();

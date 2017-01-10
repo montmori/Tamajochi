@@ -1,7 +1,6 @@
 package nahrungs_klassen;
 
 import java.io.Serializable;
-
 import tamagotchi_klassen.Tamagotchi;
 
 public abstract class Nahrung implements NahrungsWerte, Serializable{

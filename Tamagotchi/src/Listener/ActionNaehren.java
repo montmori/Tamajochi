@@ -1,4 +1,4 @@
-package listener;
+package Listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +15,7 @@ public class ActionNaehren implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		Tamagotchi.naehren(e1);
+		Tamagotchi.naehren(this.e1);
 	}
 
 }

@@ -11,16 +11,13 @@ public class Apfel extends Nahrung{
 
 	public Apfel(Tamagotchi t) {
 		super(NahrungsWerte.APFEL, t);
+		super.setName("Apfel");
 		
 	}
 
 	public void geben() {
 		super.tamagotchi.getHunger().erhoehen(super.wert);
 		
-	}
-
-	public String toString() {
-		return "Apfel";
 	}
 
 }

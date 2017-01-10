@@ -2,6 +2,7 @@ package gui_klassen;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -17,7 +18,7 @@ public class GamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Image hunger;
 	private Image durst;
-	
+	private boolean gameOver;
 	private Tamagotchi tamagotchi;
 	
 	private int widthMultiplier;
@@ -26,7 +27,7 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel(Tamagotchi t, Dimension d){
 		this.tamagotchi = t;
-		
+		gameOver = !this.tamagotchi.isLebendig();
 		this.setPreferredSize(d);
 		
 		this.widthMultiplier = 10;
@@ -71,6 +72,11 @@ public class GamePanel extends JPanel {
 		int durstXpara = 20;
 		int durstYpara = 10;
 		
+		int schlafenXpara = 20;
+		double schlafenYpara = 6.5;
+		
+		int spielenXpara = 20;
+		double spielenYpara = 4.9;
 		
 		if(!(hunger == null) & !(durst == null)){
 			
@@ -83,22 +89,34 @@ public class GamePanel extends JPanel {
 		
 		}
 		
-
-		printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
-		printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
-		
+		if(gameOver){
+			printBeduerfnis(g, hungerXpara, hungerYpara, 0);
+			printBeduerfnis(g, durstXpara, durstYpara, 0);
+			printBeduerfnis(g, schlafenXpara, schlafenYpara, 0);
+			printBeduerfnis(g, spielenXpara, spielenYpara, 0);
+			g.setColor(Color.RED);
+			g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40 ));
+			g.drawString("Game Over!", (int) (b/2.5), h/2);
+		}
+		else{
+			printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
+			printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
+			printBeduerfnis(g, schlafenXpara, schlafenYpara, tamagotchi.getMuedigkeit().getWert());
+			printBeduerfnis(g, spielenXpara, spielenYpara, tamagotchi.getLangeweile().getWert());
+		}
 		
 //		String beduerfnisse = "" + this.tamagotchi;
 //		g.drawString(beduerfnisse, 50, 50);
 		
 	}
 	
-	public void printBeduerfnis(Graphics g, int xpara, int ypara, int beduerfnisWert){
+	public void printBeduerfnis(Graphics g, int xpara, double ypara, int beduerfnisWert){
+		
 		
 		int bgesamt = this.getWidth();
 		int hgesamt = this.getHeight();
 		int startX = bgesamt/xpara;
-		int startY = hgesamt/ypara;
+		double startY = hgesamt/ypara;
 		int b = bgesamt/this.widthMultiplier;
 		int h = hgesamt/this.heightMultiplier;
 		
@@ -111,12 +129,24 @@ public class GamePanel extends JPanel {
 		else{
 			g.setColor(Color.GREEN.darker());
 		}
-		
-		double breite = ((double)b/100) * (double)beduerfnisWert;
-		g.fillRect(startX, startY, (int) breite, h);
+	
+		if(beduerfnisWert > 0){
+			double breite = ((double)b/100) * (double)beduerfnisWert;
+			g.fillRect(startX, (int)startY, (int) breite, h);
+		}
 		
 		g.setColor(Color.BLACK);
-		g.drawRect(startX, startY, b, h);		
+		g.drawRect(startX, (int)startY, b, h);		
+	
+	}
+
+	public void gameOver() {
+		this.gameOver = true;
+	}
+
+	public void newGame() {
+		this.gameOver = false;
+		
 	}
 	
 	 

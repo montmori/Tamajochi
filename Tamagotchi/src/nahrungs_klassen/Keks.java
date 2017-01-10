@@ -11,6 +11,7 @@ public class Keks extends Nahrung{
 
 	public Keks(Tamagotchi t) {
 		super(NahrungsWerte.KEKS, t);
+		super.setName("Keks");
 	}
 
 	@Override
@@ -19,7 +20,4 @@ public class Keks extends Nahrung{
 		
 	}
 
-	public String toString() {
-		return "Keks";
-	}
 }

@@ -7,13 +7,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
-import listener.ActionMenu;
-import listener.ActionNaehren;
-import listener.ActionSchlafen;
-import listener.ActionSpielen;
 import nahrungs_klassen.Nahrung;
 import schlafen_klassen.SchlafensOrt;
-import spielen_klassen.Spielmoeglichkeit;;
+import spielen_klassen.Spielmoeglichkeit;
+import temp.ActionMenu;
+import temp.ActionNaehren;
+import temp.ActionSchlafen;
+import temp.ActionSpielen;;
 
 public class ButtonPanel extends JPanel{
 

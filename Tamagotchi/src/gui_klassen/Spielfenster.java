@@ -14,11 +14,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import listener.ActionBeenden;
+import listener.ActionNewGame;
+import listener.Windowflauscher;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
-import temp.ActionBeenden;
-import temp.ActionNewGame;
-import temp.Windowflauscher;
 import timerTask_klassen.CheckLifeState;
 import timerTask_klassen.FensterAktualisierung;
 import timerTask_klassen.OwnTimer;

@@ -14,9 +14,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import Listener.ActionBeenden;
-import Listener.ActionNewGame;
-import Listener.Windowflauscher;
+import listener.ActionBeenden;
+import listener.ActionNewGame;
+import listener.Windowflauscher;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
 import timerTask_klassen.CheckLifeState;

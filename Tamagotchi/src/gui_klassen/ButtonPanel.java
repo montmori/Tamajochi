@@ -7,10 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 
-import Listener.ActionMenu;
-import Listener.ActionNaehren;
-import Listener.ActionSchlafen;
-import Listener.ActionSpielen;
+import listener.ActionMenu;
+import listener.ActionNaehren;
+import listener.ActionSchlafen;
+import listener.ActionSpielen;
 import nahrungs_klassen.Nahrung;
 import schlafen_klassen.SchlafensOrt;
 import spielen_klassen.Spielmoeglichkeit;;

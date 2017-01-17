@@ -28,36 +28,29 @@ public abstract class Beduerfnis implements BeduerfnisWerte, Serializable{
 		this.minWert = minWert;
 	}
 	
-	protected void startTask(Runnable task) {
-		
-		final int initialDelay = 2000;    	//HIER DIE WERTE EINTRAGEN, UM DIE 
-		final int periodTime = 1000;		//BEDÜRFNISREDUZIERUNG ANZUPASSEN
+	protected void startTask(Runnable task, int initialDelay, int periodTime) {
 		
 		OwnTimer.queueTask(task, initialDelay, periodTime, TimeUnit.MILLISECONDS);
 	}
 
 	/*
-	 * soll den aktuellen "wert" um den mitgegebenen Wert verringern
+	 * soll den aktuellen "wert" um den mitgegebenen Wert verändern
 	 */
-	public void verringern(int subtraktionsWert){
-		this.wert -= subtraktionsWert;
+	public void veraendereBeduerfnisWert(int wert){
+		
+		this.wert += wert;
 		
 		if(this.wert < this.minWert){
 			this.wert = this.minWert;
 			this.isKilled = true;
 		}
-	}
-	
-	/*
-	 * soll den aktuellen "wert" um den mitgegebenen Wert erhöhen
-	 */
-	public void erhoehen(int additionsWert){
-		this.wert += additionsWert;
 		
 		if(this.wert > this.maxWert){
 			this.wert = this.maxWert;
 		}
 	}
+
+
 	
 	public abstract int getWert();
 	

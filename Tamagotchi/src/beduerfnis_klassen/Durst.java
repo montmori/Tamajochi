@@ -18,23 +18,16 @@ public class Durst extends Beduerfnis implements Serializable{
 	 * (non-Javadoc)
 	 * @see beduerfniss_klassen.Beduerfnis#verringern(int)
 	 */
-	public void verringern(int subtraktionsWert) {
-		super.verringern(subtraktionsWert);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * @see beduerfniss_klassen.Beduerfnis#erhoehen(int)
-	 */
-	public void erhoehen(int additionsWert) {
-		super.erhoehen(additionsWert);
-	}
 
 	public int getWert() {	
 		return super.wert;
 	}
 	
 	public void startTask(Beduerfnis b){
-		super.startTask(new BeduerfnissVerringerungsTask(b, VerringerungsWerte.DURST));
+		
+		int periodTime = DURSTPT;
+		int initialDelay = periodTime;
+		
+		super.startTask(new BeduerfnissVerringerungsTask(b, VerringerungsWerte.DURST), initialDelay, periodTime);
 	}
 }

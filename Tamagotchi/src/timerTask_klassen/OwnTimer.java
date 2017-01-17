@@ -17,6 +17,16 @@ public class OwnTimer{
 		
 	}
 	
+	public static void queueTask(Runnable command, long initialDelay, TimeUnit unit){
+		
+		if(s == null){
+			s = new ScheduledThreadPoolExecutor(0);
+		}
+		
+		s.schedule(command, initialDelay, unit);
+		
+	}
+	
 	public static void stopTimer(){
 		s = new ScheduledThreadPoolExecutor(0);
 	}

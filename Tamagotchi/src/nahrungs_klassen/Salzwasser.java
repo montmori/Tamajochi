@@ -6,16 +6,13 @@ import gui_klassen.ButtonPanel;
 import tamagotchi_klassen.Tamagotchi;
 import timerTask_klassen.OwnTimer;
 
-public class Keks extends Nahrung{
+public class Salzwasser extends Nahrung {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5466869746428915883L;
-
-	public Keks(Tamagotchi t) {
-		super(t, "Keks");
+	public Salzwasser(Tamagotchi tamagotchi) {
+		super(tamagotchi, "Salzwasser");
 	}
+
+	private static final long serialVersionUID = 3531122978200688656L;
 
 	@Override
 	public void geben() {
@@ -27,11 +24,10 @@ public class Keks extends Nahrung{
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
-	public void run(){
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(KEKS);
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(KEKS_T);
+	public void run(){		
+		super.tamagotchi.getDurst().veraendereBeduerfnisWert(SALZWASSER);
+		super.tamagotchi.getHunger().veraendereBeduerfnisWert(SALZWASSER_H);
 		ButtonPanel.enableButtons();
 	}
-	
 
 }

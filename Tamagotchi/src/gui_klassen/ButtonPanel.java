@@ -1,5 +1,6 @@
 package gui_klassen;
 
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -28,10 +29,10 @@ public class ButtonPanel extends JPanel{
 	private JButton[] schlafenButtonArray;
 	private JButton[] spielenButtonArray;
 	
-	private JPopupMenu trinkenMenu;
-	private JPopupMenu essenMenu;
-	private JPopupMenu schlafenMenu;
-	private JPopupMenu spielenMenu;
+	private static JPopupMenu trinkenMenu;
+	private static JPopupMenu essenMenu;
+	private static JPopupMenu schlafenMenu;
+	private static JPopupMenu spielenMenu;
 	
 	public ButtonPanel(Dimension d, Nahrung[][] nahrungen, SchlafensOrt[] schlafenArray, Spielmoeglichkeit[] spielenArray){
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 15));
@@ -57,7 +58,7 @@ public class ButtonPanel extends JPanel{
 	
 	private void addTrinken(){
 		
-		this.trinkenMenu = new JPopupMenu();
+		ButtonPanel.trinkenMenu = new JPopupMenu();
 		
 		JButton trinkenButton = new JButton("Trinken geben");
         trinkenButton.addActionListener( new ActionMenu(trinkenMenu));
@@ -66,7 +67,7 @@ public class ButtonPanel extends JPanel{
         for(int x = 0; x < this.trinkenArray.length; x++){
         	this.trinkenButtonArray[x] = new JButton(this.trinkenArray[x].toString());
         	this.trinkenButtonArray[x].addActionListener(new ActionNaehren(this.trinkenArray[x]));
-        	this.trinkenMenu.add(this.trinkenButtonArray[x]);
+        	ButtonPanel.trinkenMenu.add(this.trinkenButtonArray[x]);
         }
         
 		this.add(trinkenButton);
@@ -75,16 +76,16 @@ public class ButtonPanel extends JPanel{
 	
 	private void addEssen(){
 				
-		this.essenMenu = new JPopupMenu();
+		ButtonPanel.essenMenu = new JPopupMenu();
 		
 		JButton essenButton = new JButton("Essen geben");
-        essenButton.addActionListener( new ActionMenu(this.essenMenu));
+        essenButton.addActionListener( new ActionMenu(ButtonPanel.essenMenu));
         this.essenButtonArray = new JButton[this.essenArray.length];
         
         for(int x = 0; x < this.essenArray.length; x++){
         	this.essenButtonArray[x] = new JButton(this.essenArray[x].toString());
         	this.essenButtonArray[x].addActionListener(new ActionNaehren(this.essenArray[x]));
-        	this.essenMenu.add(this.essenButtonArray[x]);
+        	ButtonPanel.essenMenu.add(this.essenButtonArray[x]);
         }
         
 		this.add(essenButton);
@@ -92,16 +93,16 @@ public class ButtonPanel extends JPanel{
 	
 	private void addSchlafen(){
 		
-		this.schlafenMenu = new JPopupMenu();
+		ButtonPanel.schlafenMenu = new JPopupMenu();
 		
 		JButton schlafenButton = new JButton("Schlafen legen");
-		schlafenButton.addActionListener( new ActionMenu(this.schlafenMenu));
+		schlafenButton.addActionListener( new ActionMenu(ButtonPanel.schlafenMenu));
 		this.schlafenButtonArray = new JButton[this.schlafenArray.length];
 		
 		for(int x = 0; x < this.schlafenArray.length; x++){
 			this.schlafenButtonArray[x] = new JButton(this.schlafenArray[x].toString());
 			this.schlafenButtonArray[x].addActionListener(new ActionSchlafen(this.schlafenArray[x]));
-			this.schlafenMenu.add(this.schlafenButtonArray[x]);
+			ButtonPanel.schlafenMenu.add(this.schlafenButtonArray[x]);
 		}
 		
 		this.add(schlafenButton);
@@ -109,34 +110,67 @@ public class ButtonPanel extends JPanel{
 	
 	private void addSpielen(){
 		
-		this.spielenMenu = new JPopupMenu();
+		ButtonPanel.spielenMenu = new JPopupMenu();
 		
 		JButton spielenButton = new JButton("Spielen");
-		spielenButton.addActionListener( new ActionMenu(this.spielenMenu));
+		spielenButton.addActionListener( new ActionMenu(ButtonPanel.spielenMenu));
 		this.spielenButtonArray = new JButton[this.spielenArray.length];
 		
 		for(int x = 0; x < this.spielenArray.length; x++){
 			this.spielenButtonArray[x] = new JButton(this.spielenArray[x].toString());
 			this.spielenButtonArray[x].addActionListener(new ActionSpielen(this.spielenArray[x]));
-			this.spielenMenu.add(this.spielenButtonArray[x]);
+			ButtonPanel.spielenMenu.add(this.spielenButtonArray[x]);
 		}
 		
 		this.add(spielenButton);
 	}
 
 	public void gameOver() {
-		this.essenMenu.setEnabled(false);
-		this.trinkenMenu.setEnabled(false);
-		this.schlafenMenu.setEnabled(false);
-		this.spielenMenu.setEnabled(false);
+		ButtonPanel.disableButtons();
 		
 	}
 
 	public void newGame() {
-		this.essenMenu.setEnabled(true);
-		this.trinkenMenu.setEnabled(true);
-		this.schlafenMenu.setEnabled(true);
-		this.schlafenMenu.setEnabled(true);
+		ButtonPanel.enableButtons();
+	}
+	
+	public static void disableButtons(){
+		/*ButtonPanel.essenMenu.setEnabled(false);
+		ButtonPanel.trinkenMenu.setEnabled(false);
+		ButtonPanel.schlafenMenu.setEnabled(false);
+		ButtonPanel.spielenMenu.setEnabled(false);*/
+		for(Component x : ButtonPanel.essenMenu.getComponents()){
+			x.setEnabled(false);
+		}
+		for(Component x : ButtonPanel.trinkenMenu.getComponents()){
+			x.setEnabled(false);
+		}
+		for(Component x : ButtonPanel.schlafenMenu.getComponents()){
+			x.setEnabled(false);
+		}
+		for(Component x : ButtonPanel.spielenMenu.getComponents()){
+			x.setEnabled(false);
+		}
+	}
+	
+	public static void enableButtons(){
+		/*ButtonPanel.essenMenu.setEnabled(true);
+		ButtonPanel.trinkenMenu.setEnabled(true);
+		ButtonPanel.schlafenMenu.setEnabled(true);
+		ButtonPanel.spielenMenu.setEnabled(true);*/
+		for(Component x : ButtonPanel.essenMenu.getComponents()){
+			x.setEnabled(true);
+		}
+		for(Component x : ButtonPanel.trinkenMenu.getComponents()){
+			x.setEnabled(true);
+		}
+		for(Component x : ButtonPanel.schlafenMenu.getComponents()){
+			x.setEnabled(true);
+		}
+		for(Component x : ButtonPanel.spielenMenu.getComponents()){
+			x.setEnabled(true);
+		}
+		
 	}
 
 //	public void paint(Graphics g){

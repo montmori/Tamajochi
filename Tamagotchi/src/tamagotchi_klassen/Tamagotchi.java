@@ -15,6 +15,7 @@ import nahrungs_klassen.Fleisch;
 import nahrungs_klassen.Keks;
 import nahrungs_klassen.Milch;
 import nahrungs_klassen.Nahrung;
+import nahrungs_klassen.Salzwasser;
 import nahrungs_klassen.Wasser;
 import schlafen_klassen.Bett;
 import schlafen_klassen.Boden;
@@ -45,11 +46,13 @@ public abstract class Tamagotchi implements Serializable{
 	 */
 	public Tamagotchi(String name){
 		this.lebendig = true;
+
+		
 		this.name = name;
 		
 		this.beduerfnisse = new Beduerfnis[]{new Hunger(50), new Durst(50), new Muedigkeit(50), new Langeweile(50)};
 		this.essenArray = new Nahrung[]{new Apfel(this), new Banane(this), new Fleisch(this), new Keks(this)};
-		this.trinkenArray = new Nahrung[]{new Wasser(this), new Cola(this), new Milch(this)};
+		this.trinkenArray = new Nahrung[]{new Wasser(this), new Cola(this), new Milch(this), new Salzwasser(this)};
 		this.nahrungsArray = new Nahrung[][]{ essenArray, trinkenArray };
 		this.schlafenArray = new SchlafensOrt[]{new Boden(this), new Bett(this)};
 		this.spielenarray = new Spielmoeglichkeit[]{new Ball(this), new Faden(this)};
@@ -66,6 +69,7 @@ public abstract class Tamagotchi implements Serializable{
 	
 	public static void schlafen(SchlafensOrt s){
 		s.schlafen();
+	
 	}
 	
 	public static void spielen(Spielmoeglichkeit s){

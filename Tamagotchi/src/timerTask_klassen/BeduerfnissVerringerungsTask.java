@@ -17,7 +17,7 @@ public class BeduerfnissVerringerungsTask extends TimerTask implements Verringer
 
 	@Override
 	public void run() {
-		this.beduerfnis.verringern(this.subtraktionswert);
+		this.beduerfnis.veraendereBeduerfnisWert(this.subtraktionswert);
 
 	}
 

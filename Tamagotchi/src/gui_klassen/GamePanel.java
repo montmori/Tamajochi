@@ -90,20 +90,16 @@ public class GamePanel extends JPanel {
 		}
 		
 		if(gameOver){
-			printBeduerfnis(g, hungerXpara, hungerYpara, 0);
-			printBeduerfnis(g, durstXpara, durstYpara, 0);
-			printBeduerfnis(g, schlafenXpara, schlafenYpara, 0);
-			printBeduerfnis(g, spielenXpara, spielenYpara, 0);
 			g.setColor(Color.RED);
 			g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40 ));
 			g.drawString("Game Over!", (int) (b/2.5), h/2);
 		}
-		else{
-			printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
-			printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
-			printBeduerfnis(g, schlafenXpara, schlafenYpara, tamagotchi.getMuedigkeit().getWert());
-			printBeduerfnis(g, spielenXpara, spielenYpara, tamagotchi.getLangeweile().getWert());
-		}
+		
+		printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
+		printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
+		printBeduerfnis(g, schlafenXpara, schlafenYpara, tamagotchi.getMuedigkeit().getWert());
+		printBeduerfnis(g, spielenXpara, spielenYpara, tamagotchi.getLangeweile().getWert());
+		
 		
 //		String beduerfnisse = "" + this.tamagotchi;
 //		g.drawString(beduerfnisse, 50, 50);

@@ -74,6 +74,8 @@ public class Spielfenster extends JFrame {
 		if(Spielfenster.tamagotchi == null){
 			Spielfenster.tamagotchi = new Viech(tamagotchiName);
 		}
+		
+		OwnTimer.queueTask(new CheckLifeState(Spielfenster.tamagotchi), 100, 100, TimeUnit.MILLISECONDS);
 	}
 
 	
@@ -82,7 +84,6 @@ public class Spielfenster extends JFrame {
 		Spielfenster.tamagotchi.getHunger().startTask(Spielfenster.tamagotchi.getHunger());
 		Spielfenster.tamagotchi.getMuedigkeit().startTask(Spielfenster.tamagotchi.getMuedigkeit());
 		Spielfenster.tamagotchi.getLangeweile().startTask(Spielfenster.tamagotchi.getLangeweile());
-		OwnTimer.queueTask(new CheckLifeState(Spielfenster.tamagotchi), 100, 100, TimeUnit.MILLISECONDS);
 		
 	}
 

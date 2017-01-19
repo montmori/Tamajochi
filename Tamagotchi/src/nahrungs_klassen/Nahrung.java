@@ -1,9 +1,11 @@
 package nahrungs_klassen;
 
 import java.io.Serializable;
+import java.util.TimerTask;
+
 import tamagotchi_klassen.Tamagotchi;
 
-public abstract class Nahrung implements NahrungsWerte, Serializable{
+public abstract class Nahrung extends TimerTask implements NahrungsWerte, Serializable{
 
 
 	private String nameOfClass;
@@ -17,9 +19,9 @@ public abstract class Nahrung implements NahrungsWerte, Serializable{
 	 * 		  Bedürfniss steigert.
 	 */
 	
-	public Nahrung(int nahrungsWert, Tamagotchi tamagotchi){
-		this.wert = nahrungsWert;
+	public Nahrung(Tamagotchi tamagotchi, String nameOfClass){
 		this.tamagotchi = tamagotchi; 
+		this.setName(nameOfClass);
 	}
 	
 	/*

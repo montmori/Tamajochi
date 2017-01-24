@@ -159,6 +159,12 @@ Game Over Funktion wurde fertiggestellt, zusätzlich wurde eine New Game Funktio
 
 Die Bedürfnisse Spielen und Schlafen wurden in die Spielmechanik eingebracht und können Graphisch eingesehen werden. Buttons wurden eingefügt, mit welchen die neuen Bedürfnisse bedient werden können. Für die weiteren Schritte müssen nurnoch die Bedürfnisse untereinander Interagieren und die Zeitstrukturen so angepasst werden, dass es sich spielbarer anfühlt.
 
+------------------------------------------------
 
+### 26.11.2016 - 17.01.2017
 
-
+Animations-Klasse (AnimationT) wurde eingebaut mit momentan noch Platzhalterbildern. Dabei wurden auch einige andere Klassen verändert, was das Zusammenführen mit den anderen neuen Klassen kompliziert macht.
+Vom Tamagotchi wurden einige Entwürfe skizziert. Einigung auf einen zweischwänigen, katzenartigen Entwurf.
+Von diesem Tamagotchi wurde in GIMP mithilfe eines Graphic Tablets (von wacom) das Standartbild erstellt (Fertigstellung am 17.01.2017).
+Problem momentan: AnimationT kann nicht auf den master branch commited werden, da die anderen Klassen in einer zu alte Version sind.
+Stunden wurden nicht gezählt... :D

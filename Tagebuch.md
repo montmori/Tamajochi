@@ -167,4 +167,5 @@ Animations-Klasse (AnimationT) wurde eingebaut mit momentan noch Platzhalterbild
 Vom Tamagotchi wurden einige Entwürfe skizziert. Einigung auf einen zweischwänigen, katzenartigen Entwurf.
 Von diesem Tamagotchi wurde in GIMP mithilfe eines Graphic Tablets (von wacom) das Standartbild erstellt (Fertigstellung am 17.01.2017).
 Problem momentan: AnimationT kann nicht auf den master branch commited werden, da die anderen Klassen in einer zu alte Version sind.
+Interface Debugable mit Debug booleans wurde erstellt und wird im Laufe des Projekts mit eingebunden werden (hat schon ein bisschen Verwendung gefunden).
 Stunden wurden nicht gezählt... :D

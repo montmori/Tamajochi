@@ -164,8 +164,9 @@ Die Bedürfnisse Spielen und Schlafen wurden in die Spielmechanik eingebracht un
 ### 26.11.2016 - 17.01.2017
 
 Animations-Klasse (AnimationT) wurde eingebaut mit momentan noch Platzhalterbildern. Dabei wurden auch einige andere Klassen verändert, was das Zusammenführen mit den anderen neuen Klassen kompliziert macht.
-Vom Tamagotchi wurden einige Entwürfe skizziert. Einigung auf einen zweischwänigen, katzenartigen Entwurf.
+Vom Tamagotchi wurden einige Entwürfe skizziert. Einigung auf einen zweischwänzigen, katzenartigen Entwurf.
 Von diesem Tamagotchi wurde in GIMP mithilfe eines Graphic Tablets (von wacom) das Standartbild erstellt (Fertigstellung am 17.01.2017).
 Problem momentan: AnimationT kann nicht auf den master branch commited werden, da die anderen Klassen in einer zu alte Version sind.
 Interface Debugable mit Debug booleans wurde erstellt und wird im Laufe des Projekts mit eingebunden werden (hat schon ein bisschen Verwendung gefunden).
 Stunden wurden nicht gezählt... :D
+<img src="Tamajochi/Images/TamajochiScreenshot.PNG" alt="" height="495" width="553" />

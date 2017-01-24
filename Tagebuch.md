@@ -169,4 +169,4 @@ Von diesem Tamagotchi wurde in GIMP mithilfe eines Graphic Tablets (von wacom) d
 Problem momentan: AnimationT kann nicht auf den master branch commited werden, da die anderen Klassen in einer zu alte Version sind.
 Interface Debugable mit Debug booleans wurde erstellt und wird im Laufe des Projekts mit eingebunden werden (hat schon ein bisschen Verwendung gefunden).
 Stunden wurden nicht gezählt... :D
-<img src="Tamajochi/Images/TamajochiScreenshot.PNG" alt="" height="495" width="553" />
+<img src="Images/TamajochiScreenshot.PNG" alt="" height="495" width="553" />

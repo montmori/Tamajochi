@@ -21,6 +21,8 @@ public class GamePanel extends JPanel {
 	private boolean gameOver;
 	private Tamagotchi tamagotchi;
 	
+	private AnimationT animation;
+	
 	private int widthMultiplier;
 	private int heightMultiplier;
 	
@@ -35,6 +37,8 @@ public class GamePanel extends JPanel {
 		
 		this.hunger = null;
 		this.durst = null;
+		
+		this.animation = new AnimationT();
 		
 		try{
 			hunger = ImageIO.read(new File("Hunger.png"));
@@ -77,6 +81,8 @@ public class GamePanel extends JPanel {
 		
 		int spielenXpara = 20;
 		double spielenYpara = 4.9;
+		
+		g.drawImage(this.animation.getCurrentBild(), 100, 50, this);
 		
 		if(!(hunger == null) & !(durst == null)){
 			

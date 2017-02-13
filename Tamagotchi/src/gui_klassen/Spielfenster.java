@@ -10,6 +10,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -101,6 +102,13 @@ public class Spielfenster extends JFrame {
 	}
 	
 	private void initJPanels(Dimension size) {
+		
+		Background backgroundP = new Background(size);
+		
+		JLabel contentPane = new JLabel();
+		contentPane.setIcon(backgroundP.getBackground());
+		contentPane.setLayout(new FlowLayout());
+		this.setContentPane(contentPane);
 		
 		int buttonPanelWidth = (int)(size.getWidth()/7);
 		int buttonPanelHeight = (int) (size.getHeight() / 1.5) ;

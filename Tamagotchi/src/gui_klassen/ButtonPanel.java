@@ -42,6 +42,7 @@ public class ButtonPanel extends JPanel{
 		this.trinkenArray = nahrungen[1];
 		this.schlafenArray = schlafenArray;
 		this.spielenArray = spielenArray;
+		this.setOpaque(false);
 		
 		addButtons();
 	}

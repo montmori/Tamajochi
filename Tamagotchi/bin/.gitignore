@@ -1,9 +1,4 @@
-/beduerfnis_klassen/
-/game/
+/debug.class
+/debug/
 /gui_klassen/
-/listener/
-/nahrungs_klassen/
-/schlafen_klassen/
-/spielen_klassen/
-/tamagotchi_klassen/
-/timerTask_klassen/
+/debugInterface/

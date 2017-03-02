@@ -157,7 +157,7 @@ Game Over Funktion wurde fertiggestellt, zusätzlich wurde eine New Game Funktio
 
 ### 06.01.2017
 
-Die Bedürfnisse Spielen und Schlafen wurden in die Spielmechanik eingebracht und können Graphisch eingesehen werden. Buttons wurden eingefügt, mit welchen die neuen Bedürfnisse bedient werden können. Für die weiteren Schritte müssen nurnoch die Bedürfnisse untereinander Interagieren und die Zeitstrukturen so angepasst werden, dass es sich spielbarer anfühlt.
+Die Bedürfnisse Spielen und Schlafen wurden in die Spielmechanik eingebracht und können Graphisch eingesehen werden. Buttons wurden eingefügt, mit welchen die neuen Bedürfnisse bedient werden können. Für die weiteren Schritte müssen nurnoch die Bedürfnisse untereinander Interagieren und die Zeitstrukturen so angepasst werden, dass es sich spielbarer anfühlt. 
 
 ------------------------------------------------
 
@@ -170,3 +170,15 @@ Problem momentan: AnimationT kann nicht auf den master branch commited werden, d
 Interface Debugable mit Debug booleans wurde erstellt und wird im Laufe des Projekts mit eingebunden werden (hat schon ein bisschen Verwendung gefunden).
 Stunden wurden nicht gezählt... :D
 <img src="Images/TamajochiScreenshot.PNG" alt="" height="495" width="553" />
+
+-----------------------------------------------
+
+###02.03.2017 ~6 Stunden
+
+Der Background wurde gezeichnet und eingefügt. 
+In der AnimationT gibt es jetzt einen ImageIconArray, damit das Einlesen von den Bildern vereinfacht wird. 
+Der Bilderwechsel hat eine andere Funktionalität um das Wechseln zwischen mehr als zwei Bildern zu ermöglichen ohne komische Zuckungen Seitens der Darstellung. Im Gamepanel wird nun auch der LoadStatus des anzuzeigenden Bildes überprüft um möglichen Wacklern auszuweichen. 
+Für die Bedürfnisse Schlafen und Spielen wurden Icons gezeichnet und eingebaut. 
+Die Darstellung wurde an den Hintergrund angepasst. Oben rechts wird nun auch der Name des Tamagotchis angezeigt.
+
+--------------------------------------------

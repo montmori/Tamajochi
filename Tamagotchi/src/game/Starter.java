@@ -23,7 +23,7 @@ public class Starter {
 		
 		size = new Dimension(startBreite, startHoehe);
 		
-		String Tamagotchiname = "Bernd";
+		String Tamagotchiname = "Berndewiglangernameblablabla";
 		
 		new Spielfenster(size, Tamagotchiname);	
 	}

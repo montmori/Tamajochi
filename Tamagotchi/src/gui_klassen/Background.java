@@ -20,7 +20,7 @@ public class Background {
 		int height = (int)d.getHeight() - 1;
 		
 		try {
-			bild = ImageIO.read(new File("background.png"));
+			bild = ImageIO.read(new File("Images/background.png"));
 			
 			bild = bild.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 			

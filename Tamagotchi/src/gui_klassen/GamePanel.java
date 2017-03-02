@@ -5,10 +5,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.MediaTracker;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import tamagotchi_klassen.Tamagotchi;
@@ -20,6 +22,7 @@ public class GamePanel extends JPanel {
 	private Image durst;
 	private boolean gameOver;
 	private Tamagotchi tamagotchi;
+	private String tamaName;
 	
 	private AnimationT animation;
 	
@@ -29,6 +32,7 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel(Tamagotchi t, Dimension d){
 		this.tamagotchi = t;
+		this.tamaName = this.tamagotchi.getName();
 		gameOver = !this.tamagotchi.isLebendig();
 		this.setPreferredSize(d);
 		
@@ -41,8 +45,8 @@ public class GamePanel extends JPanel {
 		this.animation = new AnimationT();
 		
 		try{
-			hunger = ImageIO.read(new File("Hunger.png"));
-			durst = ImageIO.read(new File("Durst.png"));
+			hunger = ImageIO.read(new File("Images/Hunger.png"));
+			durst = ImageIO.read(new File("Images/Durst.png"));
 			
 			
 			
@@ -65,29 +69,23 @@ public class GamePanel extends JPanel {
 		
 		int b = this.getWidth() - 1;
 		int h = this.getHeight() - 1;
-		g.drawLine(1, 1, b, 1);
-		g.drawLine(1, 1, 1, h);
-		g.drawLine(b, 1, b, h);
-		g.drawLine(1, h, b, h);
-		
-		int hungerXpara = 20;
+
+		int beduerfnissbalkenXpara = 8;
 		int hungerYpara = 20;
 		
-		int durstXpara = 20;
 		int durstYpara = 10;
 		
-		int schlafenXpara = 20;
 		double schlafenYpara = 6.5;
 		
-		int spielenXpara = 20;
 		double spielenYpara = 4.9;
 		
-		g.drawImage(this.animation.getCurrentBild(), 100, 50, this);
+		printAnimation(g);
+		
 		
 		if(!(hunger == null) & !(durst == null)){
 			
-			int hungerImageXStartValue = this.getWidth()/hungerXpara - hunger.getWidth(this) - 5;
-			int durstImageXStartValue = this.getWidth()/durstXpara - durst.getWidth(this) - 5;
+			int hungerImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - hunger.getWidth(this) - 5;
+			int durstImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - durst.getWidth(this) - 5;
 			
 			
 			g.drawImage(hunger, hungerImageXStartValue, this.getHeight()/hungerYpara, this);
@@ -100,16 +98,27 @@ public class GamePanel extends JPanel {
 			g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40 ));
 			g.drawString("Game Over!", (int) (b/2.5), h/2);
 		}
+		else{
+			g.drawString(this.tamaName, this.getWidth() - this.tamaName.length()*5 - 40, 20);
+		}
 		
-		printBeduerfnis(g, hungerXpara, hungerYpara, tamagotchi.getHunger().getWert());
-		printBeduerfnis(g, durstXpara, durstYpara, tamagotchi.getDurst().getWert());
-		printBeduerfnis(g, schlafenXpara, schlafenYpara, tamagotchi.getMuedigkeit().getWert());
-		printBeduerfnis(g, spielenXpara, spielenYpara, tamagotchi.getLangeweile().getWert());
+		printBeduerfnis(g, beduerfnissbalkenXpara, hungerYpara, tamagotchi.getHunger().getWert());
+		printBeduerfnis(g, beduerfnissbalkenXpara, durstYpara, tamagotchi.getDurst().getWert());
+		printBeduerfnis(g, beduerfnissbalkenXpara, schlafenYpara, tamagotchi.getMuedigkeit().getWert());
+		printBeduerfnis(g, beduerfnissbalkenXpara, spielenYpara, tamagotchi.getLangeweile().getWert());
 		
 		
 //		String beduerfnisse = "" + this.tamagotchi;
 //		g.drawString(beduerfnisse, 50, 50);
 		
+	}
+	
+	public void printAnimation(Graphics g){
+		
+		ImageIcon printImage = this.animation.getCurrentBild();
+		if(printImage.getImageLoadStatus() == MediaTracker.COMPLETE){
+			printImage.paintIcon(this, g, 100, 50);
+		}
 	}
 	
 	public void printBeduerfnis(Graphics g, int xpara, double ypara, int beduerfnisWert){

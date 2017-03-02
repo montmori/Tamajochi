@@ -20,6 +20,8 @@ public class GamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Image hunger;
 	private Image durst;
+	private Image langeweile;
+	private Image muedigkeit;
 	private boolean gameOver;
 	private Tamagotchi tamagotchi;
 	private String tamaName;
@@ -41,20 +43,25 @@ public class GamePanel extends JPanel {
 		
 		this.hunger = null;
 		this.durst = null;
+		this.langeweile = null;
+		this.muedigkeit = null;
 		
 		this.animation = new AnimationT();
 		
 		try{
-			hunger = ImageIO.read(new File("Images/Hunger.png"));
-			durst = ImageIO.read(new File("Images/Durst.png"));
-			
+			this.hunger = ImageIO.read(new File("Images/Hunger.png"));
+			this.durst = ImageIO.read(new File("Images/Durst.png"));
+			this.langeweile = ImageIO.read(new File("Images/Langeweile.png"));
+			this.muedigkeit = ImageIO.read(new File("Images/Muedigkeit.png"));
 			
 			
 			int bildgroesse = (int)(d.getHeight()/this.heightMultiplier) + 1;
 
 						
-			hunger = hunger.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
-			durst = durst.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
+			this.hunger = this.hunger.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
+			this.durst = this.durst.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
+			this.langeweile = this.langeweile.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
+			this.muedigkeit = this.muedigkeit.getScaledInstance(bildgroesse, bildgroesse, Image.SCALE_SMOOTH);
 			
 		}catch(NullPointerException e){
 			e.printStackTrace();
@@ -71,12 +78,10 @@ public class GamePanel extends JPanel {
 		int h = this.getHeight() - 1;
 
 		int beduerfnissbalkenXpara = 8;
+		
 		int hungerYpara = 20;
-		
 		int durstYpara = 10;
-		
 		double schlafenYpara = 6.5;
-		
 		double spielenYpara = 4.9;
 		
 		printAnimation(g);
@@ -84,12 +89,15 @@ public class GamePanel extends JPanel {
 		
 		if(!(hunger == null) & !(durst == null)){
 			
-			int hungerImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - hunger.getWidth(this) - 5;
-			int durstImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - durst.getWidth(this) - 5;
+			int hungerImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - this.hunger.getWidth(this) - 5;
+			int durstImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - this.durst.getWidth(this) - 5;
+			int muedigkeitImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - this.muedigkeit.getWidth(this) - 5;
+			int langeweileImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - this.langeweile.getWidth(this) - 5;
 			
-			
-			g.drawImage(hunger, hungerImageXStartValue, this.getHeight()/hungerYpara, this);
-			g.drawImage(durst, durstImageXStartValue, this.getHeight()/durstYpara, this);
+			g.drawImage(this.hunger, hungerImageXStartValue, this.getHeight()/hungerYpara, this);
+			g.drawImage(this.durst, durstImageXStartValue, this.getHeight()/durstYpara, this);
+			g.drawImage(this.muedigkeit, muedigkeitImageXStartValue, (int)(this.getHeight()/schlafenYpara), this);
+			g.drawImage(this.langeweile, langeweileImageXStartValue, (int)(this.getHeight()/spielenYpara), this);
 		
 		}
 		

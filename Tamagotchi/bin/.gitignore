@@ -1,2 +1,10 @@
 /gui_klassen/
 /game/
+/beduerfnis_klassen/
+/tamagotchi_klassen/
+/debugInterface/
+/listener/
+/nahrungs_klassen/
+/schlafen_klassen/
+/spielen_klassen/
+/timerTask_klassen/

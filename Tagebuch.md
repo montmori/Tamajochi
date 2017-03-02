@@ -124,11 +124,11 @@ Die Aufgabenverteilung wurde festgelegt:
 
 <strong>Marleen</strong> wird sich um das GUI Design kümmern, dazu gehören unter anderem Animationen für das Tamagotchi und Hintergründe bzw. das Designen des Fensters. Ausserdem wird sie sich um die Implementierung eines Debug-Modus kümmern, welcher mit globalen Variablen auf verschiedene Stufen gesetzt werden kann. Dies soll dazu führen die Fehlerbehebung im späteren Verlauf deutlich zu vereinfachen.
 
-<strong>Joshua</strong> und <strong>Marius</strong> werden zusammen an den Funktionen des Tamagotchis weiterarbeiten der erste Schritt wird sein die Bedürfniss Struktur durch neue Bedürfnisse, einer Zeitstruktur für diese und ein Interaktionssystem zwischen den Bedürfnissen sein, welches das Tamagotchi "realer" erscheinen lassen könnten.
+<strong>Joshua</strong> und <strong>Marius</strong> werden zusammen an den Funktionen des Tamagotchis weiterarbeiten. Der erste Schritt wwerden sein: Die Bedürfnissstruktur durch neue Bedürfnisse, einer Zeitstruktur für diese und ein Interaktionssystem zwischen den Bedürfnissen, welches das Tamagotchi "realer" erscheinen lassen könnten.
 
 
-Desweiteren wurde das Problem mit der Serialisierbarkeit und dem damit nicht möglichem Speichern und abrufen eines Spielstandes behoben.
-Es war nötig Statische Variablen in allen Klassen, welche mit dem Tamagotchi zusammen in einer Datei namens "Save.ser" gespeichert wurden zu entfernen und durch non-static Variablen zu ersetzen.
+Desweiteren wurde das Problem mit der Serialisierbarkeit und dem damit nicht möglichem Speichern und Abrufen eines Spielstandes behoben.
+Es war nötig Statische Variablen in allen Klassen, welche mit dem Tamagotchi zusammen in einer Datei namens "Save.ser" gespeichert wurden, zu entfernen und durch non-static Variablen zu ersetzen.
 
 Mit dem Eclipse-Plugin wurde ein UML-Klassendiagramm generiert, welches durch das simple Anwählen des Sourcecodes Relationen zwischen Klassen herstellt. Dieses Klassendiagramm ist im Repository unter dem Namen "UML_Activity_Diagramm.png" einzusehen.
 
@@ -144,7 +144,7 @@ Einführung von einer Game Over Funktion und Zentralisierung der Timer mit einer
 
 ### 17.12.2016
 
-Die Bedürfnisse Schlafen und Spielen wurden grundlegend kreirt. Diese können noch nicht mit den anderen Bedürfnissen Interagieren, zusätzlich muss die Game Over funktion dahingehend erweitert werden.
+Die Bedürfnisse Schlafen und Spielen wurden grundlegend kreiert. Diese können noch nicht mit den anderen Bedürfnissen Interagieren, zusätzlich muss die Game Over Funktion dahingehend erweitert werden.
 
 
 --------------------------------------------------
@@ -157,7 +157,7 @@ Game Over Funktion wurde fertiggestellt, zusätzlich wurde eine New Game Funktio
 
 ### 06.01.2017
 
-Die Bedürfnisse Spielen und Schlafen wurden in die Spielmechanik eingebracht und können Graphisch eingesehen werden. Buttons wurden eingefügt, mit welchen die neuen Bedürfnisse bedient werden können. Für die weiteren Schritte müssen nurnoch die Bedürfnisse untereinander Interagieren und die Zeitstrukturen so angepasst werden, dass es sich spielbarer anfühlt. 
+Die Bedürfnisse Spielen und Schlafen wurden in die Spielmechanik eingebracht und können graphisch eingesehen werden. Buttons wurden eingefügt, mit welchen die neuen Bedürfnisse bedient werden können. Für die weiteren Schritte müssen nurnoch die Bedürfnisse untereinander Interagieren und die Zeitstrukturen so angepasst werden, dass es sich spielbarer anfühlt. 
 
 ------------------------------------------------
 

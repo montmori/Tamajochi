@@ -1,5 +1,6 @@
 # QUELLENVERZEICHNIS
 
+https://docs.oracle.com/javase/8/docs/api *(__Stand:__ 02.03.2017)*
 
 http://www.java-tutorial.org/swing.html *(__Stand:__ 23.07.2016)*
 

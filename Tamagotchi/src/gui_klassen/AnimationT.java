@@ -45,7 +45,7 @@ public class AnimationT implements Runnable{
 		}
 		
 		this.timer = new ScheduledThreadPoolExecutor(0);
-		this.timer.scheduleAtFixedRate(this, 1, 1, TimeUnit.SECONDS);
+		this.timer.scheduleAtFixedRate(this, 100, 100, TimeUnit.MILLISECONDS);
 		
 	}
 	

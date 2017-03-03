@@ -6,7 +6,7 @@ public interface SpielWerte {
 	public static final int BALL_H = -1;
  	public static final int BALL_T = -1;
 	public static final int BALL_M = -2;
-	public static final int BALLSPIELDAUER = 27;
+	public static final int BALLSPIELDAUER = 4;
  	
 	
 	
@@ -15,7 +15,7 @@ public interface SpielWerte {
 	public static final int FADEN_H = -1;
 	public static final int FADEN_T = -1;
 	public static final int FADEN_M = -2;
-	public static final int FADENSPIELDAUER = 15;
+	public static final int FADENSPIELDAUER = 7;
 	
 	
 }

@@ -2,19 +2,13 @@ package listener;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 
-import tamagotchi_klassen.Tamagotchi;
+import game.Game;
 
 public class Windowflauscher implements WindowListener {
    
-	private Tamagotchi t;
 
-	public Windowflauscher(Tamagotchi t){
-		this.t = t;
+	public Windowflauscher(){
 	}
 	@Override
 	public void windowActivated(WindowEvent arg0) {
@@ -30,21 +24,7 @@ public class Windowflauscher implements WindowListener {
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {
-		FileOutputStream f;
-		ObjectOutputStream o;
-		try {
-			
-			f = new FileOutputStream("Save.ser");
-			o = new ObjectOutputStream(f);
-			o.writeObject(t);
-			o.flush();
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		Game.getGame().saveTamagotchiInstance();
 	}
 
 	@Override

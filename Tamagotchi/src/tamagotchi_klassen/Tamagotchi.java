@@ -7,7 +7,7 @@ import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
 import beduerfnis_klassen.Langeweile;
 import beduerfnis_klassen.Muedigkeit;
-import gui_klassen.mainWindow.Spielfenster;
+import game.Game;
 import nahrungs_klassen.Apfel;
 import nahrungs_klassen.Banane;
 import nahrungs_klassen.Cola;
@@ -120,7 +120,7 @@ public abstract class Tamagotchi implements Serializable{
 	}
 	
 	public void gameOver(){
-		Spielfenster.gameOver();
+		Game.getGame().gameOver();
 		zeroBeduerfnisse();
 		
 	}

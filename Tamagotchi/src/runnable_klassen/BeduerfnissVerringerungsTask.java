@@ -1,11 +1,9 @@
 package runnable_klassen;
 
-import java.util.TimerTask;
-
 import beduerfnis_klassen.Beduerfnis;
 import beduerfnis_klassen.VerringerungsWerte;
 
-public class BeduerfnissVerringerungsTask extends TimerTask implements VerringerungsWerte{
+public class BeduerfnissVerringerungsTask implements VerringerungsWerte, Runnable{
 
 	private Beduerfnis beduerfnis;
 	private int subtraktionswert;

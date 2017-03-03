@@ -3,7 +3,7 @@ package nahrungs_klassen;
 public interface NahrungsWerte {
 
 	//Essen
-	public static final int ESSDAUER = 10;
+	public static final int ESSDAUER = 3;
 	
 	public static final int BANANE = 5;
 	

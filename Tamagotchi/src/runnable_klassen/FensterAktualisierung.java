@@ -1,10 +1,8 @@
 package runnable_klassen;
 
-import java.util.TimerTask;
-
 import gui_klassen.mainWindow.Spielfenster;
 
-public class FensterAktualisierung extends TimerTask {
+public class FensterAktualisierung implements Runnable {
 
 	private Spielfenster f;
 	

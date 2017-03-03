@@ -13,6 +13,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import game.Game;
 import tamagotchi_klassen.Tamagotchi;
 
 public class GamePanel extends JPanel {
@@ -32,8 +33,8 @@ public class GamePanel extends JPanel {
 	private int heightMultiplier;
 	
 	
-	public GamePanel(Tamagotchi t, Dimension d){
-		this.tamagotchi = t;
+	public GamePanel(Dimension d){
+		this.tamagotchi = Game.getGame().getTamagotchi();
 		this.tamaName = this.tamagotchi.getName();
 		gameOver = !this.tamagotchi.isLebendig();
 		this.setPreferredSize(d);

@@ -2,19 +2,13 @@ package listener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 
-import tamagotchi_klassen.Tamagotchi;
+import game.Game;
 
 public class ActionBeenden implements ActionListener {
 	
-	private Tamagotchi t;
 	
-	public ActionBeenden(Tamagotchi t){
-		this.t = t;
+	public ActionBeenden(){
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -23,21 +17,7 @@ public class ActionBeenden implements ActionListener {
 
 	private void saveAndExit(){
 		
-		
-		FileOutputStream f;
-		ObjectOutputStream o;
-		try {
-			
-			f = new FileOutputStream("Save.ser");
-			o = new ObjectOutputStream(f);
-			o.writeObject(t);
-			o.flush();
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Game.getGame().saveTamagotchiInstance();
 		
 		System.exit(0);
 	}

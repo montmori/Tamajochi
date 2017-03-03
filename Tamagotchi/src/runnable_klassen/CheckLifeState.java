@@ -1,10 +1,8 @@
 package runnable_klassen;
 
-import java.util.TimerTask;
-
 import tamagotchi_klassen.Tamagotchi;
 
-public class CheckLifeState extends TimerTask {
+public class CheckLifeState implements Runnable {
 
 	private Tamagotchi t;
 	

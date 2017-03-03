@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import debugInterface.Debugable;
+import game.Game;
 
 public class AnimationT implements Runnable{
 
@@ -24,15 +25,18 @@ public class AnimationT implements Runnable{
 	private ScheduledThreadPoolExecutor timer;
 
 	
-	public AnimationT(){
-		
+	public AnimationT(){		
+
+		int userWidth = Game.getGame().getUserSize().getWidth() == 600 ? 400 :(int)(Game.getGame().getUserSize().getWidth() - 320);
+		int userHeight = (int)(Game.getGame().getUserSize().getHeight() - 180);
+	
 		this.bildArray = new ImageIcon[this.BILDANZAHL];
 		this.zaehler = this.BILDANZAHL/2;
 		
 		try {
 			for(int i = 0; i < this.BILDANZAHL; i++){
 				Image temp = ImageIO.read(new File("Images/tamagotchiNormal" + i + ".png"));
-				temp = temp.getScaledInstance(1920/2, 1080/2, 32);
+				temp = temp.getScaledInstance(userWidth, userHeight, Image.SCALE_SMOOTH);
 				this.bildArray[i] = new ImageIcon(temp);
 			}
 			

@@ -1,7 +1,6 @@
 package game;
 
 import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

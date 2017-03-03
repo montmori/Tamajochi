@@ -26,6 +26,8 @@ public class GamePanel extends JPanel {
 	private boolean gameOver;
 	private Tamagotchi tamagotchi;
 	private String tamaName;
+	private int tamaXstart;
+	private int tamaYstart;
 	
 	private AnimationT animation;
 	
@@ -46,6 +48,33 @@ public class GamePanel extends JPanel {
 		this.durst = null;
 		this.langeweile = null;
 		this.muedigkeit = null;
+		
+		switch((int)d.getWidth()){	
+		case 1024:
+			this.tamaXstart = 85;
+			this.tamaYstart = 50;
+			break;
+		case 1280:
+			this.tamaXstart = 70;
+			this.tamaYstart = 20;
+			break;
+		case 1100:
+			this.tamaXstart = 80;
+			this.tamaYstart = 40;
+			break;
+		case 819:
+			this.tamaXstart = 100;
+			this.tamaYstart = 70;
+			break;
+		case 768:
+			this.tamaXstart = 100;
+			this.tamaYstart = 75;
+			break;
+		case 480:
+			this.tamaXstart = 65;
+			this.tamaYstart = 80;
+			break;
+		}
 		
 		this.animation = new AnimationT();
 		
@@ -126,7 +155,7 @@ public class GamePanel extends JPanel {
 		
 		ImageIcon printImage = this.animation.getCurrentBild();
 		if(printImage.getImageLoadStatus() == MediaTracker.COMPLETE){
-			printImage.paintIcon(this, g, 100, 50);
+			printImage.paintIcon(this, g, this.tamaXstart, this.tamaYstart);
 		}
 	}
 	

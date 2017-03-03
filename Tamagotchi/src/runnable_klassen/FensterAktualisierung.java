@@ -1,8 +1,8 @@
-package timerTask_klassen;
+package runnable_klassen;
 
 import java.util.TimerTask;
 
-import gui_klassen.Spielfenster;
+import gui_klassen.mainWindow.Spielfenster;
 
 public class FensterAktualisierung extends TimerTask {
 

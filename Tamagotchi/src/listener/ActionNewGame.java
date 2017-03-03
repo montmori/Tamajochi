@@ -3,7 +3,7 @@ package listener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import gui_klassen.Spielfenster;
+import gui_klassen.mainWindow.Spielfenster;
 
 public class ActionNewGame implements ActionListener {
 

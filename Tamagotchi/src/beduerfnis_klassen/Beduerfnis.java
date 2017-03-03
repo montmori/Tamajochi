@@ -3,7 +3,7 @@ package beduerfnis_klassen;
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
-import timerTask_klassen.OwnTimer;
+import runnable_klassen.OwnTimer;
 
 public abstract class Beduerfnis implements BeduerfnisWerte, Serializable{
 	

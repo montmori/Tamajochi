@@ -1,4 +1,4 @@
-package gui_klassen;
+package gui_klassen.mainWindow;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -18,11 +18,11 @@ import javax.swing.JMenuItem;
 import listener.ActionBeenden;
 import listener.ActionNewGame;
 import listener.Windowflauscher;
+import runnable_klassen.CheckLifeState;
+import runnable_klassen.FensterAktualisierung;
+import runnable_klassen.OwnTimer;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
-import timerTask_klassen.CheckLifeState;
-import timerTask_klassen.FensterAktualisierung;
-import timerTask_klassen.OwnTimer;
 
 public class Spielfenster extends JFrame {
 

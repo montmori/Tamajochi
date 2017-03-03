@@ -7,7 +7,7 @@ import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
 import beduerfnis_klassen.Langeweile;
 import beduerfnis_klassen.Muedigkeit;
-import gui_klassen.Spielfenster;
+import gui_klassen.mainWindow.Spielfenster;
 import nahrungs_klassen.Apfel;
 import nahrungs_klassen.Banane;
 import nahrungs_klassen.Cola;

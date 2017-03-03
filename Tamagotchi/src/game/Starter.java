@@ -4,7 +4,7 @@ package game;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-import gui_klassen.Spielfenster;
+import gui_klassen.mainWindow.Spielfenster;
 
 public class Starter {
 	

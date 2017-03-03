@@ -2,7 +2,7 @@ package beduerfnis_klassen;
 
 import java.io.Serializable;
 
-import timerTask_klassen.BeduerfnissVerringerungsTask;
+import runnable_klassen.BeduerfnissVerringerungsTask;
 
 public class Durst extends Beduerfnis implements Serializable{
 

@@ -1,6 +1,6 @@
 package beduerfnis_klassen;
 
-import timerTask_klassen.BeduerfnissVerringerungsTask;
+import runnable_klassen.BeduerfnissVerringerungsTask;
 
 public class Hunger extends Beduerfnis{
 

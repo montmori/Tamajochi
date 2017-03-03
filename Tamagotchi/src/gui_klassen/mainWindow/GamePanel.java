@@ -1,4 +1,4 @@
-package gui_klassen;
+package gui_klassen.mainWindow;
 
 import java.awt.Color;
 import java.awt.Dimension;

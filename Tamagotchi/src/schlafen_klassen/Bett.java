@@ -2,9 +2,9 @@ package schlafen_klassen;
 
 import java.util.concurrent.TimeUnit;
 
-import gui_klassen.ButtonPanel;
+import gui_klassen.mainWindow.ButtonPanel;
+import runnable_klassen.OwnTimer;
 import tamagotchi_klassen.Tamagotchi;
-import timerTask_klassen.OwnTimer;
 
 public class Bett extends SchlafensOrt{
 

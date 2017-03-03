@@ -188,3 +188,10 @@ Die Darstellung wurde an den Hintergrund angepasst. Oben rechts wird nun auch de
 Die Spiellogik war bis jetzt fest mit der GUI verankert und dadurch nur in unserem Haupt-JFrame vorzufinden, dadurch mussten auch viele Werte doppelt und dreifach übergeben werden. Mit einer neuen Änderug wurde dies größtenteils behoben, da nun die Spiellogik in einer eigenen Klasse ist, von der man Attribute abfragen oder bestimmte Ereignisse (z.B. Game Over) durch einzelne Methoden auslösen kann.
 
 Der nächste Große Punkt ist die Skalierbarkeit des Bildschirms, beim Start des Spiels wird nun abgefragt, welche Aufösung der User den gerne hätte. Dementsprechend werden auch GUI Elemente auf diese Größe angepasst. Das Ändern der Auflösung während des Spiels ist allerdings weiterhin nicht gewährleistet.
+
+---------------------------------------------
+
+###03.03.2017
+
+Animation wurde an die verschiedenen Auflösungen angepasst.
+X- und Y-Startwert der Bilder ist momentan mit einem Switch case festgelegt, weil mir kein Algorithmus der passt eingefallen ist...

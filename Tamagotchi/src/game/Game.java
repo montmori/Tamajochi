@@ -10,6 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.concurrent.TimeUnit;
 
 import gui_klassen.abfragefenster.ResolutionAbfragefenster;
+import gui_klassen.abfragefenster.UserStringInputAbfragefenster;
 import gui_klassen.mainWindow.Spielfenster;
 import runnable_klassen.CheckLifeState;
 import runnable_klassen.OwnTimer;
@@ -67,7 +68,7 @@ public class Game {
 		loadTamagotchiInstance();
 		
 		if(this.tamagotchi == null){
-			this.tamagotchi = new Viech();
+			this.tamagotchi = new Viech(Game.getUserStringInput());
 		}
 		
 		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
@@ -89,10 +90,17 @@ public class Game {
 		
 	}
 
+	public static String getUserStringInput() {
+		UserStringInputAbfragefenster usi = new UserStringInputAbfragefenster("Teststring welcher als Test dient!");
+		
+		
+		return usi.getUserInput();
+	}
+	
 	public void newGame(){
 		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
-		this.tamagotchi.newGame();		
+		this.tamagotchi.newGame(getUserStringInput());		
 	}
 
 	public void saveTamagotchiInstance() {

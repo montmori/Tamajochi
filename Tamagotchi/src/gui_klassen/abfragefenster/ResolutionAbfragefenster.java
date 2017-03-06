@@ -2,6 +2,7 @@ package gui_klassen.abfragefenster;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Enumeration;
@@ -17,15 +18,11 @@ import javax.swing.JTextField;
 public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 
 	private final Dimension[] aufloesungen = new Dimension[]{new Dimension(1600,900), new Dimension(1376,768), new Dimension(1280,720)
-																, new Dimension(1024,600), new Dimension(960,540), new Dimension(600,480)};
-	
+															, new Dimension(1024,600), new Dimension(960,540), new Dimension(600,480)};
 	private final String[] aufloesungenAsString = new String[]{"1600x900","1376x768","1280x720","1024x600","960x540", "600x480"};
 	
-	
-	
-	
 	private static final long serialVersionUID = 1L;
-	private final Dimension THISRESOLUTION = new Dimension(300,300);
+	private final Dimension THISRESOLUTION;
 	private ButtonGroup resolutionButtons;
 	boolean selected;
 	
@@ -33,12 +30,14 @@ public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 	public ResolutionAbfragefenster(){
 	
 		selected = false;
+		this.THISRESOLUTION = new Dimension(300,300);
 		this.setTitle("Resolution");
 		this.setResizable(false);
 		this.setSize(this.THISRESOLUTION);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 30));
-
+		this.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - this.THISRESOLUTION.width/2
+						,Toolkit.getDefaultToolkit().getScreenSize().height/2 - this.THISRESOLUTION.height/2);
 		initPanel();
 
 		this.setVisible(true);

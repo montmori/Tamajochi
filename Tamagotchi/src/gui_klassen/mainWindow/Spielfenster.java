@@ -2,6 +2,7 @@ package gui_klassen.mainWindow;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -48,6 +49,8 @@ public class Spielfenster extends JFrame {
 	}
 
 	private void initWindow(Dimension size){
+		this.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - size.width/2
+				,Toolkit.getDefaultToolkit().getScreenSize().height/2 - size.height/2);
 		this.setTitle(FENSTERNAME);
 		this.setResizable(false);
 		this.setSize(size);

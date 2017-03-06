@@ -43,11 +43,11 @@ private static final long serialVersionUID = 7102825756447706790L;
 	 * Tamagotchi wird erstellt und benannt.
 	 * Hunger und Durst werden auf ein Default von 100Prozent gesetzt.
 	 */
-	public Tamagotchi(){
+	public Tamagotchi(String name){
 		this.lebendig = true;
 
 		
-		this.name = Tamagotchi.promptUserForName();
+		this.setName(name);
 		
 		this.beduerfnisse = new Beduerfnis[]{new Hunger(50), new Durst(50), new Muedigkeit(50), new Langeweile(50)};
 		this.essenArray = new Nahrung[]{new Apfel(this), new Banane(this), new Fleisch(this), new Keks(this)};
@@ -138,8 +138,8 @@ private static final long serialVersionUID = 7102825756447706790L;
 		return lebendig;
 	}
 	
-	public void newGame(){
-		this.name = Tamagotchi.promptUserForName();
+	public void newGame(String name){
+		this.name = name;
 		this.beduerfnisse[0] = new Hunger(50);
 		this.beduerfnisse[1] = new Durst(50);
 		this.beduerfnisse[2] = new Muedigkeit(50);
@@ -147,9 +147,5 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.lebendig = true;
 	}
 
-	public static String promptUserForName() {
-		
-		
-		return "Friedrich";
-	}
+
 }

@@ -19,13 +19,13 @@ public class Bett extends SchlafensOrt{
 	}
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, BETTSCHLAFDAUER, TimeUnit.SECONDS);
 	}
 	
 	public void run(){
 		this.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(BETT);
 		this.tamagotchi.getLangeweile().veraendereBeduerfnisWert(BETT_S);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 }

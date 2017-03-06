@@ -24,7 +24,7 @@ public class Fleisch extends Nahrung{
 	
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
@@ -32,6 +32,6 @@ public class Fleisch extends Nahrung{
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(FLEISCH);
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(FLEISCH_T);
 		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(FLEISCH_M);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 }

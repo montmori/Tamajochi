@@ -27,7 +27,7 @@ public class OwnTimer{
 		
 	}
 	
-	public static void stopTimer(){
+	public static void clearTimer(){
 		s = new ScheduledThreadPoolExecutor(0);
 	}
 	

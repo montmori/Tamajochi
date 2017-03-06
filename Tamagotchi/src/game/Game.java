@@ -9,8 +9,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.concurrent.TimeUnit;
 
+import gui_klassen.abfragefenster.ResolutionAbfragefenster;
 import gui_klassen.mainWindow.Spielfenster;
-import gui_klassen.resolutionAbfrage.Abfragefenster;
 import runnable_klassen.CheckLifeState;
 import runnable_klassen.OwnTimer;
 import tamagotchi_klassen.Tamagotchi;
@@ -21,14 +21,11 @@ public class Game {
 	private static Game game = null;
 	private Spielfenster fenster;
 	private Tamagotchi tamagotchi;
-	private Dimension userSize;
+	private Dimension userResolution;
 	
 	
 	
-	public Game(){
-		
-
-	}
+	public Game(){}
 	
 	public void start(){
 		Dimension size = getWindowSize();
@@ -52,23 +49,17 @@ public class Game {
 		return this.fenster;
 	}
 
-	private String getTamagotchiName() {		
-		return "Bernd";
-	}
-
 	public Dimension getUserSize(){
-		
-		return this.userSize;
+		return this.userResolution;
 	}
 	
 	private Dimension getWindowSize() {
 
-		Abfragefenster resolution = new Abfragefenster();
-		this.userSize = resolution.getUserPreferredSize();
+		ResolutionAbfragefenster resolution = new ResolutionAbfragefenster();
+		this.userResolution = resolution.getUserPreferredSize();
 		
-		return this.userSize;
+		return this.userResolution;
 	}
-	
 	
 	
 	private void initTamagotchiInstance() {
@@ -76,33 +67,30 @@ public class Game {
 		loadTamagotchiInstance();
 		
 		if(this.tamagotchi == null){
-			this.tamagotchi = new Viech(this.getTamagotchiName());
+			this.tamagotchi = new Viech();
 		}
 		
-		OwnTimer.queueTask(new CheckLifeState(this.tamagotchi), 100, 100, TimeUnit.MILLISECONDS);
+		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
 	}
 	
 	
 	private void BeduerfnisTaskStart() {
-		this.tamagotchi.getDurst().startTask(this.tamagotchi.getDurst());
-		this.tamagotchi.getHunger().startTask(this.tamagotchi.getHunger());
-		this.tamagotchi.getMuedigkeit().startTask(this.tamagotchi.getMuedigkeit());
-		this.tamagotchi.getLangeweile().startTask(this.tamagotchi.getLangeweile());
-		
+		this.tamagotchi.getDurst().startTask();
+		this.tamagotchi.getHunger().startTask();
+		this.tamagotchi.getMuedigkeit().startTask();
+		this.tamagotchi.getLangeweile().startTask();
 	}
-	
 	
 
 	public void gameOver(){
-		OwnTimer.stopTimer();
-		fenster.getGamePanel().gameOver();
-		fenster.getButtonPanel().gameOver();
+		OwnTimer.clearTimer();
+		this.tamagotchi.gameOver();
+		this.fenster.getButtonPanel().gameOver();
 		
 	}
 
 	public void newGame(){
-		OwnTimer.stopTimer();
-		fenster.getGamePanel().newGame();
+		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
 		this.tamagotchi.newGame();		
 	}

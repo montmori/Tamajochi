@@ -8,19 +8,19 @@ public class Muedigkeit extends Beduerfnis{
 
 	public Muedigkeit(int wert) {
 		super(wert, BeduerfnisWerte.MAXMUEDIGKEIT, BeduerfnisWerte.MINMUEDIGKEIT);
-		this.startTask(this);
+		this.startTask();
 	}
 
 	public int getWert() {
 		return super.wert;
 	}
 	
-	public void startTask(Beduerfnis b){
+	public void startTask(){
 		
-		int periodTime = MUEDIGKEITPT;
+		int periodTime = BeduerfnisWerte.MUEDIGKEITPT;
 		int initialDelay = periodTime;
 		
-		super.startTask(new BeduerfnissVerringerungsTask(b, VerringerungsWerte.MUEDIGKEIT), initialDelay, periodTime);
+		super.startTask(new BeduerfnissVerringerungsTask(this, VerringerungsWerte.MUEDIGKEIT), initialDelay, periodTime);
 	}
 
 }

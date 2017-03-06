@@ -20,14 +20,14 @@ public class Salzwasser extends Nahrung {
 	}
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
 	public void run(){		
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(SALZWASSER);
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(SALZWASSER_H);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 
 }

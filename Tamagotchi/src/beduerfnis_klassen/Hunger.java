@@ -9,19 +9,19 @@ public class Hunger extends Beduerfnis{
 	
 	public Hunger(int wert) {
 		super(wert, BeduerfnisWerte.MAXHUNGER, BeduerfnisWerte.MINHUNGER);
-		this.startTask(this);
+		this.startTask();
 	}
 
 	public int getWert() {
 		return super.wert;
 	}
 	
-	public void startTask(Beduerfnis b){
+	public void startTask(){
 		
-		int periodTime = HUNGERPT;
+		int periodTime = BeduerfnisWerte.HUNGERPT;
 		int initialDelay = periodTime;
 		
-		super.startTask(new BeduerfnissVerringerungsTask(b, VerringerungsWerte.HUNGER), initialDelay, periodTime);
+		super.startTask(new BeduerfnissVerringerungsTask(this, VerringerungsWerte.HUNGER), initialDelay, periodTime);
 	}
 
 	

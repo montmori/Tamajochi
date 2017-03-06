@@ -11,7 +11,7 @@ public class Durst extends Beduerfnis implements Serializable{
 
 	public Durst(int wert) {
 		super(wert, BeduerfnisWerte.MAXDURST, BeduerfnisWerte.MINDURST);
-		this.startTask(this);
+		this.startTask();
 	}
 
 	/*
@@ -23,11 +23,11 @@ public class Durst extends Beduerfnis implements Serializable{
 		return super.wert;
 	}
 	
-	public void startTask(Beduerfnis b){
+	public void startTask(){
 		
-		int periodTime = DURSTPT;
+		int periodTime = BeduerfnisWerte.DURSTPT;
 		int initialDelay = periodTime;
 		
-		super.startTask(new BeduerfnissVerringerungsTask(b, VerringerungsWerte.DURST), initialDelay, periodTime);
+		super.startTask(new BeduerfnissVerringerungsTask(this, VerringerungsWerte.DURST), initialDelay, periodTime);
 	}
 }

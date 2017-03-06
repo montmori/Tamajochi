@@ -8,7 +8,7 @@ public class Langeweile extends Beduerfnis{
 
 	public Langeweile(int wert) {
 		super(wert, BeduerfnisWerte.MAXLANGEWEILE, BeduerfnisWerte.MINLANGEWEILE);
-		this.startTask(this);
+		this.startTask();
 	}
 
 
@@ -16,12 +16,12 @@ public class Langeweile extends Beduerfnis{
 		return super.wert;
 	}
 	
-	public void startTask(Beduerfnis b){
+	public void startTask(){
 		
-		int periodTime = LANGEWEILEPT;
+		int periodTime = BeduerfnisWerte.LANGEWEILEPT;
 		int initialDelay = periodTime;
 		
-		super.startTask(new BeduerfnissVerringerungsTask(b, VerringerungsWerte.LANGEWEILE), initialDelay, periodTime);
+		super.startTask(new BeduerfnissVerringerungsTask(this, VerringerungsWerte.LANGEWEILE), initialDelay, periodTime);
 	}
 
 }

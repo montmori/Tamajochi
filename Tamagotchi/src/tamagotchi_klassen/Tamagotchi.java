@@ -7,7 +7,6 @@ import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
 import beduerfnis_klassen.Langeweile;
 import beduerfnis_klassen.Muedigkeit;
-import game.Game;
 import nahrungs_klassen.Apfel;
 import nahrungs_klassen.Banane;
 import nahrungs_klassen.Cola;
@@ -30,7 +29,7 @@ import spielen_klassen.Spielmoeglichkeit;
  */
 public abstract class Tamagotchi implements Serializable{
 
-	private static final long serialVersionUID = 7102825756447706790L;
+private static final long serialVersionUID = 7102825756447706790L;
 	private String name;
 	private Beduerfnis[] beduerfnisse;
 	private Nahrung[] essenArray;
@@ -44,11 +43,11 @@ public abstract class Tamagotchi implements Serializable{
 	 * Tamagotchi wird erstellt und benannt.
 	 * Hunger und Durst werden auf ein Default von 100Prozent gesetzt.
 	 */
-	public Tamagotchi(String name){
+	public Tamagotchi(){
 		this.lebendig = true;
 
 		
-		this.name = name;
+		this.name = Tamagotchi.promptUserForName();
 		
 		this.beduerfnisse = new Beduerfnis[]{new Hunger(50), new Durst(50), new Muedigkeit(50), new Langeweile(50)};
 		this.essenArray = new Nahrung[]{new Apfel(this), new Banane(this), new Fleisch(this), new Keks(this)};
@@ -120,16 +119,13 @@ public abstract class Tamagotchi implements Serializable{
 	}
 	
 	public void gameOver(){
-		Game.getGame().gameOver();
 		zeroBeduerfnisse();
-		
 	}
 
 	private void zeroBeduerfnisse() {
-		this.beduerfnisse[0].killed();
-		this.beduerfnisse[1].killed();
-		this.beduerfnisse[2].killed();
-		this.beduerfnisse[3].killed();
+		for(Beduerfnis x : this.beduerfnisse){
+			x.killed();
+		}
 	}
 
 	public boolean isLebendig(){
@@ -143,10 +139,17 @@ public abstract class Tamagotchi implements Serializable{
 	}
 	
 	public void newGame(){
+		this.name = Tamagotchi.promptUserForName();
 		this.beduerfnisse[0] = new Hunger(50);
 		this.beduerfnisse[1] = new Durst(50);
 		this.beduerfnisse[2] = new Muedigkeit(50);
 		this.beduerfnisse[3] = new Langeweile(50);
 		this.lebendig = true;
+	}
+
+	public static String promptUserForName() {
+		
+		
+		return "Friedrich";
 	}
 }

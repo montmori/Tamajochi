@@ -8,8 +8,8 @@ public class Viech extends Tamagotchi {
 
 	private static final long serialVersionUID = 839775627097813343L;
 
-	public Viech(String name){
-		super(name);
+	public Viech(){
+		super();
 	}
 	
 	

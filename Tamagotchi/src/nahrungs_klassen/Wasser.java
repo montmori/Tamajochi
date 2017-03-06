@@ -28,13 +28,13 @@ public class Wasser extends Nahrung {
 	
 
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
 	public void run(){		
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(WASSER);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 
 }

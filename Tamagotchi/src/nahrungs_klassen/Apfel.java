@@ -1,4 +1,4 @@
-package nahrungs_klassen;
+ package nahrungs_klassen;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,14 +22,14 @@ public class Apfel extends Nahrung{
 	}
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
 	public void run(){
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(APFEL);
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(APFEL_T);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 
 }

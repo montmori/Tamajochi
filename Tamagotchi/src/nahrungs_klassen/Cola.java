@@ -26,7 +26,7 @@ public class Cola extends Nahrung {
 	}
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
@@ -34,7 +34,7 @@ public class Cola extends Nahrung {
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(COLA);
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(COLA_H);
 		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(COLA_M);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 
 }

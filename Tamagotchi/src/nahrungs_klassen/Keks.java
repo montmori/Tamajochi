@@ -23,14 +23,14 @@ public class Keks extends Nahrung{
 	}
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
 	public void run(){
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(KEKS);
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(KEKS_T);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 	
 

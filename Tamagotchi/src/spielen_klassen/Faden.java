@@ -19,7 +19,7 @@ public class Faden extends Spielmoeglichkeit {
 	}
 
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, FADENSPIELDAUER, TimeUnit.SECONDS);
 	}
 	
@@ -28,7 +28,7 @@ public class Faden extends Spielmoeglichkeit {
 		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(FADEN_M);
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(FADEN_T);
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(FADEN_H);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 	
 }

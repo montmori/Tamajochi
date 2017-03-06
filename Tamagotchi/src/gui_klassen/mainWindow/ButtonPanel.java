@@ -63,7 +63,7 @@ public class ButtonPanel extends JPanel{
 		addTrinken();
 		addSchlafen();
 		addSpielen();
-		
+		 
 		
 	}
 	
@@ -207,44 +207,29 @@ public class ButtonPanel extends JPanel{
 	}
 
 	public void gameOver() {
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		
 	}
 
 	public void newGame() {
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 	
-	public static void disableButtons(){
+	public static void setButtonsEnabled(boolean state){
 		for(Component x : ButtonPanel.essenMenu.getComponents()){
-			x.setEnabled(false);
+			x.setEnabled(state);
 		}
 		for(Component x : ButtonPanel.trinkenMenu.getComponents()){
-			x.setEnabled(false);
+			x.setEnabled(state);
 		}
 		for(Component x : ButtonPanel.schlafenMenu.getComponents()){
-			x.setEnabled(false);
+			x.setEnabled(state);
 		}
 		for(Component x : ButtonPanel.spielenMenu.getComponents()){
-			x.setEnabled(false);
+			x.setEnabled(state);
 		}
 	}
-	
-	public static void enableButtons(){
-		for(Component x : ButtonPanel.essenMenu.getComponents()){
-			x.setEnabled(true);
-		}
-		for(Component x : ButtonPanel.trinkenMenu.getComponents()){
-			x.setEnabled(true);
-		}
-		for(Component x : ButtonPanel.schlafenMenu.getComponents()){
-			x.setEnabled(true);
-		}
-		for(Component x : ButtonPanel.spielenMenu.getComponents()){
-			x.setEnabled(true);
-		}
-		
-	}
+
 
 //	public void paint(Graphics g){
 //		int b = this.getWidth() - 1;

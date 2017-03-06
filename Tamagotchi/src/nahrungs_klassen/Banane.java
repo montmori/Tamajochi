@@ -24,13 +24,13 @@ public class Banane extends Nahrung{
 	}
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
 	public void run(){
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(BANANE);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 
 }

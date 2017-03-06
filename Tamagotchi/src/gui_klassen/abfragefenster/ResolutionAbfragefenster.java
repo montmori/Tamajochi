@@ -1,4 +1,4 @@
-package gui_klassen.resolutionAbfrage;
+package gui_klassen.abfragefenster;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class Abfragefenster extends JFrame implements ActionListener{
+public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 
 	private final Dimension[] aufloesungen = new Dimension[]{new Dimension(1600,900), new Dimension(1376,768), new Dimension(1280,720)
 																, new Dimension(1024,600), new Dimension(960,540), new Dimension(600,480)};
@@ -30,7 +30,7 @@ public class Abfragefenster extends JFrame implements ActionListener{
 	boolean selected;
 	
 	
-	public Abfragefenster(){
+	public ResolutionAbfragefenster(){
 	
 		selected = false;
 		this.setTitle("Resolution");

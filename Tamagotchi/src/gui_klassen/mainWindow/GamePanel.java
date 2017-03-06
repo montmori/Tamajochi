@@ -23,9 +23,7 @@ public class GamePanel extends JPanel {
 	private Image durst;
 	private Image langeweile;
 	private Image muedigkeit;
-	private boolean gameOver;
 	private Tamagotchi tamagotchi;
-	private String tamaName;
 	private int tamaXstart;
 	private int tamaYstart;
 	
@@ -37,8 +35,7 @@ public class GamePanel extends JPanel {
 	
 	public GamePanel(Dimension d){
 		this.tamagotchi = Game.getGame().getTamagotchi();
-		this.tamaName = this.tamagotchi.getName();
-		gameOver = !this.tamagotchi.isLebendig();
+
 		this.setPreferredSize(d);
 		
 		this.widthMultiplier = 10;
@@ -49,32 +46,7 @@ public class GamePanel extends JPanel {
 		this.langeweile = null;
 		this.muedigkeit = null;
 		
-		switch((int)d.getWidth()){	
-		case 1024:
-			this.tamaXstart = 85;
-			this.tamaYstart = 50;
-			break;
-		case 1280:
-			this.tamaXstart = 70;
-			this.tamaYstart = 20;
-			break;
-		case 1100:
-			this.tamaXstart = 80;
-			this.tamaYstart = 40;
-			break;
-		case 819:
-			this.tamaXstart = 100;
-			this.tamaYstart = 70;
-			break;
-		case 768:
-			this.tamaXstart = 100;
-			this.tamaYstart = 75;
-			break;
-		case 480:
-			this.tamaXstart = 65;
-			this.tamaYstart = 80;
-			break;
-		}
+		defineXYValue(d);
 		
 		this.animation = new AnimationT();
 		
@@ -102,6 +74,35 @@ public class GamePanel extends JPanel {
 		
 	}
 	
+	private void defineXYValue(Dimension d) {
+		switch((int)d.getWidth()){	
+		case 1024:
+			this.tamaXstart = 85;
+			this.tamaYstart = 50;
+			break;
+		case 1280:
+			this.tamaXstart = 70;
+			this.tamaYstart = 20;
+			break;
+		case 1100:
+			this.tamaXstart = 80;
+			this.tamaYstart = 40;
+			break;
+		case 819:
+			this.tamaXstart = 100;
+			this.tamaYstart = 70;
+			break;
+		case 768:
+			this.tamaXstart = 100;
+			this.tamaYstart = 75;
+			break;
+		case 480:
+			this.tamaXstart = 65;
+			this.tamaYstart = 80;
+			break;
+		}
+	}
+
 	public void paint(Graphics g){
 		
 		int b = this.getWidth() - 1;
@@ -131,13 +132,13 @@ public class GamePanel extends JPanel {
 		
 		}
 		
-		if(gameOver){
+		if(!Game.getGame().getTamagotchi().isLebendig()){
 			g.setColor(Color.RED);
 			g.setFont(new Font(Font.MONOSPACED, Font.BOLD, 40 ));
-			g.drawString("Game Over!", (int) (b/2.5), h/2);
+			g.drawString(this.tamagotchi.getName() + " ist gestorben!", (int) (b/2.5), h/2);
 		}
 		else{
-			g.drawString(this.tamaName, this.getWidth() - this.tamaName.length()*5 - 40, 20);
+			g.drawString(this.tamagotchi.getName(), this.getWidth() - this.tamagotchi.getName().length()*5 - 40, 20);
 		}
 		
 		printBeduerfnis(g, beduerfnissbalkenXpara, hungerYpara, tamagotchi.getHunger().getWert());
@@ -188,16 +189,4 @@ public class GamePanel extends JPanel {
 		g.drawRect(startX, (int)startY, b, h);		
 	
 	}
-
-	public void gameOver() {
-		this.gameOver = true;
-	}
-
-	public void newGame() {
-		this.gameOver = false;
-		
-	}
-	
-	 
-
 }

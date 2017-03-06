@@ -19,7 +19,7 @@ public class Ball extends Spielmoeglichkeit {
 	}
 
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, FADENSPIELDAUER, TimeUnit.SECONDS);
 	}
 	
@@ -28,6 +28,6 @@ public class Ball extends Spielmoeglichkeit {
 		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(BALL_M);
 		super.tamagotchi.getDurst().veraendereBeduerfnisWert(BALL_T);
 		super.tamagotchi.getHunger().veraendereBeduerfnisWert(BALL_H);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 }

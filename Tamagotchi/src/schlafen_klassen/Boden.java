@@ -19,13 +19,13 @@ public class Boden extends SchlafensOrt{
 	}
 	
 	public void beBusy(){
-		ButtonPanel.disableButtons();
+		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, BODENSCHLAFDAUER, TimeUnit.SECONDS);
 	}
 	
 	public void run(){
 		this.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(BODEN);
 		this.tamagotchi.getLangeweile().veraendereBeduerfnisWert(BODEN_S);
-		ButtonPanel.enableButtons();
+		ButtonPanel.setButtonsEnabled(true);
 	}
 }

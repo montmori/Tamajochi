@@ -1,19 +1,17 @@
 package runnable_klassen;
 
-import tamagotchi_klassen.Tamagotchi;
+import game.Game;
 
 public class CheckLifeState implements Runnable {
-
-	private Tamagotchi t;
 	
-	public CheckLifeState(Tamagotchi t){
-		this.t = t;
+	public CheckLifeState(){
+		
 	}
 	@Override
 	public void run() {
 
-		if(!t.isLebendig()){
-			t.gameOver();
+		if(!Game.getGame().getTamagotchi().isLebendig()){
+			Game.getGame().gameOver();
 		}
 
 	}

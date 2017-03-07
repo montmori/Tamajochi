@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 
 import debugInterface.Debugable;
 import game.Game;
+import runnable_klassen.OwnTimer;
 
 public class AnimationT implements Runnable{
 
@@ -48,7 +49,7 @@ public class AnimationT implements Runnable{
 			}
 		}
 		
-		this.timer = new ScheduledThreadPoolExecutor(0);
+		this.timer = new ScheduledThreadPoolExecutor(OwnTimer.EXECUTOR_CORE_POOL_SIZE);
 		this.timer.scheduleAtFixedRate(this, 100, 100, TimeUnit.MILLISECONDS);
 		
 	}

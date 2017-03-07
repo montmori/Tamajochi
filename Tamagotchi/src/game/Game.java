@@ -68,7 +68,7 @@ public class Game {
 		loadTamagotchiInstance();
 		
 		if(this.tamagotchi == null){
-			this.tamagotchi = new Viech(Game.getUserStringInput());
+			this.tamagotchi = new Viech(Game.getUserStringInput("Teststring welcher als Test dient!"));
 		}
 		
 		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
@@ -89,18 +89,19 @@ public class Game {
 		this.fenster.getButtonPanel().gameOver();
 		
 	}
-
-	public static String getUserStringInput() {
-		UserStringInputAbfragefenster usi = new UserStringInputAbfragefenster("Teststring welcher als Test dient!");
-		
-		usi.getUserInput();
-		return "Bernd";
-	}
 	
 	public void newGame(){
 		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
-		this.tamagotchi.newGame(getUserStringInput());		
+		this.tamagotchi.newGame(getUserStringInput("Teststring welcher als Test dient!"));		
+	}
+	
+	public static String getUserStringInput(String title) {
+		UserStringInputAbfragefenster usi = new UserStringInputAbfragefenster(title);
+		
+		usi.getUserInput();
+		
+		return "Bernd";
 	}
 
 	public void saveTamagotchiInstance() {

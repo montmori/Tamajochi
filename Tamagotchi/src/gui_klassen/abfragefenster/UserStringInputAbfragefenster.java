@@ -16,12 +16,11 @@ public class UserStringInputAbfragefenster extends JFrame implements KeyListener
 	private static final long serialVersionUID = 1L;
 	private String shownString;
 	private String UserInputValue;
-	private boolean accepted;
+	
 	
 	public UserStringInputAbfragefenster(String shownString){
 		this.UserInputValue = "";
 		this.shownString = shownString;
-		this.accepted = false;
 		
 		this.setEnabled(false);
 		this.setTitle("");
@@ -57,12 +56,11 @@ public class UserStringInputAbfragefenster extends JFrame implements KeyListener
 	}
 
 	public String getUserInput(){
-//		this.setVisible(true);
-//		this.setEnabled(true);
+		this.setVisible(true);
+		this.setEnabled(true);
 		
 		
-		
-//		this.setVisible(false);
+		this.setVisible(false);
 		return this.UserInputValue;
 		
 	}
@@ -74,10 +72,8 @@ public class UserStringInputAbfragefenster extends JFrame implements KeyListener
 		if(e.getKeyCode() == KeyEvent.VK_ENTER){
 			
 			JTextField input = (JTextField)e.getSource();
-			this.setEnabled(false);
+			input.setEnabled(false);
 			this.UserInputValue = input.getText();
-			accepted = true;
-			System.exit(0);
 			
 		}
 		

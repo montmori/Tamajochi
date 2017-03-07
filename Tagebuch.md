@@ -200,12 +200,12 @@ X- und Y-Startwert der Bilder ist momentan mit einem Switch case festgelegt, wei
 
 ### 06.03.2017
 
-Da wir nun in das Endstadium der Entwicklung kommen, sollte nochmals alles überprüft werden, bevor weitere Features (bis auf ein paar Ausnahmen) hinzugefügt werden, nebenbei wird auch die Dokumentation zumindest als Inhaltsverzeichnis bearbeitet. 
+Da wir nun in das Endstadium der Entwicklung kommen, sollte nochmals alles überprüft werden, bevor weitere Features (bis auf ein paar Ausnahmen) hinzugefügt werden. Nebenbei wird auch die Dokumentation zumindest als Inhaltsverzeichnis bearbeitet. 
 
 _Nun zu den eigentlichen Änderungen._
 
 __Interne Codeänderungen:__
-Beim Überfliegen des Codes sind mir einige Dinge ins Auge gesprungen, welche es zu verändern gab, dies sind zum Beispiel Attribute, auf einfacherem Wege bekommen werden können, Parameter, welche übergeben werden obwohl dies nichtmehr nötig ist und weitere kleine Einzelheiten.
+Beim Überfliegen des Codes sind mir einige Dinge ins Auge gesprungen, welche es zu verändern gab. Dies sind zum Beispiel Attribute, die auf einfacherem Wege abgefragt werden können, Parameter, welche übergeben werden obwohl dies nichtmehr nötig ist, und weitere kleine Einzelheiten.
 
 __Änderungen im Spielgeschehen.__
-Durch ein aufploppendes Fenster sollen Benutzereingaben eingelesen werden können, diese können dann, für unter anderem, den Namen des Tamagotchis verwendet werden. Dies wird beim Erstellen eines neuen Spiels zuerst in den Einsatz kommen.
+Durch ein aufploppendes Fenster sollen Benutzereingaben eingelesen werden können. Diese können dann für, unter anderem, den Namen des Tamagotchis verwendet werden. Diese Funktion soll bis jetzt nur bei der Erstellung eines neuen Spiels genutzt werden.

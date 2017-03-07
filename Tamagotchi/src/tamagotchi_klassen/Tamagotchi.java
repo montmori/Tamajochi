@@ -32,8 +32,6 @@ public abstract class Tamagotchi implements Serializable{
 private static final long serialVersionUID = 7102825756447706790L;
 	private String name;
 	private Beduerfnis[] beduerfnisse;
-	private Nahrung[] essenArray;
-	private Nahrung[] trinkenArray;
 	private Nahrung[][] nahrungsArray;
 	private SchlafensOrt[] schlafenArray;
 	private Spielmoeglichkeit [] spielenarray;
@@ -41,7 +39,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 	
 	/*
 	 * Tamagotchi wird erstellt und benannt.
-	 * Hunger und Durst werden auf ein Default von 100Prozent gesetzt.
+	 * Hunger und Durst werden auf ein Default von 50Prozent gesetzt.
 	 */
 	public Tamagotchi(String name){
 		this.lebendig = true;
@@ -50,11 +48,13 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.setName(name);
 		
 		this.beduerfnisse = new Beduerfnis[]{new Hunger(50), new Durst(50), new Muedigkeit(50), new Langeweile(50)};
-		this.essenArray = new Nahrung[]{new Apfel(this), new Banane(this), new Fleisch(this), new Keks(this)};
-		this.trinkenArray = new Nahrung[]{new Wasser(this), new Cola(this), new Milch(this), new Salzwasser(this)};
+		
+		Nahrung[] essenArray = new Nahrung[]{new Apfel(), new Banane(), new Fleisch(), new Keks()};
+		Nahrung[] trinkenArray = new Nahrung[]{new Wasser(), new Cola(), new Milch(), new Salzwasser()};
 		this.nahrungsArray = new Nahrung[][]{ essenArray, trinkenArray };
-		this.schlafenArray = new SchlafensOrt[]{new Boden(this), new Bett(this)};
-		this.spielenarray = new Spielmoeglichkeit[]{new Ball(this), new Faden(this)};
+		
+		this.schlafenArray = new SchlafensOrt[]{new Boden(), new Bett()};
+		this.spielenarray = new Spielmoeglichkeit[]{new Ball(), new Faden()};
 		
 	}
 	
@@ -62,18 +62,11 @@ private static final long serialVersionUID = 7102825756447706790L;
 	 * Hier wird von der Nahrung aus auf Hunger und Durst zugegriffen und
 	 * erhoeht.
 	 */
-	public static void naehren(Nahrung n){
-		n.geben();
+	
+	public void use(TamagotchiUsable tu){
+		tu.use();
 	}
 	
-	public static void schlafen(SchlafensOrt s){
-		s.schlafen();
-	
-	}
-	
-	public static void spielen(Spielmoeglichkeit s){
-		s.spielen();
-	}
 	
 	public String toString(){
 		

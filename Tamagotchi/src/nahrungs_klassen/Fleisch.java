@@ -2,9 +2,9 @@ package nahrungs_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Fleisch extends Nahrung{
 
@@ -13,12 +13,12 @@ public class Fleisch extends Nahrung{
 	 */
 	private static final long serialVersionUID = -8118220751990421966L;
 
-	public Fleisch(Tamagotchi t) {
-		super(t, "Fleisch");
+	public Fleisch() {
+		super("Fleisch");
 	}
 
 
-	public void geben() {
+	public void use() {
 		beBusy();
 	}
 	
@@ -29,9 +29,9 @@ public class Fleisch extends Nahrung{
 	}
 	
 	public void run(){
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(FLEISCH);
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(FLEISCH_T);
-		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(FLEISCH_M);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(FLEISCH);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(FLEISCH_T);
+		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(FLEISCH_M);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 }

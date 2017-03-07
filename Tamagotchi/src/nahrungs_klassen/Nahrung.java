@@ -3,15 +3,14 @@ package nahrungs_klassen;
 import java.io.Serializable;
 import java.util.TimerTask;
 
-import tamagotchi_klassen.Tamagotchi;
+import tamagotchi_klassen.TamagotchiUsable;
 
-public abstract class Nahrung extends TimerTask implements NahrungsWerte, Serializable{
+public abstract class Nahrung extends TimerTask implements TamagotchiUsable, NahrungsWerte, Serializable{
 
 
 	private String nameOfClass;
 	private static final long serialVersionUID = 4220515769542454659L;
 	protected int wert;
-	protected Tamagotchi tamagotchi;
 	
 	/*
 	 * Wert = Wert, welcher, wenn man die Nahrung dem 
@@ -19,8 +18,7 @@ public abstract class Nahrung extends TimerTask implements NahrungsWerte, Serial
 	 * 		  Bedürfniss steigert.
 	 */
 	
-	public Nahrung(Tamagotchi tamagotchi, String nameOfClass){
-		this.tamagotchi = tamagotchi; 
+	public Nahrung(String nameOfClass){
 		this.setName(nameOfClass);
 	}
 	
@@ -28,7 +26,6 @@ public abstract class Nahrung extends TimerTask implements NahrungsWerte, Serial
 	 * Diese Methode haben alle Nahrungs-subklassen
 	 * Sie soll die Bedürfnisse beeinträchtigen
 	 */
-	public abstract void geben();
 	
 	public String toString(){
 		return this.nameOfClass;

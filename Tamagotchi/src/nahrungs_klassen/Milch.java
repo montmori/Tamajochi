@@ -2,9 +2,9 @@ package nahrungs_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Milch extends Nahrung {
 
@@ -14,15 +14,15 @@ public class Milch extends Nahrung {
 	 */
 	private static final long serialVersionUID = 9019274140977439311L;
 
-	public Milch(Tamagotchi t) {
-		super(t, "Milch");
+	public Milch() {
+		super("Milch");
 		
 	}
 	
 	/*
 	 * @see nahrungs_klassen.Nahrung#geben()
 	 */
-	public void geben() {
+	public void use() {
 		beBusy();
 	}
 	
@@ -32,8 +32,8 @@ public class Milch extends Nahrung {
 	}
 	
 	public void run(){
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(MILCH);
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(MILCH_H);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(MILCH);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(MILCH_H);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 

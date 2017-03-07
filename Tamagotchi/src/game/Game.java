@@ -9,8 +9,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import gui_klassen.abfragefenster.ResolutionAbfragefenster;
-import gui_klassen.abfragefenster.UserStringInputAbfragefenster;
 import gui_klassen.mainWindow.Spielfenster;
 import runnable_klassen.CheckLifeState;
 import runnable_klassen.OwnTimer;
@@ -30,7 +34,7 @@ public class Game {
 	
 	public void start(){
 		Dimension size = getWindowSize();
-		initTamagotchiInstance();
+		loadTamagotchiInstance();
 		this.fenster = new Spielfenster(size);	
 	}
 	
@@ -63,18 +67,6 @@ public class Game {
 	}
 	
 	
-	private void initTamagotchiInstance() {
-		
-		loadTamagotchiInstance();
-		
-		if(this.tamagotchi == null){
-			this.tamagotchi = new Viech(Game.getUserStringInput("Teststring welcher als Test dient!"));
-		}
-		
-		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
-	}
-	
-	
 	private void BeduerfnisTaskStart() {
 		this.tamagotchi.getDurst().startTask();
 		this.tamagotchi.getHunger().startTask();
@@ -93,15 +85,27 @@ public class Game {
 	public void newGame(){
 		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
-		this.tamagotchi.newGame(getUserStringInput("Teststring welcher als Test dient!"));		
+		this.tamagotchi.newGame(getUserStringInput("Wie soll dein Tamagotchi heiﬂen?"));		
 	}
 	
-	public static String getUserStringInput(String title) {
-		UserStringInputAbfragefenster usi = new UserStringInputAbfragefenster(title);
+	public static String getUserStringInput(String abfrage) {
 		
-		usi.getUserInput();
+		JPanel panel = new JPanel();
+		JTextField txt = new JTextField(10);
+		panel.add(new JLabel(abfrage + "  "));
+		panel.add(txt);
 		
-		return "Bernd";
+		int inputButton = JOptionPane.showOptionDialog(null, panel, "Eingabefenster", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"OK"}, null);
+		
+		String input;
+		if(inputButton == 0){
+			input = txt.getText();
+		}
+		else{
+			input = "";
+		}
+		
+		return input;
 	}
 
 	public void saveTamagotchiInstance() {
@@ -141,6 +145,12 @@ public class Game {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		
+		if(this.tamagotchi == null){
+			this.tamagotchi = new Viech(Game.getUserStringInput("Wie soll dein Tamagotchi heiﬂen?"));
+		}
+		
+		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
 	}
 
 }

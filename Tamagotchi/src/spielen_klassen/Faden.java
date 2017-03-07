@@ -2,19 +2,19 @@ package spielen_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Faden extends Spielmoeglichkeit {
 
 	private static final long serialVersionUID = 8272997277366389335L;
 
-	public Faden(Tamagotchi t){
-		super(t, "Faden");
+	public Faden(){
+		super("Faden");
 	}
 	
-	public void spielen() {
+	public void use() {
 		beBusy();
 	}
 
@@ -24,10 +24,10 @@ public class Faden extends Spielmoeglichkeit {
 	}
 	
 	public void run(){
-		super.tamagotchi.getLangeweile().veraendereBeduerfnisWert(FADEN);
-		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(FADEN_M);
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(FADEN_T);
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(FADEN_H);
+		Game.getGame().getTamagotchi().getLangeweile().veraendereBeduerfnisWert(FADEN);
+		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(FADEN_M);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(FADEN_T);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(FADEN_H);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 	

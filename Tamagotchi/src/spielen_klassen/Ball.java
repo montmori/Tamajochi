@@ -2,19 +2,19 @@ package spielen_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Ball extends Spielmoeglichkeit {
 
 	private static final long serialVersionUID = 1042772169194270806L;
 
-	public Ball(Tamagotchi t){
-		super(t, "Ball");
+	public Ball(){
+		super("Ball");
 	}
 	
-	public void spielen() {
+	public void use() {
 		beBusy();
 	}
 
@@ -24,10 +24,10 @@ public class Ball extends Spielmoeglichkeit {
 	}
 	
 	public void run(){
-		super.tamagotchi.getLangeweile().veraendereBeduerfnisWert(BALL);
-		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(BALL_M);
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(BALL_T);
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(BALL_H);
+		Game.getGame().getTamagotchi().getLangeweile().veraendereBeduerfnisWert(BALL);
+		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(BALL_M);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(BALL_T);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(BALL_H);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 }

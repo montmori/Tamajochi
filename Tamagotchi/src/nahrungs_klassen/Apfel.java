@@ -2,9 +2,9 @@
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Apfel extends Nahrung{
 
@@ -13,11 +13,11 @@ public class Apfel extends Nahrung{
 	 */
 	private static final long serialVersionUID = -1381982869897665964L;
 
-	public Apfel(Tamagotchi t) {
-		super(t, "Apfel");		
+	public Apfel() {
+		super("Apfel");		
 	}
 
-	public void geben() {
+	public void use() {
 		beBusy();
 	}
 	
@@ -27,8 +27,8 @@ public class Apfel extends Nahrung{
 	}
 	
 	public void run(){
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(APFEL);
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(APFEL_T);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(APFEL);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(APFEL_T);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 

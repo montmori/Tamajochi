@@ -2,9 +2,9 @@ package nahrungs_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Keks extends Nahrung{
 
@@ -13,12 +13,12 @@ public class Keks extends Nahrung{
 	 */
 	private static final long serialVersionUID = 5466869746428915883L;
 
-	public Keks(Tamagotchi t) {
-		super(t, "Keks");
+	public Keks() {
+		super("Keks");
 	}
 
 	@Override
-	public void geben() {
+	public void use() {
 		beBusy();
 	}
 	
@@ -28,8 +28,8 @@ public class Keks extends Nahrung{
 	}
 	
 	public void run(){
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(KEKS);
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(KEKS_T);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(KEKS);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(KEKS_T);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 	

@@ -2,19 +2,19 @@ package schlafen_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Boden extends SchlafensOrt{
 
 	private static final long serialVersionUID = -1501068204982203927L;
 
-	public Boden(Tamagotchi t){
-		super(t, "Boden");
+	public Boden(){
+		super("Boden");
 	}
 
-	public void schlafen() {
+	public void use() {
 		this.beBusy();
 	}
 	
@@ -24,8 +24,8 @@ public class Boden extends SchlafensOrt{
 	}
 	
 	public void run(){
-		this.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(BODEN);
-		this.tamagotchi.getLangeweile().veraendereBeduerfnisWert(BODEN_S);
+		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(BODEN);
+		Game.getGame().getTamagotchi().getLangeweile().veraendereBeduerfnisWert(BODEN_S);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 }

@@ -2,9 +2,9 @@ package nahrungs_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Cola extends Nahrung {
 
@@ -14,14 +14,14 @@ public class Cola extends Nahrung {
 	 */
 	private static final long serialVersionUID = 9019274140977439311L;
 
-	public Cola(Tamagotchi t) {
-		super(t, "Cola");
+	public Cola() {
+		super("Cola");
 	}
 	
 	/*
 	 * @see nahrungs_klassen.Nahrung#geben()
 	 */
-	public void geben() {
+	public void use() {
 		beBusy();
 	}
 	
@@ -31,9 +31,9 @@ public class Cola extends Nahrung {
 	}
 	
 	public void run(){
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(COLA);
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(COLA_H);
-		super.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(COLA_M);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(COLA);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(COLA_H);
+		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(COLA_M);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 

@@ -2,20 +2,20 @@ package nahrungs_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Salzwasser extends Nahrung {
 
-	public Salzwasser(Tamagotchi tamagotchi) {
-		super(tamagotchi, "Salzwasser");
+	public Salzwasser() {
+		super("Salzwasser");
 	}
 
 	private static final long serialVersionUID = 3531122978200688656L;
 
 	@Override
-	public void geben() {
+	public void use() {
 		beBusy();
 	}
 	
@@ -25,8 +25,8 @@ public class Salzwasser extends Nahrung {
 	}
 	
 	public void run(){		
-		super.tamagotchi.getDurst().veraendereBeduerfnisWert(SALZWASSER);
-		super.tamagotchi.getHunger().veraendereBeduerfnisWert(SALZWASSER_H);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(SALZWASSER);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(SALZWASSER_H);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 

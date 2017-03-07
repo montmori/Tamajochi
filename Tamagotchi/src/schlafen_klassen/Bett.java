@@ -2,19 +2,19 @@ package schlafen_klassen;
 
 import java.util.concurrent.TimeUnit;
 
+import game.Game;
 import gui_klassen.mainWindow.ButtonPanel;
 import runnable_klassen.OwnTimer;
-import tamagotchi_klassen.Tamagotchi;
 
 public class Bett extends SchlafensOrt{
 
 	private static final long serialVersionUID = -1252347912862515929L;
 
-	public Bett(Tamagotchi t){
-		super(t, "Bett");
+	public Bett(){
+		super("Bett");
 	}
 
-	public void schlafen() {
+	public void use() {
 		this.beBusy();
 	}
 	
@@ -24,8 +24,8 @@ public class Bett extends SchlafensOrt{
 	}
 	
 	public void run(){
-		this.tamagotchi.getMuedigkeit().veraendereBeduerfnisWert(BETT);
-		this.tamagotchi.getLangeweile().veraendereBeduerfnisWert(BETT_S);
+		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(BETT);
+		Game.getGame().getTamagotchi().getLangeweile().veraendereBeduerfnisWert(BETT_S);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 }

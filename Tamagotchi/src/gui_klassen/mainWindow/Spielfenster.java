@@ -16,6 +16,7 @@ import listener.ActionBeenden;
 import listener.ActionNewGame;
 import listener.Windowflauscher;
 import runnable_klassen.FensterAktualisierung;
+import runnable_klassen.OwnTimer;
 
 public class Spielfenster extends JFrame {
 
@@ -43,8 +44,8 @@ public class Spielfenster extends JFrame {
 	
 	
 	private void initFensterAktualisierung() {
-		t1 = new ScheduledThreadPoolExecutor(0);
-		t1.scheduleAtFixedRate(new FensterAktualisierung(this), 200, 16, TimeUnit.MILLISECONDS);
+		t1 = new ScheduledThreadPoolExecutor(OwnTimer.EXECUTOR_CORE_POOL_SIZE);
+		t1.scheduleAtFixedRate(new FensterAktualisierung(this), 200, 33, TimeUnit.MILLISECONDS);
 		
 	}
 

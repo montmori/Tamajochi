@@ -16,21 +16,23 @@ public class UserStringInputAbfragefenster extends JFrame implements KeyListener
 	private static final long serialVersionUID = 1L;
 	private String shownString;
 	private String UserInputValue;
+	private boolean accepted;
 	
 	public UserStringInputAbfragefenster(String shownString){
 		this.UserInputValue = "";
 		this.shownString = shownString;
+		this.accepted = false;
 		
+		this.setEnabled(false);
 		this.setTitle("");
 		this.setResizable(false);
 		this.setSize(new Dimension(400,100));
-		this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setAlwaysOnTop(true);
 		this.setLocationRelativeTo(Game.getGame().getSpielfenster());
 		
 		initPanel();
 		
-		this.setVisible(true);
 	}
 
 	private void initPanel() {
@@ -55,19 +57,28 @@ public class UserStringInputAbfragefenster extends JFrame implements KeyListener
 	}
 
 	public String getUserInput(){
+//		this.setVisible(true);
+//		this.setEnabled(true);
+		
+		
+		
+//		this.setVisible(false);
 		return this.UserInputValue;
 		
 	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		System.out.println(e.getKeyCode());
 		
 		if(e.getKeyCode() == KeyEvent.VK_ENTER){
+			
 			JTextField input = (JTextField)e.getSource();
-			input.setEnabled(false);
+			this.setEnabled(false);
 			this.UserInputValue = input.getText();
-			this.setVisible(false);
+			accepted = true;
+			System.exit(0);
+			
 		}
 		
 	}

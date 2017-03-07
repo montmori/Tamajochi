@@ -93,8 +93,8 @@ public class Game {
 	public static String getUserStringInput() {
 		UserStringInputAbfragefenster usi = new UserStringInputAbfragefenster("Teststring welcher als Test dient!");
 		
-		
-		return usi.getUserInput();
+		usi.getUserInput();
+		return "Bernd";
 	}
 	
 	public void newGame(){

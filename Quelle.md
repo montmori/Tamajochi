@@ -24,3 +24,5 @@ http://stackoverflow.com/questions/15888366/meaning-of-core-pool-size-in-schedul
 
 http://stackoverflow.com/questions/17659510/core-pool-size-vs-maximum-pool-size-in-threadpoolexecutor *(__Stand:__ 07.03.2017)*
 
+http://stackoverflow.com/questions/16511039/is-there-a-way-to-only-have-the-ok-button-in-a-joptionpane-showinputdialog-and  *(__Stand:__ 07.03.2017)*
+

@@ -173,7 +173,7 @@ Stunden wurden nicht gezählt... :D
 
 -----------------------------------------------
 
-###02.03.2017 ~6 Stunden
+### 02.03.2017 ~6 Stunden
 
 Der Background wurde gezeichnet und eingefügt. 
 In der AnimationT gibt es jetzt einen ImageIconArray, damit das Einlesen von den Bildern vereinfacht wird. 
@@ -183,7 +183,7 @@ Die Darstellung wurde an den Hintergrund angepasst. Oben rechts wird nun auch de
 
 --------------------------------------------
 
-###02.03.2017
+### 02.03.2017
 
 Die Spiellogik war bis jetzt fest mit der GUI verankert und dadurch nur in unserem Haupt-JFrame vorzufinden, dadurch mussten auch viele Werte doppelt und dreifach übergeben werden. Mit einer neuen Änderug wurde dies größtenteils behoben, da nun die Spiellogik in einer eigenen Klasse ist, von der man Attribute abfragen oder bestimmte Ereignisse (z.B. Game Over) durch einzelne Methoden auslösen kann.
 
@@ -191,7 +191,21 @@ Der nächste Große Punkt ist die Skalierbarkeit des Bildschirms, beim Start des
 
 ---------------------------------------------
 
-###03.03.2017
+### 03.03.2017
 
 Animation wurde an die verschiedenen Auflösungen angepasst.
 X- und Y-Startwert der Bilder ist momentan mit einem Switch case festgelegt, weil mir kein Algorithmus der passt eingefallen ist...
+
+---------------------------------------------
+
+### 06.03.2017
+
+Da wir nun in das Endstadium der Entwicklung kommen, sollte nochmals alles überprüft werden, bevor weitere Features (bis auf ein paar Ausnahmen) hinzugefügt werden, nebenbei wird auch die Dokumentation zumindest als Inhaltsverzeichnis bearbeitet. 
+
+_Nun zu den eigentlichen Änderungen._
+
+__Interne Codeänderungen:__
+Beim Überfliegen des Codes sind mir einige Dinge ins Auge gesprungen, welche es zu verändern gab, dies sind zum Beispiel Attribute, auf einfacherem Wege bekommen werden können, Parameter, welche übergeben werden obwohl dies nichtmehr nötig ist und weitere kleine Einzelheiten.
+
+__Änderungen im Spielgeschehen.__
+Durch ein aufploppendes Fenster sollen Benutzereingaben eingelesen werden können, diese können dann, für unter anderem, den Namen des Tamagotchis verwendet werden. Dies wird beim Erstellen eines neuen Spiels zuerst in den Einsatz kommen.

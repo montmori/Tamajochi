@@ -20,3 +20,5 @@ https://docs.oracle.com/javase/7/docs/api/javax/swing/ImageIcon.html *(__Stand:_
 
 http://stackoverflow.com/questions/18941840/add-buttongroup-to-jpanel *(__Stand:__ 02.03.2017)*
 
+http://stackoverflow.com/questions/15888366/meaning-of-core-pool-size-in-scheduledthreadpoolexecutors-constructor *(__Stand:__ 07.03.2017)*
+

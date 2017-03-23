@@ -7,6 +7,7 @@ import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
 import beduerfnis_klassen.Langeweile;
 import beduerfnis_klassen.Muedigkeit;
+import game.Timestamp;
 import nahrungs_klassen.Apfel;
 import nahrungs_klassen.Banane;
 import nahrungs_klassen.Cola;
@@ -35,6 +36,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 	private Nahrung[][] nahrungsArray;
 	private SchlafensOrt[] schlafenArray;
 	private Spielmoeglichkeit [] spielenarray;
+	private Timestamp livingtime;
 	private boolean lebendig;
 	
 	/*
@@ -56,6 +58,8 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.schlafenArray = new SchlafensOrt[]{new Boden(), new Bett()};
 		this.spielenarray = new Spielmoeglichkeit[]{new Ball(), new Faden()};
 		
+		this.livingtime = new Timestamp();
+		
 	}
 	
 	/*
@@ -63,6 +67,10 @@ private static final long serialVersionUID = 7102825756447706790L;
 	 * erhoeht.
 	 */
 	
+	public Timestamp getLivingtime() {
+		return livingtime;
+	}
+
 	public void use(TamagotchiUsable tu){
 		tu.use();
 	}
@@ -137,6 +145,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.beduerfnisse[2] = new Muedigkeit(50);
 		this.beduerfnisse[3] = new Langeweile(50);
 		this.lebendig = true;
+		this.livingtime = new Timestamp();
 	}
 
 

@@ -154,6 +154,7 @@ public class Game {
 			oin = new ObjectInputStream(fin);
 			this.tamagotchi = (Tamagotchi) oin.readObject();
 			BeduerfnisTaskStart();
+			this.tamagotchi.getLivingtime().startCounting();
 			
 		} catch (FileNotFoundException e) {
 			System.err.println("Neues Spiel wird erstellt!");

@@ -13,6 +13,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import listener.ActionBeenden;
+import listener.ActionDialouge;
+import listener.ActionDialouge.DialougeType;
 import listener.ActionNewGame;
 import listener.Windowflauscher;
 import runnable_klassen.FensterAktualisierung;
@@ -86,7 +88,7 @@ public class Spielfenster extends JFrame {
 		Dimension gamePanelSize = new Dimension(gamePanelWidth, gamePanelHeight);
 		
 		this.gamepanel = new GamePanel(gamePanelSize);
-		this.add(this .gamepanel);
+		this.add(this.gamepanel);
 	}
 
 
@@ -104,13 +106,29 @@ public class Spielfenster extends JFrame {
 		JMenu optionen = new JMenu("Optionen");
 		addOptionMenuItems(optionen);
 		
+		JMenu ueber = new JMenu("Über");
+		addAboutMenuItems(ueber);
+		
+		
 		menuLeiste.add(spiel);
 		menuLeiste.add(optionen);
+		menuLeiste.add(ueber);
 	}
 
 	
-	private void addOptionMenuItems(JMenu optionen) {
+	private void addAboutMenuItems(JMenu ueber) {
+		JMenuItem infos = new JMenuItem("Infos");
+		infos.addActionListener(new ActionDialouge(DialougeType.ABOUT));
 		
+		ueber.add(infos);
+		
+	}
+
+	private void addOptionMenuItems(JMenu optionen) {
+		JMenuItem statistiken = new JMenuItem("Statistiken");
+		statistiken.addActionListener(new ActionDialouge(DialougeType.STATISTICS));
+		
+		optionen.add(statistiken);
 	}
 
 

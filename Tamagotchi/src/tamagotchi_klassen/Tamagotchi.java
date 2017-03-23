@@ -127,7 +127,6 @@ private static final long serialVersionUID = 7102825756447706790L;
 				lebendig = false;
 			}
 		}
-		
 		return lebendig;
 	}
 	

@@ -40,7 +40,7 @@ public abstract class Beduerfnis implements BeduerfnisWerte, Serializable{
 		
 		this.wert += wert;
 		
-		if(this.wert < this.minWert){
+		if(this.wert <= this.minWert){
 			this.wert = this.minWert;
 			this.isKilled = true;
 		}

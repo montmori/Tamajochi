@@ -27,15 +27,19 @@ public class Game {
 	private Spielfenster fenster;
 	private Tamagotchi tamagotchi;
 	private Dimension userResolution;
+	private int gameTime;
 	
 	
 	
-	public Game(){}
+	public Game(){
+		setGameTime(0);
+	}
 	
 	public void start(){
 		Dimension size = getWindowSize();
 		loadTamagotchiInstance();
-		this.fenster = new Spielfenster(size);	
+		this.fenster = new Spielfenster(size);
+		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
 	}
 	
 	
@@ -79,14 +83,24 @@ public class Game {
 		OwnTimer.clearTimer();
 		this.tamagotchi.gameOver();
 		this.fenster.getButtonPanel().gameOver();
-		
 	}
 	
 	public void newGame(){
 		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
-		this.tamagotchi.newGame(getUserStringInput("Wie soll dein Tamagotchi heiﬂen?"));		
+		this.tamagotchi.newGame(Game.getUserStringInput("Wie soll dein neues Tamagotchi heiﬂen?"));	
+		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
 	}
+	
+	
+	public int getGameTime() {
+		return gameTime;
+	}
+
+	public void setGameTime(int gameTime) {
+		this.gameTime = gameTime;
+	}
+	
 	
 	public static String getUserStringInput(String abfrage) {
 		
@@ -100,9 +114,12 @@ public class Game {
 		String input;
 		if(inputButton == 0){
 			input = txt.getText();
+			if(input.isEmpty()){
+				input = "NoName";
+			}
 		}
 		else{
-			input = "";
+			input = "NoName";
 		}
 		
 		return input;
@@ -149,8 +166,8 @@ public class Game {
 		if(this.tamagotchi == null){
 			this.tamagotchi = new Viech(Game.getUserStringInput("Wie soll dein Tamagotchi heiﬂen?"));
 		}
-		
-		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
 	}
+
+
 
 }

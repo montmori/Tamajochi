@@ -9,7 +9,6 @@ public class CheckLifeState implements Runnable {
 	}
 	@Override
 	public void run() {
-
 		if(!Game.getGame().getTamagotchi().isLebendig()){
 			Game.getGame().gameOver();
 		}

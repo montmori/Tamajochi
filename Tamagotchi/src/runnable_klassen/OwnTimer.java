@@ -29,6 +29,7 @@ public class OwnTimer{
 	}
 	
 	public static void clearTimer(){
+		s.shutdown();
 		s = new ScheduledThreadPoolExecutor(OwnTimer.EXECUTOR_CORE_POOL_SIZE);
 	}
 	

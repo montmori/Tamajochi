@@ -32,7 +32,6 @@ public class ButtonPanel extends JPanel{
 		size = d;
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 15));
 		this.setPreferredSize(this.size);
-
 		this.setOpaque(false);
 		
 		addButtons();
@@ -41,10 +40,17 @@ public class ButtonPanel extends JPanel{
 	private void addButtons() {
 		
 		getFontSize();
-		createPopupMenuWithContent(essenMenu, Game.getGame().getTamagotchi().getNahrungsArray()[0]);
-		createPopupMenuWithContent(trinkenMenu, Game.getGame().getTamagotchi().getNahrungsArray()[1]);
-		createPopupMenuWithContent(schlafenMenu, Game.getGame().getTamagotchi().getSchlafenArray());
-		createPopupMenuWithContent(spielenMenu, Game.getGame().getTamagotchi().getSpielenArray());
+		
+		ButtonPanel.essenMenu = new JPopupMenu();
+		ButtonPanel.trinkenMenu = new JPopupMenu();
+		ButtonPanel.schlafenMenu = new JPopupMenu();
+		ButtonPanel.spielenMenu = new JPopupMenu();
+		
+		
+		createPopupMenuWithContent(ButtonPanel.essenMenu, Game.getGame().getTamagotchi().getNahrungsArray()[0], "Essen geben");
+		createPopupMenuWithContent(ButtonPanel.trinkenMenu, Game.getGame().getTamagotchi().getNahrungsArray()[1], "Trinken geben");
+		createPopupMenuWithContent(ButtonPanel.schlafenMenu, Game.getGame().getTamagotchi().getSchlafenArray(), "Schlafen legen");
+		createPopupMenuWithContent(ButtonPanel.spielenMenu, Game.getGame().getTamagotchi().getSpielenArray(), "Spielen");
 		 
 		
 	}
@@ -83,14 +89,13 @@ public class ButtonPanel extends JPanel{
 		}
 	}
 	
-	private void createPopupMenuWithContent(JPopupMenu popupMenu, TamagotchiUsable[] usableArray){
+	private void createPopupMenuWithContent(JPopupMenu popupMenu, TamagotchiUsable[] usableArray, String buttonText){
 		
-		popupMenu = new JPopupMenu();
 		popupMenu.setLayout(new FlowLayout(FlowLayout.CENTER,0,1));
 		popupMenu.setPreferredSize(new Dimension((int)this.size.getWidth(), (int)((this.size.getHeight()/20 + 1) * usableArray.length + 5)));
 		 
 		
-		JButton popupButton = new JButton("Trinken geben");
+		JButton popupButton = new JButton(buttonText);
 		popupButton.setFont(new Font("Dialog.Bold",Font.PLAIN,this.outerButtonFontSize));
         popupButton.addActionListener( new ActionMenu(popupMenu));
         popupButton.setPreferredSize(new Dimension((int)this.size.getWidth(), (int)this.size.getHeight()/15));
@@ -103,7 +108,7 @@ public class ButtonPanel extends JPanel{
         	buttonArray[x].addActionListener(new ActionUse(usableArray[x]));
         	buttonArray[x].setPreferredSize(new Dimension((int)(this.size.getWidth()),(int)(this.size.getHeight()/20)));
         	buttonArray[x].setFont(new Font("Dialog.Bold", Font.PLAIN, this.innerButtonFontSize));
-        	ButtonPanel.trinkenMenu.add(buttonArray[x]);
+        	popupMenu.add(buttonArray[x]);
         }
         
 		this.add(popupButton);
@@ -111,6 +116,7 @@ public class ButtonPanel extends JPanel{
 	
 
 	public void gameOver() {
+		System.out.println("Disable Buttons");
 		ButtonPanel.setButtonsEnabled(false);
 		
 	}

@@ -27,7 +27,6 @@ public class Background {
 			this.background = new ImageIcon(bild);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

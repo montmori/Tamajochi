@@ -13,7 +13,7 @@
   </class>  
   <interface id="2" language="java" name="beduerfnis_klassen.BeduerfnisWerte" project="Tamagotchi" 
     file="/Tamagotchi/src/beduerfnis_klassen/BeduerfnisWerte.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="349" y="477"/>    
+    <position height="-1" width="-1" x="395" y="470"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -74,16 +74,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="listener.ActionNaehren" project="Tamagotchi" 
-    file="/Tamagotchi/src/listener/ActionNaehren.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1563" y="427"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="listener.Windowflauscher" project="Tamagotchi" 
+  <class id="9" language="java" name="listener.Windowflauscher" project="Tamagotchi" 
     file="/Tamagotchi/src/listener/Windowflauscher.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1326" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -92,7 +83,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="listener.ActionMenu" project="Tamagotchi" 
+  <class id="10" language="java" name="listener.ActionMenu" project="Tamagotchi" 
     file="/Tamagotchi/src/listener/ActionMenu.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1560" y="219"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -101,7 +92,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="listener.ActionBeenden" project="Tamagotchi" 
+  <class id="11" language="java" name="listener.ActionBeenden" project="Tamagotchi" 
     file="/Tamagotchi/src/listener/ActionBeenden.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1345" y="424"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -110,7 +101,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="nahrungs_klassen.Fleisch" project="Tamagotchi" 
+  <class id="12" language="java" name="nahrungs_klassen.Fleisch" project="Tamagotchi" 
     file="/Tamagotchi/src/nahrungs_klassen/Fleisch.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1069" y="910"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -119,7 +110,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="nahrungs_klassen.Keks" project="Tamagotchi" 
+  <class id="13" language="java" name="nahrungs_klassen.Keks" project="Tamagotchi" 
     file="/Tamagotchi/src/nahrungs_klassen/Keks.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1208" y="911"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -128,7 +119,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="tamagotchi_klassen.Viech" project="Tamagotchi" 
+  <class id="14" language="java" name="tamagotchi_klassen.Viech" project="Tamagotchi" 
     file="/Tamagotchi/src/tamagotchi_klassen/Viech.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="670" y="713"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -137,7 +128,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="nahrungs_klassen.Apfel" project="Tamagotchi" 
+  <class id="15" language="java" name="nahrungs_klassen.Apfel" project="Tamagotchi" 
     file="/Tamagotchi/src/nahrungs_klassen/Apfel.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1349" y="911"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -146,7 +137,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="17" language="java" name="nahrungs_klassen.NahrungsWerte" project="Tamagotchi" 
+  <interface id="16" language="java" name="nahrungs_klassen.NahrungsWerte" project="Tamagotchi" 
     file="/Tamagotchi/src/nahrungs_klassen/NahrungsWerte.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1406" y="664"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -155,7 +146,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="18" language="java" name="nahrungs_klassen.Nahrung" project="Tamagotchi" 
+  <class id="17" language="java" name="nahrungs_klassen.Nahrung" project="Tamagotchi" 
     file="/Tamagotchi/src/nahrungs_klassen/Nahrung.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1202" y="663"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -164,7 +155,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="nahrungs_klassen.Banane" project="Tamagotchi" 
+  <class id="18" language="java" name="nahrungs_klassen.Banane" project="Tamagotchi" 
     file="/Tamagotchi/src/nahrungs_klassen/Banane.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1497" y="913"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -173,7 +164,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="tamagotchi_klassen.Tamagotchi" project="Tamagotchi" 
+  <class id="19" language="java" name="tamagotchi_klassen.Tamagotchi" project="Tamagotchi" 
     file="/Tamagotchi/src/tamagotchi_klassen/Tamagotchi.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="670" y="508"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -182,199 +173,91 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <package id="21" language="java" name="beduerfnis_klassen" project="Tamagotchi" 
+  <package id="20" language="java" name="beduerfnis_klassen" project="Tamagotchi" 
     file="/Tamagotchi/src/beduerfnis_klassen" binary="false" corner="BOTTOM_RIGHT">    
     <position height="93" width="262" x="84" y="266"/>    
     <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="22" language="java" name="tamagotchi_klassen" project="Tamagotchi" 
+  <package id="21" language="java" name="tamagotchi_klassen" project="Tamagotchi" 
     file="/Tamagotchi/src/tamagotchi_klassen" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="658" y="340"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="23" language="java" name="listener" project="Tamagotchi" file="/Tamagotchi/src/listener" binary="false" 
+  <package id="22" language="java" name="listener" project="Tamagotchi" file="/Tamagotchi/src/listener" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="67" width="187" x="1354" y="62"/>    
     <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="24" language="java" name="nahrungs_klassen" project="Tamagotchi" file="/Tamagotchi/src/nahrungs_klassen" 
+  <package id="23" language="java" name="nahrungs_klassen" project="Tamagotchi" file="/Tamagotchi/src/nahrungs_klassen" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1261" y="555"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <package id="25" language="java" name="gui_klassen" project="Tamagotchi" file="/Tamagotchi/src/gui_klassen" 
+  <package id="24" language="java" name="gui_klassen" project="Tamagotchi" file="/Tamagotchi/src/gui_klassen" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="497" y="889"/>    
     <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
   </package>  
-  <association id="26">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="27" name="trinkenArray">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="28" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="30" name="trinkenArray">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="31" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="32">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="33" name="essenArray">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="34" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="18"/>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="17"/>  
   </generalization>  
-  <realization id="36">    
+  <realization id="26">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <generalization id="37">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="18"/>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="17"/>  
   </generalization>  
-  <generalization id="38">    
+  <association id="28">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="29" name="nahrungsArray">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="30" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="32">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="33" name="tamagotchi">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="35">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="39">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="40" name="essenArray">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="41" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="42">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="43" name="t">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="44" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="45">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="46" name="tamagotchi">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="47" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="48">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="49" name="t">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="50" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="51">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="17"/>  
-  </realization>  
-  <association id="52">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="53" name="nahrungsArray">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="54" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="55">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <generalization id="56">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <association id="57">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="58" name="tamagotchi">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="59" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="61" name="e1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="62" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="63">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <generalization id="64">    
+  <generalization id="36">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="65">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="66" name="tamagotchi">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="67" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <realization id="39">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

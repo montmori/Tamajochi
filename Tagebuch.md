@@ -212,7 +212,7 @@ Durch ein aufploppendes Fenster sollen Benutzereingaben eingelesen werden könne
 
 ---------------------------------------------
 
-### 20.03.1027
+### 20.03.2017
 
 Bugfix: Mann könnte das Tamagotchi durch neustarten des Spiels wieder füttern,spielen,... obwohl es eigendlich tot war.
 

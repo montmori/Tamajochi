@@ -209,3 +209,13 @@ Beim Überfliegen des Codes sind mir einige Dinge ins Auge gesprungen, welche es
 
 __Änderungen im Spielgeschehen.__
 Durch ein aufploppendes Fenster sollen Benutzereingaben eingelesen werden können. Diese können dann für, unter anderem, den Namen des Tamagotchis verwendet werden. Diese Funktion soll bis jetzt nur bei der Erstellung eines neuen Spiels genutzt werden.
+
+---------------------------------------------
+
+### 20.03.1027
+
+Bugfix: Mann könnte das Tamagotchi durch neustarten des Spiels wieder füttern,spielen,... obwohl es eigendlich tot war.
+
+Aus dem Spiel wurde in eine ausführbare ".jar"-Datei erzeugt zusätzlich wurde der erste Prototyp einer Installationsdatei("Tamagotchi_Setup.exe") erstellt. (Siehe "Tamajochi/Tamagotchi_Download")
+
+Es gibt noch Probleme mit der "Setup.exe", da nach der Installation die Save.ser-Datei, in der der Spielfortschritt gespeichert wird, nicht angelegt wird.

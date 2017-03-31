@@ -1,3 +1,14 @@
+/****************************************
+ * INFO:                                *
+ *--------------------------------------*
+ * Die Kommentare "Erfolg" sind nur     *
+ * dazu da damit ich die Aenderungen    *
+ * leichter wiederfinden kann die       *
+ * ich in diesem Kontext gemacht        *
+ * habe.                                *
+ * ~ Yoshi                              *
+ ****************************************/
+
 package tamagotchi_klassen;
 
 import java.io.Serializable;
@@ -7,6 +18,7 @@ import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
 import beduerfnis_klassen.Langeweile;
 import beduerfnis_klassen.Muedigkeit;
+import erfolge.Erfolge;
 import game.Timestamp;
 import nahrungs_klassen.Apfel;
 import nahrungs_klassen.Banane;
@@ -37,6 +49,8 @@ private static final long serialVersionUID = 7102825756447706790L;
 	private SchlafensOrt[] schlafenArray;
 	private Spielmoeglichkeit [] spielenarray;
 	private Timestamp livingtime;
+	//Erfolg
+	private Erfolge erfolge;
 	private boolean lebendig;
 	
 	/*
@@ -46,6 +60,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 	public Tamagotchi(String name){
 		this.lebendig = true;
 
+		this.erfolge = new Erfolge();
 		
 		this.setName(name);
 		
@@ -119,8 +134,20 @@ private static final long serialVersionUID = 7102825756447706790L;
 		return this.spielenarray;
 	}
 	
+	//Erfolg
+	public Erfolge getErfolge(){
+		return this.erfolge;
+	}
+	
 	public void gameOver(){
 		zeroBeduerfnisse();
+		
+		//Erfolg
+		//1.mal sterben
+		if(!(this.erfolge.isErfolg3())){
+			this.erfolge.setErfolg3(true);
+		}
+		
 	}
 
 	private void zeroBeduerfnisse() {

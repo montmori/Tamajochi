@@ -8,9 +8,6 @@ import runnable_klassen.OwnTimer;
 
 public class Apfel extends Nahrung{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1381982869897665964L;
 
 	public Apfel() {

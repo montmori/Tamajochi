@@ -35,7 +35,7 @@ public class Timestamp implements Serializable,Runnable {
 	@Override
 	public void run() {
 		this.time++;
-		
 	}
+	
 	
 }

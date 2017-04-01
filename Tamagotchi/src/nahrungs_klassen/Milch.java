@@ -24,6 +24,12 @@ public class Milch extends Nahrung {
 	 */
 	public void use() {
 		beBusy();
+		if(!Game.getGame().getAchievements().isErfolg2() && Game.getGame().getAchievements().getErfolg2Bedingung()){
+			Game.getGame().getAchievements().setErfolg2();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 	
 	public void beBusy(){

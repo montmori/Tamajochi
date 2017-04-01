@@ -1,14 +1,3 @@
-/****************************************
- * INFO:                                *
- *--------------------------------------*
- * Die Kommentare "Erfolg" sind nur     *
- * dazu da damit ich die Aenderungen    *
- * leichter wiederfinden kann die       *
- * ich in diesem Kontext gemacht        *
- * habe.                                *
- * ~ Yoshi                              *
- ****************************************/
-
 package game;
 
 import java.awt.Dimension;
@@ -25,7 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import erfolge.CheckTimeErfolge;
+import achievement.Achievement;
+import achievement.CheckTimeAchievements;
 import gui_klassen.abfragefenster.ResolutionAbfragefenster;
 import gui_klassen.mainWindow.Spielfenster;
 import runnable_klassen.CheckLifeState;
@@ -52,8 +42,7 @@ public class Game {
 		loadTamagotchiInstance();
 		this.fenster = new Spielfenster(size);
 		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
-		//Erfolg
-		OwnTimer.queueTask(new CheckTimeErfolge(this.tamagotchi), 1, 1, TimeUnit.SECONDS);
+		OwnTimer.queueTask(new CheckTimeAchievements(), 1, 1, TimeUnit.SECONDS);
 	}
 	
 	
@@ -66,6 +55,10 @@ public class Game {
 	
 	public Tamagotchi getTamagotchi(){
 		return this.tamagotchi;
+	}
+	
+	public Achievement getAchievements(){
+		return this.getTamagotchi().getAchievements();
 	}
 	
 	public Spielfenster getSpielfenster(){
@@ -104,8 +97,7 @@ public class Game {
 		fenster.getButtonPanel().newGame();
 		this.tamagotchi.newGame(Game.getUserStringInput("Wie soll dein neues Tamagotchi heiﬂen?"));	
 		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
-		//Erfolge
-		OwnTimer.queueTask(new CheckTimeErfolge(this.tamagotchi), 1, 1, TimeUnit.SECONDS);
+		OwnTimer.queueTask(new CheckTimeAchievements(), 1, 1, TimeUnit.SECONDS);
 	}
 	
 	
@@ -184,7 +176,5 @@ public class Game {
 			this.tamagotchi = new Viech(Game.getUserStringInput("Wie soll dein Tamagotchi heiﬂen?"));
 		}
 	}
-
-
 
 }

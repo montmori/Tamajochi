@@ -16,6 +16,12 @@ public class Boden extends SchlafensOrt{
 
 	public void use() {
 		this.beBusy();
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 	
 	public void beBusy(){

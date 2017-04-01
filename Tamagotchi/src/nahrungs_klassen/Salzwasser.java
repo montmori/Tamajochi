@@ -17,6 +17,12 @@ public class Salzwasser extends Nahrung {
 	@Override
 	public void use() {
 		beBusy();
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().setErfolg3Bedingung();
+		}
 	}
 	
 	public void beBusy(){

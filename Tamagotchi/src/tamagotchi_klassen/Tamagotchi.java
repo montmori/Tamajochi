@@ -1,24 +1,14 @@
-/****************************************
- * INFO:                                *
- *--------------------------------------*
- * Die Kommentare "Erfolg" sind nur     *
- * dazu da damit ich die Aenderungen    *
- * leichter wiederfinden kann die       *
- * ich in diesem Kontext gemacht        *
- * habe.                                *
- * ~ Yoshi                              *
- ****************************************/
-
 package tamagotchi_klassen;
 
 import java.io.Serializable;
 
+import achievement.Achievement;
 import beduerfnis_klassen.Beduerfnis;
 import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
 import beduerfnis_klassen.Langeweile;
 import beduerfnis_klassen.Muedigkeit;
-import erfolge.Erfolge;
+import game.Game;
 import game.Timestamp;
 import nahrungs_klassen.Apfel;
 import nahrungs_klassen.Banane;
@@ -49,8 +39,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 	private SchlafensOrt[] schlafenArray;
 	private Spielmoeglichkeit [] spielenarray;
 	private Timestamp livingtime;
-	//Erfolg
-	private Erfolge erfolge;
+	private Achievement erfolge;
 	private boolean lebendig;
 	
 	/*
@@ -59,10 +48,10 @@ private static final long serialVersionUID = 7102825756447706790L;
 	 */
 	public Tamagotchi(String name){
 		this.lebendig = true;
-
-		this.erfolge = new Erfolge();
 		
 		this.setName(name);
+		
+		this.erfolge = new Achievement();
 		
 		this.beduerfnisse = new Beduerfnis[]{new Hunger(50), new Durst(50), new Muedigkeit(50), new Langeweile(50)};
 		
@@ -96,7 +85,9 @@ private static final long serialVersionUID = 7102825756447706790L;
 		return "Essen: " + this.beduerfnisse[0].getWert() + "\n Trinken: " + this.beduerfnisse[1].getWert() + "\n Schlafen: " + this.beduerfnisse[2].getWert() + "\n Spielen: " + this.beduerfnisse[3].getWert();
 	}
 
-	
+	public Achievement getAchievements(){
+		return this.erfolge;
+	}
 	
 	public String getName() {
 		return this.name;
@@ -134,20 +125,20 @@ private static final long serialVersionUID = 7102825756447706790L;
 		return this.spielenarray;
 	}
 	
-	//Erfolg
-	public Erfolge getErfolge(){
-		return this.erfolge;
-	}
-	
 	public void gameOver(){
 		zeroBeduerfnisse();
-		
-		//Erfolg
-		//1.mal sterben
-		if(!(this.erfolge.isErfolg3())){
-			this.erfolge.setErfolg3(true);
+		if(!Game.getGame().getAchievements().isErfolg1()){
+			Game.getGame().getAchievements().setErfolg1();
 		}
-		
+		if(!Game.getGame().getAchievements().isErfolg3() && Game.getGame().getAchievements().getErfolg3Bedingung()){
+			Game.getGame().getAchievements().setErfolg3();
+		}
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 
 	private void zeroBeduerfnisse() {

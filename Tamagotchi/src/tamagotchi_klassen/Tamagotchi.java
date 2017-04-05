@@ -63,6 +63,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.spielenarray = new Spielmoeglichkeit[]{new Ball(), new Faden()};
 		
 		this.livingtime = new Timestamp();
+		this.livingtime.start();
 		
 	}
 	
@@ -164,6 +165,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.beduerfnisse[3] = new Langeweile(50);
 		this.lebendig = true;
 		this.livingtime = new Timestamp();
+		this.livingtime.start();
 	}
 
 

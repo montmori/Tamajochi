@@ -13,9 +13,6 @@ package achievement;
 
 import java.io.Serializable;
 
-import nahrungs_klassen.Keks;
-import nahrungs_klassen.Nahrung;
-
 public class Achievement implements Serializable{
 
 	

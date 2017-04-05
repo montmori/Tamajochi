@@ -12,18 +12,16 @@
 package achievement;
 
 import game.Game;
-import game.Timestamp;
-import tamagotchi_klassen.Tamagotchi;
 
 public class CheckTimeAchievements implements Runnable{
 	
 	public void run() {
 
-		if((!Game.getGame().getAchievements().isErfolg4()) && (Game.getGame().getTamagotchi().getLivingtime().getTime() >= 1*10)){
+		if((!Game.getGame().getAchievements().isErfolg4()) && (Game.getGame().getTamagotchi().getLivingtime().getTimeSeconds() >= 1*10)){
 			Game.getGame().getAchievements().setErfolg4();
 		}
 		
-		if((!Game.getGame().getAchievements().isErfolg5()) && (Game.getGame().getTamagotchi().getLivingtime().getTime() >= 1*30)){
+		if((!Game.getGame().getAchievements().isErfolg5()) && (Game.getGame().getTamagotchi().getLivingtime().getTimeSeconds() >= 1*30)){
 			Game.getGame().getAchievements().setErfolg5();
 		}
 		

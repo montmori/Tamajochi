@@ -29,8 +29,8 @@ public class ActionDialouge implements ActionListener {
 		
 		if(this.dialougeType == DialougeType.ABOUT){
 			String about = "Developer: Joshua Braun, Marius Schmitt und Marleen Suhm\n\n"
-						+ "Dieses Spiel wurde für die Elektronikschule als Projektarbeit entwickelt.\n"
-						+ "All Rights Reserved by Maehrmann GmbH&Co.KG";
+						+ "Dieses Spiel wurde für die 'Elektronikschule Tettnang' als Projektarbeit entwickelt.\n"
+						+ "All Rights Reserved by Maehrmann GmbH & Co. KG";
 			
 			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), about);
 

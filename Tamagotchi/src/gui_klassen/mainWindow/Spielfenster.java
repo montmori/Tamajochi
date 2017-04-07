@@ -128,7 +128,11 @@ public class Spielfenster extends JFrame {
 		JMenuItem statistiken = new JMenuItem("Statistiken");
 		statistiken.addActionListener(new ActionDialouge(DialougeType.STATISTICS));
 		
+		JMenuItem erfolge = new JMenuItem("Achievements");
+		erfolge.addActionListener(new ActionDialouge(DialougeType.ACHIEVEMENTS));
+		
 		optionen.add(statistiken);
+		optionen.add(erfolge);
 	}
 
 

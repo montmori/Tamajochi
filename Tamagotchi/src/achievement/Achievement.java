@@ -13,9 +13,6 @@ package achievement;
 
 import java.io.Serializable;
 
-import nahrungs_klassen.Keks;
-import nahrungs_klassen.Nahrung;
-
 public class Achievement implements Serializable{
 
 	
@@ -89,4 +86,28 @@ public class Achievement implements Serializable{
 		this.erfolg5 = true;
 	}
 	
+	public String getLueckenfuellerTXT(){
+		return "???"
+				+ "\n\n";
+	}
+	public String getErfolg1TXT(){
+		return "Das Tamagotchi ist das erste mal gestorben. :c"
+				+ "\n\n";
+	}
+	public String getErfolg2TXT(){
+		return "Keks + Milch :D"
+				+ "\n\n";
+	}
+	public String getErfolg3TXT(){
+		return "Nooooiiiinnnn! Warum ? .w."
+				+ "\n\n";
+	}
+	public String getErfolg4TXT(){
+		return "Tamagotchi hat 10 Sekunden überlebt."
+				+ "\n\n";
+	}
+	public String getErfolg5TXT(){
+		return "Tamagotchi hat 30 Sekunden überlebt."
+				+ "\n\n";
+	}
 }

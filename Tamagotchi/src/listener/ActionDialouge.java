@@ -10,7 +10,7 @@ import game.Game;
 public class ActionDialouge implements ActionListener {
 
 	public enum DialougeType{
-		STATISTICS, ABOUT;
+		STATISTICS, ABOUT, ACHIEVEMENTS; 
 	}
 	
 	DialougeType dialougeType;
@@ -34,6 +34,52 @@ public class ActionDialouge implements ActionListener {
 			
 			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), about);
 
+		}
+		
+		if(this.dialougeType == DialougeType.ACHIEVEMENTS){
+			String achievements = "";
+			
+			achievements += "Erfolg 1:\n";
+			if(Game.getGame().getAchievements().isErfolg1()){
+				achievements += Game.getGame().getAchievements().getErfolg1TXT();
+			}
+			else{
+				achievements += Game.getGame().getAchievements().getLueckenfuellerTXT();
+			}
+			
+			achievements += "Erfolg 2:\n";
+			if(Game.getGame().getAchievements().isErfolg2()){
+				achievements += Game.getGame().getAchievements().getErfolg2TXT();
+			}
+			else{
+				achievements += Game.getGame().getAchievements().getLueckenfuellerTXT();
+			}
+			
+			achievements += "Erfolg 3:\n";
+			if(Game.getGame().getAchievements().isErfolg3()){
+				achievements += Game.getGame().getAchievements().getErfolg3TXT();
+			}
+			else{
+				achievements += Game.getGame().getAchievements().getLueckenfuellerTXT();
+			}
+			
+			achievements += "Erfolg 4:\n";
+			if(Game.getGame().getAchievements().isErfolg4()){
+				achievements += Game.getGame().getAchievements().getErfolg4TXT();
+			}
+			else{
+				achievements += Game.getGame().getAchievements().getLueckenfuellerTXT();
+			}
+			
+			achievements += "Erfolg 5:\n";
+			if(Game.getGame().getAchievements().isErfolg5()){
+				achievements += Game.getGame().getAchievements().getErfolg5TXT();
+			}
+			else{
+				achievements += Game.getGame().getAchievements().getLueckenfuellerTXT();
+			}
+			
+			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), achievements);
 		}
 
 	}

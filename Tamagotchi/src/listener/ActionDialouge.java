@@ -22,7 +22,7 @@ public class ActionDialouge implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		
 		if(this.dialougeType == DialougeType.STATISTICS){
-			String statistic = "Lebenszeit:   " + Game.getGame().getTamagotchi().getLivingtime().getTime() + " Sekunden";
+			String statistic = "Lebenszeit:   " + Game.getGame().getTamagotchi().getLivingtime().getTimeSeconds() + " Sekunden";
 			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), statistic);
 		}
 		

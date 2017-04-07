@@ -29,12 +29,13 @@ public class Game {
 	private Spielfenster fenster;
 	private Tamagotchi tamagotchi;
 	private Dimension userResolution;
-	private int gameTime;
+	private Timestamp gameTime;
 	
 	
 	
 	public Game(){
-		setGameTime(0);
+		this.gameTime = new Timestamp();
+		this.gameTime.start();
 	}
 	
 	public void start(){
@@ -101,12 +102,8 @@ public class Game {
 	}
 	
 	
-	public int getGameTime() {
+	public Timestamp getGameTime() {
 		return gameTime;
-	}
-
-	public void setGameTime(int gameTime) {
-		this.gameTime = gameTime;
 	}
 	
 	
@@ -162,7 +159,7 @@ public class Game {
 			oin = new ObjectInputStream(fin);
 			this.tamagotchi = (Tamagotchi) oin.readObject();
 			BeduerfnisTaskStart();
-			this.tamagotchi.getLivingtime().startCounting();
+			this.tamagotchi.getLivingtime().resumeAfterShutdown();
 			
 		} catch (FileNotFoundException e) {
 			System.err.println("Neues Spiel wird erstellt!");

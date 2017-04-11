@@ -16,17 +16,32 @@ public class Timestamp implements Serializable,Runnable {
 	private static final long serialVersionUID = 726945156398220291L;
 
 	private int time;
+	private boolean isStarted;
 	
 	public Timestamp(){
 		this.setTime(0);
-		startCounting();
+		this.isStarted = false;
+		OwnTimer.scheduleAtFixedRate(this, 1, 1, TimeUnit.SECONDS);
 	}
 	
-	public void startCounting(){
-		OwnTimer.queueTask(this, 1, 1, TimeUnit.SECONDS);
+	public void resumeAfterShutdown(){
+		OwnTimer.scheduleAtFixedRate(this, 1, 1, TimeUnit.SECONDS);
+		this.isStarted = true;
+	}
+	
+	public void start(){
+		this.isStarted = true;
 	}
 
-	public int getTime() {
+	public void stop(){
+		this.isStarted = false;
+	}
+	
+	public void reset(){
+		this.setTime(0);
+	}
+	
+	public int getTimeSeconds() {
 		return time;
 	}
 
@@ -40,8 +55,8 @@ public class Timestamp implements Serializable,Runnable {
 
 	@Override
 	public void run() {
-		this.time++;
-		
+		if(this.isStarted){
+			this.time++;
+		}
 	}
-	
 }

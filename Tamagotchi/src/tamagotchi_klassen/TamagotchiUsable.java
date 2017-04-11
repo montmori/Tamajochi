@@ -4,5 +4,12 @@ package tamagotchi_klassen;
  * Implemented von allem, was das Tamagotchi benutzen kann.
  */
 public interface TamagotchiUsable {
+	
+	public abstract int getTimeTillUnlock();
+	public abstract void setTimeTillUnlock(int timeTollUnlock);
+	
+	public abstract boolean isUnlocked();
+	public abstract void setUnlocked(boolean isUnlocked);
+	
 	public abstract void use();
 }

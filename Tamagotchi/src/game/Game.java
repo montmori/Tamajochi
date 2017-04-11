@@ -22,9 +22,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import achievement.Achievement;
+import achievement.CheckTimeAchievements;
 import gui_klassen.abfragefenster.ResolutionAbfragefenster;
 import gui_klassen.mainWindow.Spielfenster;
 import runnable_klassen.CheckLifeState;
+import runnable_klassen.CheckUnlockedUsables;
 import runnable_klassen.OwnTimer;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
@@ -35,21 +38,30 @@ public class Game {
 	private Spielfenster fenster;
 	private Tamagotchi tamagotchi;
 	private Dimension userResolution;
-	private int gameTime;
+	private Timestamp gameTime;
 	
 	
 	
 	public Game(){
-		setGameTime(0);
+		this.gameTime = new Timestamp();
+		this.gameTime.start();
 	}
 	
 	public void start(){
 		Dimension size = getWindowSize();
 		loadTamagotchiInstance();
 		this.fenster = new Spielfenster(size);
-		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
+		scheduleRunnableTasks();
 	}
 	
+	
+	//Hier können die Runnables in den Executor übernommen werden, wird beim ersten starten
+	//und bei jedem weiteren neustart aufgerufen.
+	private void scheduleRunnableTasks(){
+		OwnTimer.scheduleAtFixedRate(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
+		OwnTimer.scheduleAtFixedRate(new CheckTimeAchievements(), 1, 1, TimeUnit.SECONDS);
+		OwnTimer.scheduleAtFixedRate(new CheckUnlockedUsables(), 100, 100, TimeUnit.MILLISECONDS);
+	}
 	
 	public static Game getGame(){
 		if(Game.game == null){
@@ -60,6 +72,10 @@ public class Game {
 	
 	public Tamagotchi getTamagotchi(){
 		return this.tamagotchi;
+	}
+	
+	public Achievement getAchievements(){
+		return this.getTamagotchi().getAchievements();
 	}
 	
 	public Spielfenster getSpielfenster(){
@@ -97,16 +113,12 @@ public class Game {
 		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
 		this.tamagotchi.newGame(Game.getUserStringInput("Wie soll dein neues Tamagotchi heißen?"));	
-		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
+		scheduleRunnableTasks();
 	}
 	
 	
-	public int getGameTime() {
+	public Timestamp getGameTime() {
 		return gameTime;
-	}
-
-	public void setGameTime(int gameTime) {
-		this.gameTime = gameTime;
 	}
 	
 	
@@ -162,7 +174,7 @@ public class Game {
 			oin = new ObjectInputStream(fin);
 			this.tamagotchi = (Tamagotchi) oin.readObject();
 			BeduerfnisTaskStart();
-			this.tamagotchi.getLivingtime().startCounting();
+			this.tamagotchi.getLivingtime().resumeAfterShutdown();
 			
 		} catch (FileNotFoundException e) {
 			System.err.println("Neues Spiel wird erstellt!");
@@ -176,7 +188,5 @@ public class Game {
 			this.tamagotchi = new Viech(Game.getUserStringInput("Wie soll dein Tamagotchi heißen?"));
 		}
 	}
-
-
 
 }

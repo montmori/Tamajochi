@@ -1,14 +1,19 @@
 package tamagotchi_klassen;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
+
+import achievement.Achievement;
 import javax.swing.ImageIcon;
+
 
 import beduerfnis_klassen.Beduerfnis;
 import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
 import beduerfnis_klassen.Langeweile;
 import beduerfnis_klassen.Muedigkeit;
+import game.Game;
 import game.Timestamp;
 import nahrungs_klassen.Apfel;
 import nahrungs_klassen.Banane;
@@ -39,6 +44,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 	private SchlafensOrt[] schlafenArray;
 	private Spielmoeglichkeit [] spielenarray;
 	private Timestamp livingtime;
+	private Achievement erfolge;
 	private boolean lebendig;
 	public int BILDANZAHL;
 	
@@ -49,20 +55,22 @@ private static final long serialVersionUID = 7102825756447706790L;
 	 */
 	public Tamagotchi(String name){
 		this.lebendig = true;
-
 		
 		this.setName(name);
 		
+		this.erfolge = new Achievement();
+		
 		this.beduerfnisse = new Beduerfnis[]{new Hunger(50), new Durst(50), new Muedigkeit(50), new Langeweile(50)};
 		
-		Nahrung[] essenArray = new Nahrung[]{new Apfel(), new Banane(), new Fleisch(), new Keks()};
+		Nahrung[] essenArray = new Nahrung[]{ new Banane(), new Apfel(), new Fleisch(), new Keks()};
 		Nahrung[] trinkenArray = new Nahrung[]{new Wasser(), new Cola(), new Milch(), new Salzwasser()};
 		this.nahrungsArray = new Nahrung[][]{ essenArray, trinkenArray };
 		
 		this.schlafenArray = new SchlafensOrt[]{new Boden(), new Bett()};
-		this.spielenarray = new Spielmoeglichkeit[]{new Ball(), new Faden()};
+		this.spielenarray = new Spielmoeglichkeit[]{new Faden(), new Ball()};
 		
 		this.livingtime = new Timestamp();
+		this.livingtime.start();
 		
 	}
 	
@@ -79,7 +87,11 @@ private static final long serialVersionUID = 7102825756447706790L;
 	public String toString(){
 		return "Essen: " + this.beduerfnisse[0].getWert() + "\n Trinken: " + this.beduerfnisse[1].getWert() + "\n Schlafen: " + this.beduerfnisse[2].getWert() + "\n Spielen: " + this.beduerfnisse[3].getWert();
 	}
-	
+
+
+	public Achievement getAchievements(){
+		return this.erfolge;
+	}
 	
 	public String getName() {
 		return this.name;
@@ -124,6 +136,18 @@ private static final long serialVersionUID = 7102825756447706790L;
 	
 	public void gameOver(){
 		zeroBeduerfnisse();
+		if(!Game.getGame().getAchievements().isErfolg1()){
+			Game.getGame().getAchievements().setErfolg1();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3() && Game.getGame().getAchievements().getErfolg3Bedingung()){
+			Game.getGame().getAchievements().setErfolg3();
+		}
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 
 	private void zeroBeduerfnisse() {
@@ -149,6 +173,26 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.beduerfnisse[3] = new Langeweile(50);
 		this.lebendig = true;
 		this.livingtime = new Timestamp();
+		this.livingtime.start();
+	}
+	
+	
+	public TamagotchiUsable[] getUsables(){
+		ArrayList<TamagotchiUsable> temp = new ArrayList<>();
+		for(TamagotchiUsable x : this.getNahrungsArray()[0]){
+			temp.add(x);
+		}
+		for(TamagotchiUsable x : this.getNahrungsArray()[1]){
+			temp.add(x);
+		}
+		for(TamagotchiUsable x : this.getSchlafenArray()){
+			temp.add(x);
+		}
+		for(TamagotchiUsable x : this.getSpielenArray()){
+			temp.add(x);
+		}
+		
+		return (TamagotchiUsable[])temp.toArray(new TamagotchiUsable[temp.size()]);
 	}
 	
 	public abstract ImageIcon[] getBildArray();

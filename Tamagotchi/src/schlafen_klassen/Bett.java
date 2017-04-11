@@ -12,10 +12,18 @@ public class Bett extends SchlafensOrt{
 
 	public Bett(){
 		super("Bett");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(BETT_TTU);
 	}
 
 	public void use() {
 		this.beBusy();
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 	
 	public void beBusy(){

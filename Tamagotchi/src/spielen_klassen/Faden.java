@@ -12,10 +12,18 @@ public class Faden extends Spielmoeglichkeit {
 
 	public Faden(){
 		super("Faden");
+		super.setUnlocked(true);
+		super.setTimeTillUnlock(FADEN_TTU);
 	}
 	
 	public void use() {
 		beBusy();
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 
 	public void beBusy(){

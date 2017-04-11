@@ -11,6 +11,8 @@ public abstract class Nahrung extends TimerTask implements TamagotchiUsable, Nah
 	private String nameOfClass;
 	private static final long serialVersionUID = 4220515769542454659L;
 	protected int wert;
+	private int timeTillUnlock;
+	private boolean isUnlocked;
 	
 	/*
 	 * Wert = Wert, welcher, wenn man die Nahrung dem 
@@ -35,5 +37,20 @@ public abstract class Nahrung extends TimerTask implements TamagotchiUsable, Nah
 		this.nameOfClass = nameOfClass;
 	}
 	
+	public int getTimeTillUnlock() {
+		return this.timeTillUnlock;
+	}
+
+	public boolean isUnlocked() {
+		return this.isUnlocked;
+	}
+	
+	public void setUnlocked(boolean isUnlocked){
+		this.isUnlocked = isUnlocked;
+	}
+	
+	public void setTimeTillUnlock(int timeTillUnlock){
+		this.timeTillUnlock = timeTillUnlock;
+	}
 
 }

@@ -15,11 +15,19 @@ public class Fleisch extends Nahrung{
 
 	public Fleisch() {
 		super("Fleisch");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(FLEISCH_TTU);
 	}
 
 
 	public void use() {
 		beBusy();
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 	
 	
@@ -29,7 +37,7 @@ public class Fleisch extends Nahrung{
 	}
 	
 	public void run(){
-		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(FLEISCH);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(FLEISCH_H);
 		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(FLEISCH_T);
 		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(FLEISCH_M);
 		ButtonPanel.setButtonsEnabled(true);

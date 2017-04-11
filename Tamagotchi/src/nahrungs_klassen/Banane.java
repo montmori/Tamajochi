@@ -16,11 +16,19 @@ public class Banane extends Nahrung{
 	public Banane() {
 		super("Banane");
 		super.setName("Banane");
+		super.setUnlocked(true);
+		super.setTimeTillUnlock(BANANE_TTU);
 	}
 
 	@Override
 	public void use() {
 		beBusy();
+		if(!Game.getGame().getAchievements().isErfolg2()){
+			Game.getGame().getAchievements().resteErfolg2Bedingung();
+		}
+		if(!Game.getGame().getAchievements().isErfolg3()){
+			Game.getGame().getAchievements().resteErfolg3Bedingung();
+		}
 	}
 	
 	public void beBusy(){
@@ -29,8 +37,10 @@ public class Banane extends Nahrung{
 	}
 	
 	public void run(){
-		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(BANANE);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(BANANE_H);
 		ButtonPanel.setButtonsEnabled(true);
 	}
+
+
 
 }

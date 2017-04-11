@@ -8,7 +8,6 @@
 
 package gui_klassen.mainWindow;
 
-import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
@@ -39,7 +38,7 @@ public class AnimationT implements Runnable{
 		this.bildArray = Game.getGame().getTamagotchi().getBildArray();
 		this.currentBild = this.bildArray[this.BILDANZAHL/2];
 
-		OwnTimer.queueTask(this, 100, 100, TimeUnit.MILLISECONDS);	
+		OwnTimer.scheduleAtFixedRate(this, 100, 100, TimeUnit.MILLISECONDS);	
 	}
 	
 	/*

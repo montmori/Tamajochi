@@ -19,6 +19,7 @@ import achievement.CheckTimeAchievements;
 import gui_klassen.abfragefenster.ResolutionAbfragefenster;
 import gui_klassen.mainWindow.Spielfenster;
 import runnable_klassen.CheckLifeState;
+import runnable_klassen.CheckUnlockedUsables;
 import runnable_klassen.OwnTimer;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
@@ -42,10 +43,17 @@ public class Game {
 		Dimension size = getWindowSize();
 		loadTamagotchiInstance();
 		this.fenster = new Spielfenster(size);
-		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
-		OwnTimer.queueTask(new CheckTimeAchievements(), 1, 1, TimeUnit.SECONDS);
+		scheduleRunnableTasks();
 	}
 	
+	
+	//Hier können die Runnables in den Executor übernommen werden, wird beim ersten starten
+	//und bei jedem weiteren neustart aufgerufen.
+	private void scheduleRunnableTasks(){
+		OwnTimer.scheduleAtFixedRate(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
+		OwnTimer.scheduleAtFixedRate(new CheckTimeAchievements(), 1, 1, TimeUnit.SECONDS);
+		OwnTimer.scheduleAtFixedRate(new CheckUnlockedUsables(), 100, 100, TimeUnit.MILLISECONDS);
+	}
 	
 	public static Game getGame(){
 		if(Game.game == null){
@@ -97,8 +105,7 @@ public class Game {
 		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
 		this.tamagotchi.newGame(Game.getUserStringInput("Wie soll dein neues Tamagotchi heißen?"));	
-		OwnTimer.queueTask(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
-		OwnTimer.queueTask(new CheckTimeAchievements(), 1, 1, TimeUnit.SECONDS);
+		scheduleRunnableTasks();
 	}
 	
 	

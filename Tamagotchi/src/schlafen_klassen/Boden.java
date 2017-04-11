@@ -12,6 +12,8 @@ public class Boden extends SchlafensOrt{
 
 	public Boden(){
 		super("Boden");
+		super.setUnlocked(true);
+		super.setTimeTillUnlock(BODEN_TTU);
 	}
 
 	public void use() {
@@ -31,7 +33,9 @@ public class Boden extends SchlafensOrt{
 	
 	public void run(){
 		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(BODEN);
-		Game.getGame().getTamagotchi().getLangeweile().veraendereBeduerfnisWert(BODEN_S);
+		Game.getGame().getTamagotchi().getLangeweile().veraendereBeduerfnisWert(BODEN_M);
 		ButtonPanel.setButtonsEnabled(true);
 	}
+
+
 }

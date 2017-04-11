@@ -1,6 +1,7 @@
 package tamagotchi_klassen;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import achievement.Achievement;
 import beduerfnis_klassen.Beduerfnis;
@@ -55,12 +56,12 @@ private static final long serialVersionUID = 7102825756447706790L;
 		
 		this.beduerfnisse = new Beduerfnis[]{new Hunger(50), new Durst(50), new Muedigkeit(50), new Langeweile(50)};
 		
-		Nahrung[] essenArray = new Nahrung[]{new Apfel(), new Banane(), new Fleisch(), new Keks()};
+		Nahrung[] essenArray = new Nahrung[]{ new Banane(), new Apfel(), new Fleisch(), new Keks()};
 		Nahrung[] trinkenArray = new Nahrung[]{new Wasser(), new Cola(), new Milch(), new Salzwasser()};
 		this.nahrungsArray = new Nahrung[][]{ essenArray, trinkenArray };
 		
 		this.schlafenArray = new SchlafensOrt[]{new Boden(), new Bett()};
-		this.spielenarray = new Spielmoeglichkeit[]{new Ball(), new Faden()};
+		this.spielenarray = new Spielmoeglichkeit[]{new Faden(), new Ball()};
 		
 		this.livingtime = new Timestamp();
 		this.livingtime.start();
@@ -166,6 +167,25 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.lebendig = true;
 		this.livingtime = new Timestamp();
 		this.livingtime.start();
+	}
+	
+	
+	public TamagotchiUsable[] getUsables(){
+		ArrayList<TamagotchiUsable> temp = new ArrayList<>();
+		for(TamagotchiUsable x : this.getNahrungsArray()[0]){
+			temp.add(x);
+		}
+		for(TamagotchiUsable x : this.getNahrungsArray()[1]){
+			temp.add(x);
+		}
+		for(TamagotchiUsable x : this.getSchlafenArray()){
+			temp.add(x);
+		}
+		for(TamagotchiUsable x : this.getSpielenArray()){
+			temp.add(x);
+		}
+		
+		return (TamagotchiUsable[])temp.toArray(new TamagotchiUsable[temp.size()]);
 	}
 
 

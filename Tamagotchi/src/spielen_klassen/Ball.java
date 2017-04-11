@@ -12,6 +12,8 @@ public class Ball extends Spielmoeglichkeit {
 
 	public Ball(){
 		super("Ball");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(BALL_TTU);
 	}
 	
 	public void use() {

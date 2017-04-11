@@ -9,6 +9,8 @@ public abstract class SchlafensOrt extends TimerTask implements TamagotchiUsable
 
 	private String nameOfClass;
 	private static final long serialVersionUID = -7244748013359821828L;
+	private int timeTillUnlock;
+	private boolean isUnlocked;
 	
 	public SchlafensOrt(String nameOfClass){
 		setName(nameOfClass);
@@ -22,5 +24,23 @@ public abstract class SchlafensOrt extends TimerTask implements TamagotchiUsable
 	
 	public void setName(String nameOfClass){
 		this.nameOfClass = nameOfClass;
+	}
+	
+	
+	public int getTimeTillUnlock() {
+		return this.timeTillUnlock;
+	}
+
+	
+	public boolean isUnlocked() {
+		return this.isUnlocked;
+	}
+	
+	public void setUnlocked(boolean isUnlocked){
+		this.isUnlocked = isUnlocked;
+	}
+	
+	public void setTimeTillUnlock(int timeTillUnlock){
+		this.timeTillUnlock = timeTillUnlock;
 	}
 }

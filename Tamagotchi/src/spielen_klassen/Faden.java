@@ -12,6 +12,8 @@ public class Faden extends Spielmoeglichkeit {
 
 	public Faden(){
 		super("Faden");
+		super.setUnlocked(true);
+		super.setTimeTillUnlock(FADEN_TTU);
 	}
 	
 	public void use() {

@@ -9,6 +9,8 @@ public abstract class Spielmoeglichkeit extends TimerTask implements TamagotchiU
 
 	private String nameOfClass;
 	private static final long serialVersionUID = -6945839844092394815L;
+	private int timeTillUnlock;
+	private boolean isUnlocked;
 	
 	public Spielmoeglichkeit(String nameOfClass){
 		this.setName(nameOfClass);
@@ -22,5 +24,23 @@ public abstract class Spielmoeglichkeit extends TimerTask implements TamagotchiU
 	
 	public void setName(String nameOfClass){
 		this.nameOfClass = nameOfClass;
+	}
+	
+	
+	public int getTimeTillUnlock() {
+		return this.timeTillUnlock;
+	}
+
+	
+	public boolean isUnlocked() {
+		return this.isUnlocked;
+	}
+	
+	public void setUnlocked(boolean isUnlocked){
+		this.isUnlocked = isUnlocked;
+	}
+	
+	public void setTimeTillUnlock(int timeTillUnlock){
+		this.timeTillUnlock = timeTillUnlock;
 	}
 }

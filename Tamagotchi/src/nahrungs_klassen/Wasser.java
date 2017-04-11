@@ -12,7 +12,8 @@ public class Wasser extends Nahrung {
 
 	public Wasser() {
 		super("Wasser");
-		
+		super.setUnlocked(true);
+		super.setTimeTillUnlock(WASSER_TTU);
 	}
 	
 	public void use() {
@@ -32,7 +33,7 @@ public class Wasser extends Nahrung {
 	}
 	
 	public void run(){		
-		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(WASSER);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(WASSER_T);
 		ButtonPanel.setButtonsEnabled(true);
 	}
 

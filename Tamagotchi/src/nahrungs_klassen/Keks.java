@@ -15,6 +15,8 @@ public class Keks extends Nahrung{
 
 	public Keks() {
 		super("Keks");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(KEKS_TTU);
 	}
 
 	@Override
@@ -34,7 +36,7 @@ public class Keks extends Nahrung{
 	}
 	
 	public void run(){
-		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(KEKS);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(KEKS_H);
 		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(KEKS_T);
 		ButtonPanel.setButtonsEnabled(true);
 	}

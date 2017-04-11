@@ -11,7 +11,9 @@ public class Apfel extends Nahrung{
 	private static final long serialVersionUID = -1381982869897665964L;
 
 	public Apfel() {
-		super("Apfel");		
+		super("Apfel");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(APFEL_TTU);
 	}
 
 	public void use() {
@@ -30,7 +32,7 @@ public class Apfel extends Nahrung{
 	}
 	
 	public void run(){
-		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(APFEL);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(APFEL_H);
 		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(APFEL_T);
 		ButtonPanel.setButtonsEnabled(true);
 	}

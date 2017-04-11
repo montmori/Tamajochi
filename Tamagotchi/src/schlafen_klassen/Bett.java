@@ -12,6 +12,8 @@ public class Bett extends SchlafensOrt{
 
 	public Bett(){
 		super("Bett");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(BETT_TTU);
 	}
 
 	public void use() {

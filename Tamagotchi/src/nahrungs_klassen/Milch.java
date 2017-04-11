@@ -16,6 +16,8 @@ public class Milch extends Nahrung {
 
 	public Milch() {
 		super("Milch");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(MILCH_TTU);
 		
 	}
 	
@@ -38,7 +40,7 @@ public class Milch extends Nahrung {
 	}
 	
 	public void run(){
-		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(MILCH);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(MILCH_T);
 		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(MILCH_H);
 		ButtonPanel.setButtonsEnabled(true);
 	}

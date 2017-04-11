@@ -15,6 +15,8 @@ public class Fleisch extends Nahrung{
 
 	public Fleisch() {
 		super("Fleisch");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(FLEISCH_TTU);
 	}
 
 
@@ -35,7 +37,7 @@ public class Fleisch extends Nahrung{
 	}
 	
 	public void run(){
-		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(FLEISCH);
+		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(FLEISCH_H);
 		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(FLEISCH_T);
 		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(FLEISCH_M);
 		ButtonPanel.setButtonsEnabled(true);

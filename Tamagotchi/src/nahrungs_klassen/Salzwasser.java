@@ -10,6 +10,8 @@ public class Salzwasser extends Nahrung {
 
 	public Salzwasser() {
 		super("Salzwasser");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(SALZWASSER_TTU);
 	}
 
 	private static final long serialVersionUID = 3531122978200688656L;
@@ -31,7 +33,7 @@ public class Salzwasser extends Nahrung {
 	}
 	
 	public void run(){		
-		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(SALZWASSER);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(SALZWASSER_T);
 		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(SALZWASSER_H);
 		ButtonPanel.setButtonsEnabled(true);
 	}

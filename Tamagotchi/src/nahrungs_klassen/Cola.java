@@ -16,6 +16,8 @@ public class Cola extends Nahrung {
 
 	public Cola() {
 		super("Cola");
+		super.setUnlocked(false);
+		super.setTimeTillUnlock(COLA_TTU);
 	}
 	
 	/*
@@ -37,7 +39,7 @@ public class Cola extends Nahrung {
 	}
 	
 	public void run(){
-		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(COLA);
+		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(COLA_T);
 		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(COLA_H);
 		Game.getGame().getTamagotchi().getMuedigkeit().veraendereBeduerfnisWert(COLA_M);
 		ButtonPanel.setButtonsEnabled(true);

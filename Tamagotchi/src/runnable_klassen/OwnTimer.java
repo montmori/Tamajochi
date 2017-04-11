@@ -6,9 +6,9 @@ import java.util.concurrent.TimeUnit;
 public class OwnTimer{
 
 	private static ScheduledThreadPoolExecutor s;
-	public static final int EXECUTOR_CORE_POOL_SIZE = 10;
+	public static final int EXECUTOR_CORE_POOL_SIZE = 20;
 
-	public static void queueTask(Runnable command, long initialDelay, long period, TimeUnit unit){
+	public static void scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit){
 		
 		if(s == null){
 			s = new ScheduledThreadPoolExecutor(OwnTimer.EXECUTOR_CORE_POOL_SIZE);

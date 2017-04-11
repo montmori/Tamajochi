@@ -15,11 +15,11 @@ public class Timestamp implements Serializable,Runnable {
 	public Timestamp(){
 		this.setTime(0);
 		this.isStarted = false;
-		OwnTimer.queueTask(this, 1, 1, TimeUnit.SECONDS);
+		OwnTimer.scheduleAtFixedRate(this, 1, 1, TimeUnit.SECONDS);
 	}
 	
 	public void resumeAfterShutdown(){
-		OwnTimer.queueTask(this, 1, 1, TimeUnit.SECONDS);
+		OwnTimer.scheduleAtFixedRate(this, 1, 1, TimeUnit.SECONDS);
 		this.isStarted = true;
 	}
 	

@@ -30,7 +30,7 @@ public abstract class Beduerfnis implements BeduerfnisWerte, Serializable{
 	
 	protected void startTask(Runnable task, int initialDelay, int periodTime) {
 		
-		OwnTimer.queueTask(task, initialDelay, periodTime, TimeUnit.MILLISECONDS);
+		OwnTimer.scheduleAtFixedRate(task, initialDelay, periodTime, TimeUnit.MILLISECONDS);
 	}
 
 	/*

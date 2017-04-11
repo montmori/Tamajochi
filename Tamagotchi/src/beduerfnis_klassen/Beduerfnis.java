@@ -1,3 +1,11 @@
+/*
+ * Superklasse der verschiedenen Beduerfnisse.
+ * Aufgaben: 
+ *  - Konstruktor, der die Startwerte zuweist
+ *  -  
+ * 
+ */
+
 package beduerfnis_klassen;
 
 import java.io.Serializable;

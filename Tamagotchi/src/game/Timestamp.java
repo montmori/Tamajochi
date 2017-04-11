@@ -1,3 +1,9 @@
+/*
+ * Haelt die Spielzeit fest. Fuer Anzeige und Achievements
+ * 
+ * 
+ */
+
 package game;
 
 import java.io.Serializable;

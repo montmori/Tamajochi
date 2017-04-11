@@ -1,3 +1,11 @@
+/*
+ * Game ist die Klasse, die fuer das Starten und Verwalten des ganzen Spiels verantwortlich ist.
+ * Aufgaben:
+ * - 
+ * -
+ * 
+ */
+
 package game;
 
 import java.awt.Dimension;

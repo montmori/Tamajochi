@@ -1,65 +1,58 @@
+/*
+ * Klasse fuer die Animationen.
+ * Aufgaben: 
+ * - Laed BilderArray aus dem instanzierten Tamagotchi (Grund: erweiterbar!)
+ * - Wechselt jede 100 Millisekunden das Bild und suggeriert so eine Bewegung.
+ * 
+ */
+
 package gui_klassen.mainWindow;
 
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import debugInterface.Debugable;
 import game.Game;
 import runnable_klassen.OwnTimer;
 
 public class AnimationT implements Runnable{
 
 	private ImageIcon[] bildArray; //benutze ImageIcon weil man da den Loadstatus abfragen kann!
-	private final int BILDANZAHL = 3;
+	private final int BILDANZAHL = Game.getGame().getTamagotchi().BILDANZAHL;
 
 	private boolean rechtsrum = true;
 	private int zaehler;
 	
 	private ImageIcon currentBild;
-	
-	private ScheduledThreadPoolExecutor timer;
 
 	
+	/*
+	 * Macht einen ImageIconArray
+	 * Holt sich den Bildarray aus dem Tamagotchi und startet sich selbst
+	 */
 	public AnimationT(){		
-
-		int userWidth = Game.getGame().getUserSize().getWidth() == 600 ? 400 :(int)(Game.getGame().getUserSize().getWidth() - 320);
-		int userHeight = (int)(Game.getGame().getUserSize().getHeight() - 180);
 	
 		this.bildArray = new ImageIcon[this.BILDANZAHL];
-		this.zaehler = this.BILDANZAHL/2;
-		
-		try {
-			for(int i = 0; i < this.BILDANZAHL; i++){
-				Image temp = ImageIO.read(new File("Images/tamagotchiNormal" + i + ".png"));
-				temp = temp.getScaledInstance(userWidth, userHeight, Image.SCALE_SMOOTH);
-				this.bildArray[i] = new ImageIcon(temp);
-			}
-			
-			this.currentBild = this.bildArray[this.BILDANZAHL/2];
-			
-		} catch (IOException e) {
-			if(Debugable.DEBUG_GUI){
-				System.out.println("Keine Bilder fuer Animation gefunden! Fehler in Klasse AnimationT");
-			}
-		}
-		
-		this.timer = new ScheduledThreadPoolExecutor(OwnTimer.EXECUTOR_CORE_POOL_SIZE);
-		this.timer.scheduleAtFixedRate(this, 100, 100, TimeUnit.MILLISECONDS);
-		
+		this.zaehler = this.BILDANZAHL/2;		
+
+		this.bildArray = Game.getGame().getTamagotchi().getBildArray();
+		this.currentBild = this.bildArray[this.BILDANZAHL/2];
+
+		OwnTimer.queueTask(this, 100, 100, TimeUnit.MILLISECONDS);	
 	}
 	
-	
+	/*
+	 * Gibt das Momentanbild zurueck.
+	 */
 	public ImageIcon getCurrentBild(){
 		return this.currentBild;
 	}
 	
 	
+	/*
+	 * Aendert die Bilder indem der Array von vorne nach hinten und dann von hinten nach vorne durchlaufen wird.
+	 */
 	public void changeImage(){
 		
 		if(rechtsrum){
@@ -79,7 +72,9 @@ public class AnimationT implements Runnable{
 
 	}
 
-	@Override
+	/*
+	 *Alle 100 Millisekunden wird das Bild geaendert
+	 */
 	public void run() {
 		this.changeImage();
 	}

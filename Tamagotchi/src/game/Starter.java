@@ -1,4 +1,6 @@
-
+/*
+ * Die Main, die ein neues Game erstellt.
+ */
 package game;
 
 public class Starter {

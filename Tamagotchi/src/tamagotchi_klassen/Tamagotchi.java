@@ -3,7 +3,11 @@ package tamagotchi_klassen;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 import achievement.Achievement;
+import javax.swing.ImageIcon;
+
+
 import beduerfnis_klassen.Beduerfnis;
 import beduerfnis_klassen.Durst;
 import beduerfnis_klassen.Hunger;
@@ -42,6 +46,8 @@ private static final long serialVersionUID = 7102825756447706790L;
 	private Timestamp livingtime;
 	private Achievement erfolge;
 	private boolean lebendig;
+	public int BILDANZAHL;
+	
 	
 	/*
 	 * Tamagotchi wird erstellt und benannt.
@@ -68,10 +74,6 @@ private static final long serialVersionUID = 7102825756447706790L;
 		
 	}
 	
-	/*
-	 * Hier wird von der Nahrung aus auf Hunger und Durst zugegriffen und
-	 * erhoeht.
-	 */
 	
 	public Timestamp getLivingtime() {
 		return livingtime;
@@ -83,9 +85,9 @@ private static final long serialVersionUID = 7102825756447706790L;
 	
 	
 	public String toString(){
-		
 		return "Essen: " + this.beduerfnisse[0].getWert() + "\n Trinken: " + this.beduerfnisse[1].getWert() + "\n Schlafen: " + this.beduerfnisse[2].getWert() + "\n Spielen: " + this.beduerfnisse[3].getWert();
 	}
+
 
 	public Achievement getAchievements(){
 		return this.erfolge;
@@ -99,6 +101,11 @@ private static final long serialVersionUID = 7102825756447706790L;
 		this.name = name;
 	}
 
+	
+	/*
+	 * Hier wird von den TamagotchiUsables aus auf die Beduerfnisse zugegriffen und
+	 * erhoeht.
+	 */
 	public Hunger getHunger() {
 		return (Hunger)this.beduerfnisse[0];
 	}
@@ -187,6 +194,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 		
 		return (TamagotchiUsable[])temp.toArray(new TamagotchiUsable[temp.size()]);
 	}
-
+	
+	public abstract ImageIcon[] getBildArray();
 
 }

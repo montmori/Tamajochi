@@ -120,7 +120,6 @@ public class ButtonPanel extends JPanel{
 	
 
 	public void gameOver() {
-		System.out.println("Disable Buttons");
 		ButtonPanel.setButtonsEnabled(false);
 		
 	}

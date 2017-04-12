@@ -8,20 +8,25 @@
 
 package gui_klassen.mainWindow;
 
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 
 import game.Game;
-import runnable_klassen.OwnTimer;
 
 public class AnimationT implements Runnable{
 
-	private ImageIcon[] bildArray; //benutze ImageIcon weil man da den Loadstatus abfragen kann!
+	private ImageIcon[] bildArrayLebendig; //benutze ImageIcon weil man da den Loadstatus abfragen kann!
 	private final int BILDANZAHL = Game.getGame().getTamagotchi().BILDANZAHL;
+	private ImageIcon[] bildArrayTot;
+	private final int BILDANZAHL_TOT = Game.getGame().getTamagotchi().BILDANZAHL_TOT;
 
 	private boolean rechtsrum = true;
 	private int zaehler;
+	private int zaehlerTot = 0;
+	private boolean lebendig;
+	private ScheduledThreadPoolExecutor timer;
 	
 	private ImageIcon currentBild;
 
@@ -30,15 +35,20 @@ public class AnimationT implements Runnable{
 	 * Macht einen ImageIconArray
 	 * Holt sich den Bildarray aus dem Tamagotchi und startet sich selbst
 	 */
-	public AnimationT(){		
-	
-		this.bildArray = new ImageIcon[this.BILDANZAHL];
-		this.zaehler = this.BILDANZAHL/2;		
+	public AnimationT(){	
+		
+		this.timer = new ScheduledThreadPoolExecutor(10);
 
-		this.bildArray = Game.getGame().getTamagotchi().getBildArray();
-		this.currentBild = this.bildArray[this.BILDANZAHL/2];
+		this.bildArrayLebendig = new ImageIcon[this.BILDANZAHL];
+		this.zaehler = this.BILDANZAHL/2;			
+		this.bildArrayTot = new ImageIcon[this.BILDANZAHL_TOT];
 
-		OwnTimer.scheduleAtFixedRate(this, 100, 100, TimeUnit.MILLISECONDS);	
+		this.bildArrayLebendig = Game.getGame().getTamagotchi().getBildArrayLebendig();
+		this.currentBild = this.bildArrayLebendig[this.BILDANZAHL/2];
+		
+		this.bildArrayTot = Game.getGame().getTamagotchi().getBildArrayTot();
+
+		this.timer.scheduleAtFixedRate(this, 100, 100, TimeUnit.MILLISECONDS);	
 	}
 	
 	/*
@@ -57,12 +67,12 @@ public class AnimationT implements Runnable{
 		if(rechtsrum){
 			this.zaehler++;
 			//System.out.println("positiv " + this.zaehler);
-			this.currentBild = this.bildArray[zaehler-1];
+			this.currentBild = this.bildArrayLebendig[zaehler-1];
 		}
 		else{
 			this.zaehler--;
 			//System.out.println("negativ " + this.zaehler);
-			this.currentBild = this.bildArray[zaehler-1];
+			this.currentBild = this.bildArrayLebendig[zaehler-1];
 		}
 		
 		if(this.zaehler == this.BILDANZAHL || this.zaehler == 1){
@@ -70,12 +80,27 @@ public class AnimationT implements Runnable{
 		}
 
 	}
+	
+	public void changeImageWhileDead(){
+		
+		this.currentBild = this.bildArrayTot[this.zaehlerTot];
+		
+		if(this.zaehlerTot != this.BILDANZAHL_TOT - 1){
+			this.zaehlerTot++;
+		}
+	}
 
 	/*
 	 *Alle 100 Millisekunden wird das Bild geaendert
 	 */
 	public void run() {
-		this.changeImage();
+		this.lebendig = Game.getGame().getTamagotchi().isLebendig();
+		if(this.lebendig){
+			this.changeImage();
+		}
+		else{
+			this.changeImageWhileDead();
+		}
 	}
 	
 	

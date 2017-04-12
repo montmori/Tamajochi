@@ -22,26 +22,30 @@ public class Viech extends Tamagotchi {
 
 	private static final long serialVersionUID = 839775627097813343L;
 	
-	private ImageIcon[] bildArray;
+	private ImageIcon[] bildArrayLebendig;
+	private ImageIcon[] bildArrayTot;
 	private final int BILDANZAHL = 3;
+	private final int BILDANZAHL_TOT = 2;
 	
 	public Viech(String name){
 		super(name);
 		super.BILDANZAHL = this.BILDANZAHL;
-		this.fillBildArray();
+		super.BILDANZAHL_TOT = this.BILDANZAHL_TOT;
+		this.fillBildArrays();
 	}
 	
-	private void fillBildArray(){
+	private void fillBildArrays(){
 		
 		int userWidth = Game.getGame().getUserSize().getWidth() == 600 ? 400 :(int)(Game.getGame().getUserSize().getWidth() - 320);
 		int userHeight = (int)(Game.getGame().getUserSize().getHeight() - 180);
-		this.bildArray = new ImageIcon[this.BILDANZAHL];
+		this.bildArrayLebendig = new ImageIcon[this.BILDANZAHL];
+		this.bildArrayTot = new ImageIcon[this.BILDANZAHL_TOT];
 		
 		try {
 			for(int i = 0; i < this.BILDANZAHL; i++){
 				Image temp = ImageIO.read(new File("Images/tamagotchiNormal" + i + ".png"));
 				temp = temp.getScaledInstance(userWidth, userHeight, Image.SCALE_SMOOTH);
-				this.bildArray[i] = new ImageIcon(temp);
+				this.bildArrayLebendig[i] = new ImageIcon(temp);
 			}
 			
 		} catch (IOException e) {
@@ -50,10 +54,27 @@ public class Viech extends Tamagotchi {
 			}
 		}
 		
+		try {
+			for(int i = 0; i < this.BILDANZAHL_TOT; i++){
+				Image temp = ImageIO.read(new File("Images/tamagotchiDead" + i + ".png"));
+				temp = temp.getScaledInstance(userWidth, userHeight, Image.SCALE_SMOOTH);
+				this.bildArrayTot[i] = new ImageIcon(temp);
+			}
+			
+		} catch (IOException e) {
+			if(Debugable.DEBUG_GUI){
+				System.out.println("Keine Bilder fuer Animation TOT gefunden! Fehler in Klasse Viech");
+			}
+		}
+		
 	}
 	
 	
-	public ImageIcon[] getBildArray(){
-		return this.bildArray;
+	public ImageIcon[] getBildArrayLebendig(){
+		return this.bildArrayLebendig;
+	}
+
+	public ImageIcon[] getBildArrayTot() {
+		return this.bildArrayTot;
 	}	
 }

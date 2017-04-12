@@ -37,7 +37,7 @@ import spielen_klassen.Spielmoeglichkeit;
  */
 public abstract class Tamagotchi implements Serializable{
 
-private static final long serialVersionUID = 7102825756447706790L;
+	private static final long serialVersionUID = 7102825756447706790L;
 	private String name;
 	private Beduerfnis[] beduerfnisse;
 	private Nahrung[][] nahrungsArray;
@@ -47,6 +47,7 @@ private static final long serialVersionUID = 7102825756447706790L;
 	private Achievement erfolge;
 	private boolean lebendig;
 	public int BILDANZAHL;
+	public int BILDANZAHL_TOT;
 	
 	
 	/*
@@ -195,6 +196,8 @@ private static final long serialVersionUID = 7102825756447706790L;
 		return (TamagotchiUsable[])temp.toArray(new TamagotchiUsable[temp.size()]);
 	}
 	
-	public abstract ImageIcon[] getBildArray();
+	public abstract ImageIcon[] getBildArrayLebendig();
+	
+	public abstract ImageIcon[] getBildArrayTot();
 
 }

@@ -117,8 +117,7 @@ public class GamePanel extends JPanel {
 		
 		printAnimation(g);
 		
-		
-		if(!(hunger == null) & !(durst == null)){
+		if(!(this.hunger == null) && !(this.durst == null) && !(this.muedigkeit == null) && !(this.langeweile == null)){
 			
 			int hungerImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - this.hunger.getWidth(this) - 5;
 			int durstImageXStartValue = this.getWidth()/beduerfnissbalkenXpara - this.durst.getWidth(this) - 5;

@@ -219,3 +219,28 @@ Bugfix: Mann könnte das Tamagotchi durch neustarten des Spiels wieder füttern,
 Aus dem Spiel wurde in eine ausführbare ".jar"-Datei erzeugt zusätzlich wurde der erste Prototyp einer Installationsdatei("Tamagotchi_Setup.exe") erstellt. (Siehe "Tamajochi/Tamagotchi_Download")
 
 Es gibt noch Probleme mit der "Setup.exe", da nach der Installation die Save.ser-Datei, in der der Spielfortschritt gespeichert wird, nicht angelegt wird.
+
+----------------------------------------------
+
+### Joshi Platzhalter für Achievements.
+
+---------------------------------------------
+
+### Marius Platzhalter für Zeitfreischaltung
+
+---------------------------------------------
+
+### 12.04.2017 ~1h
+
+Für eine Todesanimation wurden zwei neue Bilder erstellt.
+ImageIcon-Arrays wurden aus der AnimationT in das Viech verlegt, da dieses ursprünglich für die Grafik gedacht war.
+Jetzt greift die AnimationT einfach auf die ImageIcon-Arrays im Viech zu. Außerdem wird der OwnTimer nun doch nicht für die Animation verwendet, da sonst die Todesanimation nicht laufen würde.
+
+--------------------------------------------
+
+### 13.04.2017 & 14.04.2014 ~8h
+
+UML Klassendiagramme wurden mit einem Eclipse Tool (ObjectAid UML Explorer) erstellt. Ein komplettes, eines in collapst Darstellung und eines für eine Packageübersicht.
+Das gesamte Projekt wurde zusammen mit Javadoc kommentiert, da davor so gut wie keine Kommentare vorhanden waren.
+Ein paar kleinere, unnötige und unbenutzte Methoden wurden währenddessen entfernt.
+Javadoc wurde generiert (deswegen auch so viel HTML).

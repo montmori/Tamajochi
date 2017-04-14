@@ -1,3 +1,9 @@
+/**
+ * DeubugInterface
+ * Ursprünglich dazu gedacht, verschiedene Debugmöglichkeiten auszuwählen.
+ * Wurde leider kaum benutzt.
+ */
+
 package debugInterface;
 
 public interface Debugable {

@@ -1,3 +1,8 @@
+/**
+ * JPanel auf dem dem alle Spielinhalte, bis auf die Buttons, abgebildet werden.
+ * Wird in der FensterAktualisierung gerepainted.
+ */
+
 package gui_klassen.mainWindow;
 
 import java.awt.Color;
@@ -33,6 +38,11 @@ public class GamePanel extends JPanel {
 	private int heightMultiplier;
 	
 	
+	/**
+	 * Konstruktor.
+	 * Erstellt das Panel, legt die wichtigen Werte fest, läd die Bilder für die Bedürfnisanzeige.
+	 * @param d		Dimension, die das GamePanel haben soll.
+	 */
 	public GamePanel(Dimension d){
 		this.tamagotchi = Game.getGame().getTamagotchi();
 
@@ -74,6 +84,11 @@ public class GamePanel extends JPanel {
 		
 	}
 	
+	
+	/**
+	 * Ermittelt die Startwerte für das Tamagotchi anhand der GamePanelDimension.
+	 * @param d	Dimension des GamePanels.
+	 */
 	private void defineXYValue(Dimension d) {
 		switch((int)d.getWidth()){	
 		case 1024:
@@ -103,6 +118,11 @@ public class GamePanel extends JPanel {
 		}
 	}
 
+	
+	/**
+	 * Zeichnet das Tamagotchi, die Bedürfnisbalken, die BedürfnisIcons und den Namen.
+	 * Wenn das Tamagotchi tot ist, wird ein GameOver-Screen gezeichnet.
+	 */
 	public void paint(Graphics g){
 		
 		int b = this.getWidth() - 1;
@@ -151,6 +171,11 @@ public class GamePanel extends JPanel {
 		
 	}
 	
+	
+	/**
+	 * Holt sich das momentan zu zeichnende ImageIcon aus der AnimationT und zeichnet dieses.
+	 * @param g		Das graphische Element, das zeichnen soll.
+	 */
 	public void printAnimation(Graphics g){
 		
 		ImageIcon printImage = this.animation.getCurrentBild();
@@ -159,8 +184,17 @@ public class GamePanel extends JPanel {
 		}
 	}
 	
-	public void printBeduerfnis(Graphics g, int xpara, double ypara, int beduerfnisWert){
-		
+	
+	/**
+	 * Erstellt einen Balken der je nach BedürfnisWert entsprechend gefüllt wird.
+	 * Je nachdem wie voll der Balken ist, wird die Farbe angepasst.
+	 * 
+	 * @param g					Das graphische Element, das zeichnen soll.
+	 * @param xpara				X-Startwert für die obere, linke Ecke.
+	 * @param ypara				Y-Startwert für die obere, linke Ecke.
+	 * @param beduerfnisWert	Wert, den das zu zeichnende Bedürfnis momentan hat.
+	 */
+	public void printBeduerfnis(Graphics g, int xpara, double ypara, int beduerfnisWert){	
 		
 		int bgesamt = this.getWidth();
 		int hgesamt = this.getHeight();

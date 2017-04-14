@@ -1,9 +1,5 @@
-/*
+/**
  * Game ist die Klasse, die fuer das Starten und Verwalten des ganzen Spiels verantwortlich ist.
- * Aufgaben:
- * - 
- * -
- * 
  */
 
 package game;
@@ -32,8 +28,8 @@ import runnable_klassen.OwnTimer;
 import tamagotchi_klassen.Tamagotchi;
 import tamagotchi_klassen.Viech;
 
-public class Game {
-
+public class Game { 
+	
 	private static Game game = null;
 	private Spielfenster fenster;
 	private Tamagotchi tamagotchi;
@@ -41,28 +37,40 @@ public class Game {
 	private Timestamp gameTime;
 	
 	
-	
+	/**
+	 * Erstellt einen neuen Timestamp und startet diesen um die Spielzeit festzuhalten.
+	 */
 	public Game(){
 		this.gameTime = new Timestamp();
 		this.gameTime.start();
 	}
 	
+	/**
+	 * Wird von der Main aufgerufen.
+	 * Startet die Spielinstanz
+	 */
 	public void start(){
-		Dimension size = getWindowSize();
-		loadTamagotchiInstance();
+		Dimension size = this.getWindowSize(); 
+		this.loadTamagotchiInstance();
 		this.fenster = new Spielfenster(size);
-		scheduleRunnableTasks();
+		this.scheduleRunnableTasks();
 	}
 	
 	
-	//Hier können die Runnables in den Executor übernommen werden, wird beim ersten starten
-	//und bei jedem weiteren neustart aufgerufen.
+	/**
+	 * Hier können die Runnables in den Executor übernommen werden, wird beim ersten Starten
+	 * und bei jedem weiteren Neustart aufgerufen.
+	 */
 	private void scheduleRunnableTasks(){
 		OwnTimer.scheduleAtFixedRate(new CheckLifeState(), 100, 100, TimeUnit.MILLISECONDS);
 		OwnTimer.scheduleAtFixedRate(new CheckTimeAchievements(), 1, 1, TimeUnit.SECONDS);
 		OwnTimer.scheduleAtFixedRate(new CheckUnlockedUsables(), 100, 100, TimeUnit.MILLISECONDS);
 	}
 	
+	/**
+	 * Wenn kein Game vorhanden ist, wird ein neues erstellt.
+	 * @return Das aktuelle Game.
+	 */
 	public static Game getGame(){
 		if(Game.game == null){
 			Game.game = new Game();
@@ -70,22 +78,44 @@ public class Game {
 		return Game.game;
 	}
 	
+	
+	/**
+	 * Wird häufig von anderen Klassen benötigt.
+	 * @return Referenz auf das aktuelle Tamagotchi.
+	 */
 	public Tamagotchi getTamagotchi(){
 		return this.tamagotchi;
 	}
+
 	
+	/**
+	 * @return Achievements des aktuellen Tamagotchis.
+	 */
 	public Achievement getAchievements(){
 		return this.getTamagotchi().getAchievements();
 	}
 	
+	
+	/**
+	 * @return Referenz auf das Spielfenster.
+	 */
 	public Spielfenster getSpielfenster(){
 		return this.fenster;
-	}
-
+	}	
+	
+	
+	/**
+	 * @return Die Auflösung die vom User ausgewählt wurde.
+	 */
 	public Dimension getUserSize(){
 		return this.userResolution;
 	}
 	
+	
+	/**
+	 * Erstellt ein Abfragefenster, in dem der User seine gewünschte Auflösung angibt. 
+	 * @return Die vom User ausgewählte Auflösung.
+	 */
 	private Dimension getWindowSize() {
 
 		ResolutionAbfragefenster resolution = new ResolutionAbfragefenster();
@@ -95,7 +125,11 @@ public class Game {
 	}
 	
 	
-	private void BeduerfnisTaskStart() {
+	
+	/**
+	 * Startet die Tasks, die die Bedürfnisse in bestimmten Abständen veringern.
+	 */
+	private void beduerfnisTaskStart() {
 		this.tamagotchi.getDurst().startTask();
 		this.tamagotchi.getHunger().startTask();
 		this.tamagotchi.getMuedigkeit().startTask();
@@ -103,25 +137,41 @@ public class Game {
 	}
 	
 
+	
+	
 	public void gameOver(){
 		OwnTimer.clearTimer();
 		this.tamagotchi.gameOver();
 		this.fenster.getButtonPanel().gameOver();
 	}
 	
+	
+	
+	/**
+	 * Setzt alles auf die Anfangswerte zurück, dabei wird allerdings weder ein neues Game noch ein neues Tamagotchi erstellt.
+	 */
 	public void newGame(){
 		OwnTimer.clearTimer();
 		fenster.getButtonPanel().newGame();
 		this.tamagotchi.newGame(Game.getUserStringInput("Wie soll dein neues Tamagotchi heißen?"));	
 		scheduleRunnableTasks();
-	}
+	}	
 	
 	
+	/**
+	 * @return Gibt die Zeit zurück, die das Tamagotchi schon lebt.
+	 */
 	public Timestamp getGameTime() {
 		return gameTime;
 	}
 	
 	
+	
+	/**
+	 * Öffnet eine Abfragefenster 
+	 * @param abfrage	Der String der im Fenster angezeigt wird.
+	 * @return Der String der vom User eingegeben wird. Wenn nichts eingegeben wird, wird der String automatisch auf "NoName" gesetzt.
+	 */
 	public static String getUserStringInput(String abfrage) {
 		
 		JPanel panel = new JPanel();
@@ -145,6 +195,10 @@ public class Game {
 		return input;
 	}
 
+	
+	/**
+	 * Tamagtochiinstanz wird in der Save.ser gespeichert
+	 */
 	public void saveTamagotchiInstance() {
 		
 		FileOutputStream f;
@@ -163,6 +217,11 @@ public class Game {
 		}
 	}
 	
+	
+	/**
+	 * Versucht aus der Save.ser ein gespeichertes Tamagotchi zu laden.
+	 * Wenn keines vorhanden ist, wird ein neues erstellt.
+	 */
 	public void loadTamagotchiInstance(){
 		
 		FileInputStream fin;
@@ -173,8 +232,8 @@ public class Game {
 			fin = new FileInputStream("Save.ser");
 			oin = new ObjectInputStream(fin);
 			this.tamagotchi = (Tamagotchi) oin.readObject();
-			BeduerfnisTaskStart();
-			this.tamagotchi.getLivingtime().resumeAfterShutdown();
+			this.beduerfnisTaskStart(); //Startet die Bedürfnisse (damit die sich verringern....)
+			this.tamagotchi.getLivingtime().resumeAfterShutdown(); //Zeit wird weitergezählt
 			
 		} catch (FileNotFoundException e) {
 			System.err.println("Neues Spiel wird erstellt!");

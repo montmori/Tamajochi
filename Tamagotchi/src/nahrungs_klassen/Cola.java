@@ -1,3 +1,8 @@
+/**
+ * Subklasse von Nahrung.
+ * Cola-Nahrung
+ */
+
 package nahrungs_klassen;
 
 import java.util.concurrent.TimeUnit;
@@ -9,19 +14,24 @@ import runnable_klassen.OwnTimer;
 public class Cola extends Nahrung {
 
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 9019274140977439311L;
 
+	/**
+	 * Konstruktor.
+	 * Aufruf SuperKonstruktor.
+	 * Legt fest, ob diese Nahrung schon freigeschaltet ist.
+	 * Setzt die Zeit, die es braucht, um diese Nahrung freizuschalten.
+	 */
 	public Cola() {
 		super("Cola");
 		super.setUnlocked(false);
 		super.setTimeTillUnlock(COLA_TTU);
 	}
 	
-	/*
-	 * @see nahrungs_klassen.Nahrung#geben()
+
+	/**
+	 * beBusy-Methode wird aufgerufen.
+	 * Achievments werden überprüft und gegebenenfalls zurückgesetzt.
 	 */
 	public void use() {
 		beBusy();
@@ -33,11 +43,20 @@ public class Cola extends Nahrung {
 		}
 	}
 	
+	
+	/**
+	 * Solange das Tamagotchi konsumiert, werden alle Buttons disabled und die run wird einmal nach der Essensdauer ausgeführt.
+	 */
 	public void beBusy(){
 		ButtonPanel.setButtonsEnabled(false);
 		OwnTimer.queueTask(this, ESSDAUER, TimeUnit.SECONDS);
 	}
 	
+	
+	/**
+	 * Bedürfniswerte werden angepasst. 
+	 * Buttons werden enabled.
+	 */
 	public void run(){
 		Game.getGame().getTamagotchi().getDurst().veraendereBeduerfnisWert(COLA_T);
 		Game.getGame().getTamagotchi().getHunger().veraendereBeduerfnisWert(COLA_H);

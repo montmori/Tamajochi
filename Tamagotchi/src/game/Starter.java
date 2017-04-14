@@ -1,4 +1,4 @@
-/*
+/**
  * Die Main, die ein neues Game erstellt.
  */
 package game;

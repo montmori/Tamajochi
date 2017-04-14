@@ -1,3 +1,7 @@
+/**
+ * Hintergrund für das gesamte Fenster.
+ */
+
 package gui_klassen.mainWindow;
 
 import java.awt.Dimension;
@@ -12,6 +16,12 @@ public class Background {
 
 	private ImageIcon background;
 	
+	
+	/**
+	 * Konstruktor.	
+	 * Läd den Hintergrund und skaliert diesen.
+	 * @param d		Dimension die das ganze Fenster hat.
+	 */
 	public Background(Dimension d){
 		
 		Image bild;
@@ -31,6 +41,10 @@ public class Background {
 		}
 	}
 	
+	
+	/**
+	 * @return	den Hintergrund als ImageIcon.
+	 */
 	public ImageIcon getBackground(){
 		return this.background;
 	}

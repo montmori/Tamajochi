@@ -1,3 +1,7 @@
+/**
+ * Stellt die komplette Grafik auf dem Bildschirm dar.
+ */
+
 package gui_klassen.mainWindow;
 
 import java.awt.Dimension;
@@ -28,6 +32,11 @@ public class Spielfenster extends JFrame {
 	private GamePanel gamepanel;
 	private ScheduledThreadPoolExecutor t1;
 	
+	
+	/**
+	 * Konstruktor.
+	 * @param size 	Größe, die das Fenster haben soll.
+	 */
 	public Spielfenster(Dimension size){
 		
 		initWindow(size);
@@ -36,24 +45,41 @@ public class Spielfenster extends JFrame {
 		
 	}
 	
+	
+	/**
+	 * @return	Das Panel, auf dem sich die Buttons und ihre Popupmenüs befinden.
+	 */
 	public ButtonPanel getButtonPanel(){
 		return this.buttonpanel;
 	}
 	
+	
+	/**
+	 * @return Das Panel, auf dem das Tamagotchi und die dazugehörigen Werte abgebildet werden.
+	 */
 	public GamePanel getGamePanel(){
 		return this.gamepanel;
 	}
 	
 	
+	/**
+	 * ScheduledThreadPoolExecutor damit das Fenster IMMER aktualisiert wird.
+	 * Wird nicht mit den anderen Tasks beim Tod des Tamagotchis beendet.
+	 */
 	private void initFensterAktualisierung() {
 		t1 = new ScheduledThreadPoolExecutor(OwnTimer.EXECUTOR_CORE_POOL_SIZE);
 		t1.scheduleAtFixedRate(new FensterAktualisierung(this), 200, 33, TimeUnit.MILLISECONDS);
 		
 	}
 
+	
+	/**
+	 * Legt alle wichtigen Werte für das Fenster fest und setzt es mittig.
+	 * @param size 	Größe, die das Fenster haben soll.
+	 */
 	private void initWindow(Dimension size){
 		this.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - size.width/2
-				,Toolkit.getDefaultToolkit().getScreenSize().height/2 - size.height/2);
+				,Toolkit.getDefaultToolkit().getScreenSize().height/2 - size.height/2); //Setzt das Fenster mittig
 		this.setTitle(FENSTERNAME);
 		this.setResizable(false);
 		this.setSize(size);
@@ -61,11 +87,16 @@ public class Spielfenster extends JFrame {
 		this.addWindowListener(new Windowflauscher());
 		this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 30));
 		
-		
 		initMenuBar();
 		initJPanels(size);	
 	}
 	
+	
+	/**
+	 * Erstellt das ButtonPanel und das GamePanel und addet sie in das Fenster.
+	 * Erstellt den Hintergrund.
+	 * @param size	Größe des Fensters.
+	 */
 	private void initJPanels(Dimension size) {
 		
 		Background backgroundP = new Background(size);
@@ -92,22 +123,29 @@ public class Spielfenster extends JFrame {
 	}
 
 
+	/**
+	 * Erstellt eine Menüleiste
+	 */
 	private void initMenuBar() {
 		JMenuBar menuLeiste = new JMenuBar();
-		addMenu(menuLeiste);
+		this.addMenu(menuLeiste);
 		this.setJMenuBar(menuLeiste);
 	}
 
 
+	/**
+	 * Füllt die Menüleiste mit Menüs
+	 * @param menuLeiste	Menüleiste auf die die Menüs angebracht werden sollen.
+	 */
 	private void addMenu(JMenuBar menuLeiste) {
 		JMenu spiel = new JMenu("Spiel");
-		addSpielMenuItems(spiel);
+		this.addSpielMenuItems(spiel);
 		
 		JMenu optionen = new JMenu("Optionen");
-		addOptionMenuItems(optionen);
+		this.addOptionMenuItems(optionen);
 		
 		JMenu ueber = new JMenu("Über");
-		addAboutMenuItems(ueber);
+		this.addAboutMenuItems(ueber);
 		
 		
 		menuLeiste.add(spiel);
@@ -116,14 +154,23 @@ public class Spielfenster extends JFrame {
 	}
 
 	
+	
+	/**
+	 * Die Menüs werden mit Unterpunkten gefüllt
+	 * (nächsten drei Methoden)
+	 * @param ueber	Menü in das die Unterpunkte hinzugefügt werden sollen.
+	 */
 	private void addAboutMenuItems(JMenu ueber) {
 		JMenuItem infos = new JMenuItem("Infos");
 		infos.addActionListener(new ActionDialouge(DialougeType.ABOUT));
 		
 		ueber.add(infos);
-		
 	}
 
+	
+	/**
+	 * @param optionen	Menü in das die Unterpunkte hinzugefügt werden sollen.
+	 */
 	private void addOptionMenuItems(JMenu optionen) {
 		JMenuItem statistiken = new JMenuItem("Statistiken");
 		statistiken.addActionListener(new ActionDialouge(DialougeType.STATISTICS));
@@ -135,20 +182,20 @@ public class Spielfenster extends JFrame {
 		optionen.add(erfolge);
 	}
 
-
+	
+	
+	/**
+	 * @param spiel	Menü in das die Unterpunkte hinzugefügt werden sollen.
+	 */
 	private void addSpielMenuItems(JMenu spiel) {
 		JMenuItem beenden = new JMenuItem("Speichern & Beenden");
 		beenden.addActionListener(new ActionBeenden());
 		
-		
 		JMenuItem newGame = new JMenuItem("Neues Spiel starten");
 		newGame.addActionListener(new ActionNewGame());
-		
 		
 		spiel.add(newGame);
 		spiel.add(beenden);
 	}
-
-
 
 }

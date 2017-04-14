@@ -1,4 +1,4 @@
-/*
+/**
  * Diese Klasse ist hauptsaechlich fuer die Grafik.
  * Erstellt einen Bildarray und befuellt diesen. 
  * Der Array wird spaeter an die AnimationT durchgegeben, wenn ein Viech erstellt werden sollte.
@@ -27,6 +27,11 @@ public class Viech extends Tamagotchi {
 	private final int BILDANZAHL = 3;
 	private final int BILDANZAHL_TOT = 2;
 	
+	/**
+	 * Konstruktor
+	 * Gibt alle wichtigen Informationen zur Superklasse
+	 * @param name	Name des Tamagotchis.
+	 */
 	public Viech(String name){
 		super(name);
 		super.BILDANZAHL = this.BILDANZAHL;
@@ -34,6 +39,10 @@ public class Viech extends Tamagotchi {
 		this.fillBildArrays();
 	}
 	
+	
+	/**
+	 * Befüllt die beiden ImageIcon Arrays, damit sie für die Animation verwendet werden können.
+	 */
 	private void fillBildArrays(){
 		
 		int userWidth = Game.getGame().getUserSize().getWidth() == 600 ? 400 :(int)(Game.getGame().getUserSize().getWidth() - 320);
@@ -70,10 +79,17 @@ public class Viech extends Tamagotchi {
 	}
 	
 	
+	/**
+	 * @return Referenz auf den ImageIcon Array für die Lebendanimation.
+	 */
 	public ImageIcon[] getBildArrayLebendig(){
 		return this.bildArrayLebendig;
 	}
+	
 
+	/**
+	 * @return Referenz auf den ImageIcon Array für die Todesanimation.
+	 */
 	public ImageIcon[] getBildArrayTot() {
 		return this.bildArrayTot;
 	}	

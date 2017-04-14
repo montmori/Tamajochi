@@ -1,3 +1,7 @@
+/**
+ * Überwacht den Status der Tamagotchiusables.
+ */
+
 package runnable_klassen;
 
 import java.awt.Component;
@@ -12,14 +16,26 @@ public class CheckUnlockedUsables implements Runnable {
 	TamagotchiUsable[] usables;
 	Component[] buttons;
 	
+	
+	/**
+	 * Konstruktor
+	 * Holt sich alle Usables und Buttons in exakt gleicher Reihenfolge.
+	 */
 	public CheckUnlockedUsables(){
 		//Die Reiehenfolge beider Arrays ist gleich, somit ist an jedem Index 
-		//das zugehörige Paar zwischen Button und usable
+		//das zugehörige Paar zwischen Button und Usable
 		this.usables = Game.getGame().getTamagotchi().getUsables(); 
 		this.buttons = Game.getGame().getSpielfenster().getButtonPanel().getButtons();
 	}
 	
+	
+	
+	/**
+	 * Versieht die Buttons mit zugrhöriger Aufschrift.
+	 * Enabled bzw. disabled die Buttons.
+	 */
 	public void run() {
+		
 		for(int x = 0; x < this.usables.length; x++){
 			if(Game.getGame().getTamagotchi().getLivingtime().getTimeSeconds() >= usables[x].getTimeTillUnlock()){
 				usables[x].setUnlocked(true);

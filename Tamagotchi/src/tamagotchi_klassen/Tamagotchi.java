@@ -1,3 +1,7 @@
+/**
+ * Das abstrakte Tamagotchi
+ */
+
 package tamagotchi_klassen;
 
 import java.io.Serializable;
@@ -31,10 +35,7 @@ import spielen_klassen.Ball;
 import spielen_klassen.Faden;
 import spielen_klassen.Spielmoeglichkeit;
 
-/*
- * Zu vervollstaendigen!
- * Das abstrakte Tamagotchi
- */
+
 public abstract class Tamagotchi implements Serializable{
 
 	private static final long serialVersionUID = 7102825756447706790L;
@@ -50,9 +51,11 @@ public abstract class Tamagotchi implements Serializable{
 	public int BILDANZAHL_TOT;
 	
 	
-	/*
+	/**
 	 * Tamagotchi wird erstellt und benannt.
-	 * Hunger und Durst werden auf ein Default von 50Prozent gesetzt.
+	 * Bedürfnisse werden auf ein Default von 50% gesetzt.
+	 * Arrays werden befüllt, Achievements erstellt, Timestamp für die Lebenszeit des Tamagotchis erstellt und gestartet.
+	 * @param name	Name des Tamagotchis.
 	 */
 	public Tamagotchi(String name){
 		this.lebendig = true;
@@ -76,87 +79,139 @@ public abstract class Tamagotchi implements Serializable{
 	}
 	
 	
+
+	/** 
+	 * @return	Zeit, die das Tamagotchi am Leben ist.
+	 */
 	public Timestamp getLivingtime() {
 		return livingtime;
 	}
 
+	
+	/**
+	 * Benutzt ein TamagotchiUsable (zB. Banane).
+	 * @param tu	TamaotchiUsable, das benutzt werden soll.
+	 */
 	public void use(TamagotchiUsable tu){
 		tu.use();
 	}
 	
 	
+	/**
+	 * @return Gibt alle Bedürfnisswerte aus.
+	 * Wird nie benutzt.
+	 */
 	public String toString(){
 		return "Essen: " + this.beduerfnisse[0].getWert() + "\n Trinken: " + this.beduerfnisse[1].getWert() + "\n Schlafen: " + this.beduerfnisse[2].getWert() + "\n Spielen: " + this.beduerfnisse[3].getWert();
 	}
 
 
+	/**
+	 * @return Die Achievements.
+	 */
 	public Achievement getAchievements(){
 		return this.erfolge;
 	}
 	
+	/**
+	 * @return Name des aktuellen Tamagotchis.
+	 */
 	public String getName() {
 		return this.name;
 	}
 
+	/**
+	 * Legt den Namen des Tamagotchis fest.
+	 * @param name Wie das Tamagotchi heißen soll.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	
-	/*
-	 * Hier wird von den TamagotchiUsables aus auf die Beduerfnisse zugegriffen und
-	 * erhoeht.
+	/**
+	 * @return den momentanen Hunger.
 	 */
 	public Hunger getHunger() {
 		return (Hunger)this.beduerfnisse[0];
 	}
 
+	/**
+	 * @return den momentanen Durst.
+	 */
 	public Durst getDurst() {
 		return (Durst)this.beduerfnisse[1];
 	}
 	
+	/**
+	 * @return die momentane Müdigkeit.
+	 */
 	public Muedigkeit getMuedigkeit(){
 		return (Muedigkeit)this.beduerfnisse[2];
 	}
 	
+	/**
+	 * @return die momentane Langeweile.
+	 */
 	public Langeweile getLangeweile(){
 		return (Langeweile)this.beduerfnisse[3];
 	}
 
+	/**
+	 * @return den NahrungsArray.
+	 */
 	public Nahrung[][] getNahrungsArray() {
 		return this.nahrungsArray;
 	}
 	
+	/**
+	 * @return den SchlafenArray.
+	 */
 	public SchlafensOrt[] getSchlafenArray(){
 		return this.schlafenArray;
 	}
 	
+	/**
+	 * @return den SpielenArray.
+	 */
 	public Spielmoeglichkeit[] getSpielenArray(){
 		return this.spielenarray;
 	}
 	
+	
+	/**
+	 * Setzt alle Bedürfnisse auf ihren Minimalwert und setzt, je nach Bedingungen Achievements.
+	 */
 	public void gameOver(){
 		zeroBeduerfnisse();
 		if(!Game.getGame().getAchievements().isErfolg1()){
-			Game.getGame().getAchievements().setErfolg1();
+			Game.getGame().getAchievements().setErfolg1(); //Erstes mal gestorben
 		}
 		if(!Game.getGame().getAchievements().isErfolg3() && Game.getGame().getAchievements().getErfolg3Bedingung()){
-			Game.getGame().getAchievements().setErfolg3();
+			Game.getGame().getAchievements().setErfolg3(); //Salzwasserbedingung vor dem Tod.
 		}
 		if(!Game.getGame().getAchievements().isErfolg2()){
-			Game.getGame().getAchievements().resteErfolg2Bedingung();
+			Game.getGame().getAchievements().resteErfolg2Bedingung(); //Erfolg2 wird zurückgesetzt.
 		}
 		if(!Game.getGame().getAchievements().isErfolg3()){
-			Game.getGame().getAchievements().resteErfolg3Bedingung();
+			Game.getGame().getAchievements().resteErfolg3Bedingung(); //Erfolg3 wird zurückgesetzt
 		}
 	}
 
+	/**
+	 * Setzt alle Bedürfnisse auf ihren Minimalwert.
+	 */
 	private void zeroBeduerfnisse() {
 		for(Beduerfnis x : this.beduerfnisse){
 			x.killed();
 		}
 	}
 
+	
+	/**
+	 * Überprüft ob eines der Bedürfnisse den Minimalwert erreicht hat.
+	 * @return	true, wenn das Tamagotchi am Leben ist.
+	 */
 	public boolean isLebendig(){
 		for(Beduerfnis x : beduerfnisse) {
 			if(x.isDead()){
@@ -166,6 +221,11 @@ public abstract class Tamagotchi implements Serializable{
 		return lebendig;
 	}
 	
+	
+	/**
+	 * @see #Tamagotchi(String) mit Ausnahme der Nahurng.
+	 * @param name	Name des Tamagotchis.
+	 */
 	public void newGame(String name){
 		this.name = name;
 		this.beduerfnisse[0] = new Hunger(50);
@@ -178,6 +238,10 @@ public abstract class Tamagotchi implements Serializable{
 	}
 	
 	
+	/**
+	 * Macht einen UsableArray aus allen Usables des Tamagotchis.
+	 * @return TamagotchiUsabe Array.
+	 */
 	public TamagotchiUsable[] getUsables(){
 		ArrayList<TamagotchiUsable> temp = new ArrayList<>();
 		for(TamagotchiUsable x : this.getNahrungsArray()[0]){
@@ -196,8 +260,18 @@ public abstract class Tamagotchi implements Serializable{
 		return (TamagotchiUsable[])temp.toArray(new TamagotchiUsable[temp.size()]);
 	}
 	
+	
+	/**
+	 * Abstrakte Methode für Subklassen.
+	 * @return 	ImageIconArray für die Lebendiganimation.
+	 */
 	public abstract ImageIcon[] getBildArrayLebendig();
 	
+	
+	/**
+	 * Abstrakte Methode für Subklassen.
+	 * @return	ImageIconArray für die Todanimation.
+	 */
 	public abstract ImageIcon[] getBildArrayTot();
 
 }

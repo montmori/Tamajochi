@@ -1,4 +1,7 @@
- package beduerfnis_klassen;
+/**
+ * Interface für die Bedürfniswerte.
+ */
+package beduerfnis_klassen;
 
 public interface BeduerfnisWerte {
 

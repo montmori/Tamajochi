@@ -1,9 +1,5 @@
-/*
- * Klasse fuer die Animationen.
- * Aufgaben: 
- * - Laed BilderArray aus dem instanzierten Tamagotchi (Grund: erweiterbar!)
- * - Wechselt jede 100 Millisekunden das Bild und suggeriert so eine Bewegung.
- * 
+/**
+ * Klasse fuer die Animationen des Tamagotchis.
  */
 
 package gui_klassen.mainWindow;
@@ -31,9 +27,10 @@ public class AnimationT implements Runnable{
 	private ImageIcon currentBild;
 
 	
-	/*
-	 * Macht einen ImageIconArray
-	 * Holt sich den Bildarray aus dem Tamagotchi und startet sich selbst
+	/**
+	 * Macht einen ImageIconArray.
+	 * Holt sich beide Bildarrays aus dem Tamagotchi und startet sich selbst.
+	 * Hat einen eigenen Timer (nicht den OwnTimer), damit die Animation auch nach dem Tod noch möglich ist.
 	 */
 	public AnimationT(){	
 		
@@ -51,15 +48,15 @@ public class AnimationT implements Runnable{
 		this.timer.scheduleAtFixedRate(this, 100, 100, TimeUnit.MILLISECONDS);	
 	}
 	
-	/*
-	 * Gibt das Momentanbild zurueck.
+	/**
+	 * @return 	das Momentanbild, das gezeichnet werden soll.
 	 */
 	public ImageIcon getCurrentBild(){
 		return this.currentBild;
 	}
 	
 	
-	/*
+	/**
 	 * Aendert die Bilder indem der Array von vorne nach hinten und dann von hinten nach vorne durchlaufen wird.
 	 */
 	public void changeImage(){
@@ -81,6 +78,9 @@ public class AnimationT implements Runnable{
 
 	}
 	
+	/**
+	 * Ändert das CurrentBild wärend das Tamagotchi tot ist. Dieser Array wird nur einmal durchlaufen.
+	 */
 	public void changeImageWhileDead(){
 		
 		this.currentBild = this.bildArrayTot[this.zaehlerTot];
@@ -90,8 +90,8 @@ public class AnimationT implements Runnable{
 		}
 	}
 
-	/*
-	 *Alle 100 Millisekunden wird das Bild geaendert
+	/**
+	 *Alle 100 Millisekunden wird das CurrenBild geaendert.
 	 */
 	public void run() {
 		this.lebendig = Game.getGame().getTamagotchi().isLebendig();

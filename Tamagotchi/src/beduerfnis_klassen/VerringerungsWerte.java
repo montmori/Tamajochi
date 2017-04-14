@@ -1,3 +1,7 @@
+/**
+ * Interface für die VerringerungsWerte.
+ * Gibt an, welches Bedürfnis um wieviel verringert werden soll.
+ */
 package beduerfnis_klassen;
 
 public interface VerringerungsWerte {

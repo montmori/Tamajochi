@@ -1,3 +1,7 @@
+/**
+ * Verwaltet und erstellt die Buttons auf einem Panel.
+ */
+
 package gui_klassen.mainWindow;
 
 import java.awt.Component;
@@ -31,19 +35,29 @@ public class ButtonPanel extends JPanel{
 	
 	private Dimension size;
 	
+	
+	/**
+	 * Konstruktor.
+	 * Setzt die Standartwerte für das Panel.
+	 * @param d		Die Dimension die das ButttonPanel haben soll.
+	 */
 	public ButtonPanel(Dimension d){
 		this.size = d;
 		this.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 15));
 		this.setPreferredSize(this.size);
-		this.setOpaque(false);
+		this.setOpaque(false); //Macht den PanelHintergrund durchsichtig.
 		
 		ButtonPanel.buttonBlock = false; 
 		addButtons();
 	}
 	
+	
+	/**
+	 * Buttons und dazugehörige Menüs werden erstellt.
+	 */
 	private void addButtons() {
 		
-		getFontSize();
+		this.getFontSize();
 		
 		ButtonPanel.essenMenu = new JPopupMenu();
 		ButtonPanel.trinkenMenu = new JPopupMenu();
@@ -59,6 +73,10 @@ public class ButtonPanel extends JPanel{
 		
 	}
 	
+	
+	/**
+	 * Schriftgöße wird an die Größe des ButtonPanels bzw. des gesamten Fensters angepasst.
+	 */
 	private void getFontSize() {
 		switch(Game.getGame().getUserSize().width){
 		case 1600:
@@ -93,6 +111,14 @@ public class ButtonPanel extends JPanel{
 		}
 	}
 	
+	
+	
+	/**
+	 * Erstellt einen Button (zB. Essen geben) und ein dazugehöriges befülltest Popupmenü.
+	 * @param popupMenu		Zu welchem Menü das Popupmenü hinzugefügt werden soll.
+	 * @param usableArray	Array mit Inhalten die in das Popupmenü rein sollen.
+	 * @param buttonText	Wie der Button heißen soll (zB. Essen geben).
+	 */
 	private void createPopupMenuWithContent(JPopupMenu popupMenu, TamagotchiUsable[] usableArray, String buttonText){
 		
 		popupMenu.setLayout(new FlowLayout(FlowLayout.CENTER,0,1));
@@ -119,15 +145,27 @@ public class ButtonPanel extends JPanel{
 	}
 	
 
+	/**
+	 * Alle Buttons werden disabled.
+	 */
 	public void gameOver() {
 		ButtonPanel.setButtonsEnabled(false);
 		
 	}
 
+	
+	/**
+	 * Freigeschaltete Buttons werden enabled.
+	 */
 	public void newGame() {
 		ButtonPanel.setButtonsEnabled(true);
 	}
 	
+	
+	/**
+	 * Enabled bzw Disabled die Buttons.
+	 * @param state		Der Zustand den die Buttons haben sollen, wenn sie freigeschaltet sind.
+	 */
 	public static void setButtonsEnabled(boolean state){
 		ButtonPanel.buttonBlock = !state;
 		
@@ -157,6 +195,10 @@ public class ButtonPanel extends JPanel{
 	}
 
  
+	/**
+	 * Befüllt eine ArrayList in der Reihenfolge: Essen, Trinken, Schlafen, Spielen.
+	 * @return	Component Array gefüllt mit den Komponenten der verschiedenen Menüs.
+	 */
 	public Component[] getButtons(){
 		ArrayList<Component> temp = new ArrayList<Component>();
 		
@@ -176,6 +218,10 @@ public class ButtonPanel extends JPanel{
 		return (Component[]) temp.toArray(new Component[temp.size()]);
 	}
 
+	
+	/**
+	 * @return	Ob die Buttons blockiert sind oder nicht.
+	 */
 	public boolean isButtonBlockEnabled(){
 		return ButtonPanel.buttonBlock;
 	}

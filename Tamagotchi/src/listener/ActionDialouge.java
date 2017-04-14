@@ -1,3 +1,7 @@
+/**
+ * ActionDialouge ist ein ActionListener der für bestimmte Textausgaben in Fenstern benutzt wird.
+ */
+
 package listener;
 
 import java.awt.event.ActionEvent;
@@ -15,15 +19,24 @@ public class ActionDialouge implements ActionListener {
 	
 	DialougeType dialougeType;
 	
+	/**
+	 * Konstruktor.
+	 * Setzt den dialougeType fest.
+	 * @param dialougeType		der DialougeType, der benutzt werden soll.
+	 */
 	public ActionDialouge(DialougeType dialougeType){
 		this.dialougeType = dialougeType;
 	}
 	
+	
+	/**
+	 * Für jeden DialougeType wird ein Unterfenster mit passendem, davor generiertem Inhalt erstellt.
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 		
 		if(this.dialougeType == DialougeType.STATISTICS){
 			String statistic = "Lebenszeit:   " + Game.getGame().getTamagotchi().getLivingtime().getTimeSeconds() + " Sekunden";
-			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), statistic);
+			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), statistic); //Öffnet ein Unterfenster, das den String ausgibt
 		}
 		
 		
@@ -32,10 +45,11 @@ public class ActionDialouge implements ActionListener {
 						+ "Dieses Spiel wurde für die 'Elektronikschule Tettnang' als Projektarbeit entwickelt.\n"
 						+ "All Rights Reserved by Maehrmann GmbH & Co. KG";
 			
-			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), about);
+			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), about); //Öffnet ein Unterfenster, das den String ausgibt
 
 		}
 		
+		//Wenn der jeweilige Erfolg freigeschalten ist, wird der Text angezeigt, ansonsten nur der Lückenfüller.
 		if(this.dialougeType == DialougeType.ACHIEVEMENTS){
 			String achievements = "";
 			
@@ -79,7 +93,7 @@ public class ActionDialouge implements ActionListener {
 				achievements += Game.getGame().getAchievements().getLueckenfuellerTXT();
 			}
 			
-			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), achievements);
+			JOptionPane.showMessageDialog(Game.getGame().getSpielfenster(), achievements); //Öffnet ein Unterfenster, das den String ausgibt
 		}
 
 	}

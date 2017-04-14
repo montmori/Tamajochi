@@ -1,3 +1,11 @@
+/**
+ * Interface für die Nahrungswerte.
+ * _H 	= Auswirkung auf Hunger
+ * _T 	= Auswirkung auf Trinken
+ * _M	= Auswirkung auf Müdigkeit
+ * _TTU	= Zeit bis zur Freischaltung. 		
+ */
+
 package nahrungs_klassen;
 
 public interface NahrungsWerte {
@@ -23,8 +31,8 @@ public interface NahrungsWerte {
 	public static final int KEKS_T = -3;
 	public static final int KEKS_TTU = 240;
 
-	//Trinken 
 	
+	//Trinken 
 	public static final int COLA_T = 8;
 	public static final int COLA_H = -3;
 	public static final int COLA_M = 3;

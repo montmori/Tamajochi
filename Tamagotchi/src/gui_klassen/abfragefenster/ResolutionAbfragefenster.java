@@ -1,3 +1,8 @@
+/**
+ * Erstellt ein Fenster, in dem eine Abfrage gemacht wird.
+ * Hätte mit einer fertigen Methode erschlagen werden können.
+ */
+
 package gui_klassen.abfragefenster;
 
 import java.awt.Dimension;
@@ -27,9 +32,13 @@ public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 	boolean selected;
 	
 	
+	/**
+	 * Konstruktor.
+	 * Erstellt ein kleines Fenster und setzt die dafür wichtigen Paramenter.
+	 */
 	public ResolutionAbfragefenster(){
 	
-		selected = false;
+		this.selected = false;
 		this.THISRESOLUTION = new Dimension(300,300);
 		this.setTitle("Resolution");
 		this.setResizable(false);
@@ -44,6 +53,10 @@ public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 		
 	}
 	
+	
+	/**
+	 * Erstellung der einzelnen Komonenten, die für die Anzeige benötigt werden.
+	 */
 	private void initPanel(){
 		JPanel buttons = new JPanel();
 		buttons.setPreferredSize(new Dimension(250, this.THISRESOLUTION.height));
@@ -61,7 +74,7 @@ public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 		JRadioButton w960h540 = new JRadioButton(aufloesungenAsString[4]);
 		JRadioButton w600h480 = new JRadioButton(aufloesungenAsString[5]);
 		
-		w1280h720.setSelected(true);
+		w1280h720.setSelected(true); //Standardmäßig ausgewählt.
 		
 		JTextField text = new JTextField("Bitte Auflösung auswählen!");
 		text.setEditable(false);
@@ -91,16 +104,21 @@ public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 		
 	}
 
+	
+	/**
+	 * Nachdem die Auflösung gewählt wurde wird der, vom User ausgewählte Button ermittelt.
+	 * @return  Die, vom User ausgewählte, Dimension. Sollte der Fall eintreten, dass keine Dimension ausgewählt wurde, gibt die Methode null zurück.
+	 */
 	public Dimension getUserPreferredSize() {
 		
-		do{
+		do{ 
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			
-		}while(!selected);
+		}while(!selected); //solange der Button nicht gedrückt wurde.
 		
 		JRadioButton temp = null;
 		
@@ -121,6 +139,12 @@ public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 		return getSizeForButton(temp);
 	}
 
+	
+	/**
+	 * Je nach gewählter Auflösung wird die dazugehörige Dimension ermittelt.
+	 * @param temp	ausgewählter RadioButton.
+	 * @return	Die, vom User ausgewählte, Dimension. Sollte der Fall eintreten, dass keine Dimension ausgewählt wurde, gibt die Methode null zurück.
+	 */
 	private Dimension getSizeForButton(JRadioButton temp) {
 		if(temp.getText().equals(aufloesungenAsString[0])){
 			return aufloesungen[0];
@@ -144,10 +168,13 @@ public class ResolutionAbfragefenster extends JFrame implements ActionListener{
 			return aufloesungen[6];
 		}
 		
-		return null;
+		return null; //kann eigentlich nicht erreicht werden.
 	}
 
-	@Override
+	
+	/**
+	 * Wenn der Button betätigt wird, wird selected true gesetzt und somit die ausgewählte Size übernommen.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		this.selected = true;
 		

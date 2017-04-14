@@ -57,7 +57,7 @@ public abstract class Spielmoeglichkeit implements TamagotchiUsable, SpielWerte,
 	
 	/**
 	 * Setzt den Freigeschaltet-Status.
-	 * @param 	Boolean, der bestimmt, ob diese Spielmöglichkeit freigeschaltet ist.
+	 * @param isUnlocked	Boolean, der bestimmt, ob diese Spielmöglichkeit freigeschaltet ist.
 	 */
 	public void setUnlocked(boolean isUnlocked){
 		this.isUnlocked = isUnlocked;
@@ -66,7 +66,7 @@ public abstract class Spielmoeglichkeit implements TamagotchiUsable, SpielWerte,
 	
 	/**
 	 * Setzt die Zeit fest, die diese Spielmöglichkeit braucht, bis sie freigeschaltet wird.
-	 * @param	Zeit, die diese Spielmöglichkeit braucht, bis sie freigeschaltet wird.
+	 * @param timeTillUnlock	Zeit, die diese Spielmöglichkeit braucht, bis sie freigeschaltet wird.
 	 */
 	public void setTimeTillUnlock(int timeTillUnlock){
 		this.timeTillUnlock = timeTillUnlock;

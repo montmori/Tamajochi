@@ -57,7 +57,7 @@ public abstract class SchlafensOrt implements TamagotchiUsable, SchlafensWerte, 
 	
 	/**
 	 * Setzt den Freigeschaltet-Status.
-	 * @param 	Boolean, der bestimmt, ob dieser SchlafensOrt freigeschaltet ist.
+	 * @param isUnlocked	Boolean, der bestimmt, ob dieser SchlafensOrt freigeschaltet ist.
 	 */
 	public void setUnlocked(boolean isUnlocked){
 		this.isUnlocked = isUnlocked;
@@ -66,7 +66,7 @@ public abstract class SchlafensOrt implements TamagotchiUsable, SchlafensWerte, 
 	
 	/**
 	 * Setzt die Zeit fest, die dieser SchlafensOrt braucht, bis er freigeschaltet wird.
-	 * @param	Zeit, die dieser SchlafensOrt braucht, bis er freigeschaltet wird.
+	 * @param timeTillUnlock	Zeit, die dieser SchlafensOrt braucht, bis er freigeschaltet wird.
 	 */
 	public void setTimeTillUnlock(int timeTillUnlock){
 		this.timeTillUnlock = timeTillUnlock;

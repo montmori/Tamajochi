@@ -243,7 +243,7 @@ public abstract class Tamagotchi implements Serializable{
 	 * @return TamagotchiUsabe Array.
 	 */
 	public TamagotchiUsable[] getUsables(){
-		ArrayList<TamagotchiUsable> temp = new ArrayList<>();
+		ArrayList<TamagotchiUsable> temp = new ArrayList<TamagotchiUsable>();
 		for(TamagotchiUsable x : this.getNahrungsArray()[0]){
 			temp.add(x);
 		}

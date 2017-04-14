@@ -53,7 +53,7 @@ public abstract class Nahrung implements TamagotchiUsable, NahrungsWerte, Serial
 	
 	/**
 	 * Setzt den Freigeschaltet-Status.
-	 * @param 	Boolean, der bestimmt, ob diese Nahrung freigeschaltet ist.
+	 * @param isUnlocked 	Boolean, der bestimmt, ob diese Nahrung freigeschaltet ist.
 	 */
 	public void setUnlocked(boolean isUnlocked){
 		this.isUnlocked = isUnlocked;
@@ -62,7 +62,7 @@ public abstract class Nahrung implements TamagotchiUsable, NahrungsWerte, Serial
 	
 	/**
 	 * Setzt die Zeit fest, die diese Nahrung braucht, bis sie freigeschaltet wird.
-	 * @param	Zeit, die diese Nahrung braucht, bis sie freigeschaltet wird.
+	 * @param timeTillUnlock	Zeit, die diese Nahrung braucht, bis sie freigeschaltet wird.
 	 */
 	public void setTimeTillUnlock(int timeTillUnlock){
 		this.timeTillUnlock = timeTillUnlock;

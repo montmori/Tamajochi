@@ -5,6 +5,7 @@
 package game;
 
 import java.awt.Dimension;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -35,6 +36,7 @@ public class Game {
 	private Tamagotchi tamagotchi;
 	private Dimension userResolution;
 	private Timestamp gameTime;
+	private String savePath = System.getProperty("user.home") + File.separator + "Tamagotchi" + File.separator + "Save.ser";
 	
 	
 	/**
@@ -170,7 +172,7 @@ public class Game {
 	/**
 	 * Öffnet eine Abfragefenster 
 	 * @param abfrage	Der String der im Fenster angezeigt wird.
-	 * @return Der String der vom User eingegeben wird. Wenn nichts eingegeben wird, wird der String automatisch auf "NoName" gesetzt.
+	 * @return Der String der vom User eingegeben wird. Wenn nichts eingegeben wird, wird der String automatisch auf den Namen des ausführenden Benutzersgesetzt.
 	 */
 	public static String getUserStringInput(String abfrage) {
 		
@@ -185,11 +187,11 @@ public class Game {
 		if(inputButton == 0){
 			input = txt.getText();
 			if(input.isEmpty()){
-				input = "NoName";
+				input = System.getProperty("user.name");
 			}
 		}
 		else{
-			input = "NoName";
+			input = System.getProperty("user.name");
 		}
 		
 		return input;
@@ -204,8 +206,12 @@ public class Game {
 		FileOutputStream f;
 		ObjectOutputStream o;
 		try {
-			
-			f = new FileOutputStream("Save.ser");
+			File saveFile = new File(this.savePath);
+			if(!saveFile.exists()){
+				saveFile.getParentFile().mkdir();
+				saveFile.createNewFile();
+			}
+			f = new FileOutputStream(saveFile);
 			o = new ObjectOutputStream(f);
 			o.writeObject(this.tamagotchi);
 			o.flush();
@@ -213,6 +219,8 @@ public class Game {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (NullPointerException e){
 			e.printStackTrace();
 		}
 	}
@@ -229,7 +237,7 @@ public class Game {
 		
 		try {
 			
-			fin = new FileInputStream("Save.ser");
+			fin = new FileInputStream(this.savePath);
 			oin = new ObjectInputStream(fin);
 			this.tamagotchi = (Tamagotchi) oin.readObject();
 			this.beduerfnisTaskStart(); //Startet die Bedürfnisse (damit die sich verringern....)

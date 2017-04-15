@@ -222,7 +222,11 @@ Es gibt noch Probleme mit der "Setup.exe", da nach der Installation die Save.ser
 
 ----------------------------------------------
 
-### Joshi Platzhalter für Achievements.
+### 31.03.2017 & 01.04.2017
+
+Für die Achievements wurde ein neues Package "achievements" angelegt.
+Diese können während dem Spielen erreicht und unter den "Optionen" auch grafisch eingesehen werden.
+Die Achievements sind Tamgotchi-übergreifend. Dies Bedeutet das wenn man ein neues Tamagotchi erstellt, die Achievements trotzdem gespeichert bleiben.
 
 ---------------------------------------------
 

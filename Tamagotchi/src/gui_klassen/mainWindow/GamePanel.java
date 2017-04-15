@@ -11,7 +11,6 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -61,10 +60,10 @@ public class GamePanel extends JPanel {
 		this.animation = new AnimationT();
 		
 		try{
-			this.hunger = ImageIO.read(new File("Images/Hunger.png"));
-			this.durst = ImageIO.read(new File("Images/Durst.png"));
-			this.langeweile = ImageIO.read(new File("Images/Langeweile.png"));
-			this.muedigkeit = ImageIO.read(new File("Images/Muedigkeit.png"));
+			this.hunger = ImageIO.read(GamePanel.class.getResource("/Images/Hunger.png"));
+			this.durst = ImageIO.read(GamePanel.class.getResource("/Images/Durst.png"));
+			this.langeweile = ImageIO.read(GamePanel.class.getResource("/Images/Langeweile.png"));
+			this.muedigkeit = ImageIO.read(GamePanel.class.getResource("/Images/Muedigkeit.png"));
 			
 			
 			int bildgroesse = (int)(d.getHeight()/this.heightMultiplier) + 1;

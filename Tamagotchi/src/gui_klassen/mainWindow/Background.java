@@ -6,7 +6,6 @@ package gui_klassen.mainWindow;
 
 import java.awt.Dimension;
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -30,7 +29,7 @@ public class Background {
 		int height = (int)d.getHeight() - 1;
 		
 		try {
-			bild = ImageIO.read(new File("Images/background.png"));
+			bild = ImageIO.read(Background.class.getResource("/Images/background.png"));
 			
 			bild = bild.getScaledInstance(width, height, Image.SCALE_SMOOTH);
 			

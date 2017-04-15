@@ -8,7 +8,6 @@
 package tamagotchi_klassen;
 
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -52,7 +51,7 @@ public class Viech extends Tamagotchi {
 		
 		try {
 			for(int i = 0; i < this.BILDANZAHL; i++){
-				Image temp = ImageIO.read(new File("Images/tamagotchiNormal" + i + ".png"));
+				Image temp = ImageIO.read(this.getClass().getResource("/Images/tamagotchiNormal" + i + ".png"));
 				temp = temp.getScaledInstance(userWidth, userHeight, Image.SCALE_SMOOTH);
 				this.bildArrayLebendig[i] = new ImageIcon(temp);
 			}
@@ -65,7 +64,7 @@ public class Viech extends Tamagotchi {
 		
 		try {
 			for(int i = 0; i < this.BILDANZAHL_TOT; i++){
-				Image temp = ImageIO.read(new File("Images/tamagotchiDead" + i + ".png"));
+				Image temp = ImageIO.read(this.getClass().getResource("/Images/tamagotchiDead" + i + ".png"));
 				temp = temp.getScaledInstance(userWidth, userHeight, Image.SCALE_SMOOTH);
 				this.bildArrayTot[i] = new ImageIcon(temp);
 			}

@@ -38,7 +38,7 @@ Gemeinsames Einarbeiten in die Java GUI mit einem Übungstutorial: http://www.pr
 ### 27.09.2016 ~1.5 Stunden
 
 GITHub Tagebuch und Zeitplanverwaltung angelegt, dazu gehörte das Einlesen in besondere _"Marker"_ in .md Dateien auf GitHub.
-Beispielsweise kann mit Hashtags eine Überschrift gestaltet werden, dabei unterscheidet man zwischen h1 bis h6 (Je höher die Zahl hinter dem "h", desto kleiner die Überschrift).
+Beispielsweise kann mit Hashtags eine Überschrift gestaltet werden, dabei unterscheidet man zwischen h1 bis h6 (je höher die Zahl hinter dem "h", desto kleiner die Überschrift).
 
 -----------------
 
@@ -57,7 +57,7 @@ Zeitplan wurde aus dem Tagebuch entfernt, da es dort als unpassend empfunden wur
 ### 04.10.2016 ~2 Stunden
 
 Angefangen den Prototyp des Klassendiagramms zu zeichnen. Einführung in den "ScheduledThreadPoolExecutor" um einen parallelen Task ein oder mehrfach ausführen zu lassen. 
-Für das nächste Treffen war die fertigstellung des Klassendiagramms geplant.
+Für das nächste Treffen war die Fertigstellung des Klassendiagramms geplant.
 
 ---------------
 
@@ -70,11 +70,11 @@ Fertigstellung des Klassendiagramms für den Prototyps des Tamagotchis.
 ### 11.10.2016
 
 #### ~2 Stunden
-Struktur der Klassen "Tamagotchi", "Nahrung" und "Bedürfnisse" durchgesprochen und anfänglich Programmiert. Die jeweiligen Klassen wurden aufgeteilt und jeder von uns 3 hat jeweils ein Package bearbeitet. Einführung in GitHub Desktop (Einrichten des lokalen Repositories, Commits, Pull Requests und merging). 
+Struktur der Klassen "Tamagotchi", "Nahrung" und "Bedürfnisse" durchgesprochen und anfänglich Programmiert. Die jeweiligen Klassen wurden aufgeteilt und jeder von uns drei hat jeweils ein Package bearbeitet. Einführung in GitHub Desktop (Einrichten des lokalen Repositories, Commits, Pull Requests und merging). 
 
 #### ~1 Stunde
-Probleme mit dem GitHub Repository behoben, welche darauf zurückzuführen sind, dass ein ganzes Eclipse Workspace im Repository eingeklinkt war (Siehe Issues).
-Programmierung der Nahrungsklassen für den Anfänglichen Tamagotchi Milestone.
+Probleme mit dem GitHub Repository behoben, welche darauf zurückzuführen sind, dass ein ganzes Eclipse Workspace im Repository eingeklinkt war (siehe Issues).
+Programmierung der Nahrungsklassen für den anfänglichen Tamagotchi Milestone.
 
 #### ~30 Minuten
 Die Bedürfnisklassen für den Milestone "Anfängliches Tamagotchi" programmiert.
@@ -137,7 +137,7 @@ Mit dem Eclipse-Plugin wurde ein UML-Klassendiagramm generiert, welches durch da
 
 ### 11.12.2016 ~2 Stunden 
 
-Einführung von einer Game Over Funktion und Zentralisierung der Timer mit einer eigenen Klasse.
+Einführung von einer GameOver-Funktion und Zentralisierung der Timer mit einer eigenen Klasse.
 
 
 -----------------------------------------------------------------
